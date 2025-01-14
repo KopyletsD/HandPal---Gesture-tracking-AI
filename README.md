@@ -1,2 +1,2 @@
 # GestPal-Real-Time-Hand-Tracking
-Use of any webcam source to find hands with AI and recognise gestures that control the machine 
+Use of any webcam sources to find hands with AI and recognise gestures that control the machine's mouse and multimedia (Youtube) being played 
