@@ -14,7 +14,12 @@ import tkinter as tk
 from utils import CvFpsCalc
 from model import KeyPointClassifier
 from model import PointHistoryClassifier
+from playsound import playsound
+import threading
 
+
+def play_audio_non_blocking(audio_file):
+    threading.Thread(target=playsound, args=(audio_file,), daemon=True).start()
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -52,6 +57,8 @@ def main():
 
     use_brect = True
 
+    audio_played = False
+
     # Camera preparation ###############################################################
     cap = cv.VideoCapture(cap_device)
     cap.set(cv.CAP_PROP_FRAME_WIDTH, cap_width)
@@ -61,7 +68,7 @@ def main():
     mp_hands = mp.solutions.hands
     hands = mp_hands.Hands(
         static_image_mode=use_static_image_mode,
-        max_num_hands=2,
+        max_num_hands=1,
         min_detection_confidence=min_detection_confidence,
         min_tracking_confidence=min_tracking_confidence,
     )
@@ -113,6 +120,8 @@ def main():
             break
         image = cv.flip(image, 1)  # Mirror display
         debug_image = copy.deepcopy(image)
+        
+        # drawing of not authorized area ###################################################
 
         # Detection implementation #############################################################
         image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
@@ -129,6 +138,16 @@ def main():
                 brect = calc_bounding_rect(debug_image, hand_landmarks)
                 # Landmark calculation
                 landmark_list = calc_landmark_list(debug_image, hand_landmarks)
+                rect_top_left = (int(cap_width / 4), int(cap_height / 4))
+                rect_bottom_right = (int(2 * cap_width / 3.5), int(2 * cap_height / 4))
+
+                cv.rectangle(
+                    debug_image,
+                    rect_top_left,
+                    rect_bottom_right,
+                    (255, 0, 0),
+                    2
+                )
 
                 # Conversion to relative coordinates / normalized coordinates
                 pre_processed_landmark_list = pre_process_landmark(
@@ -146,6 +165,29 @@ def main():
                     move_mouse_to(hand_landmarks, hands)
                 else:
                     point_history.append([0, 0])
+
+                x = int(hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * cap_width)
+                y = int(hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * cap_height)
+
+                # Check if fingertip is inside the rectangle
+                if (rect_top_left[0] < x < rect_bottom_right[0] and
+                        rect_top_left[1] < y < rect_bottom_right[1]):
+                    
+                    cv.putText(debug_image, "Fingertip inside rectangle!", (10, 104),
+                                cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                    
+                    # Play the audio if it hasn't been played yet
+                    if not audio_played:
+                        play_audio_non_blocking('Vietato_accesso.mp3')
+                        audio_played = True  # Set the flag to prevent playing it again
+
+                else:
+                    cv.putText(debug_image, "Fingertip outside rectangle!", (10, 104),
+                                cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+                    # Reset the flag when the fingertip exits the rectangle
+                    if audio_played:
+                        audio_played = False  # Reset so it can play again next time
 
                 # Finger gesture classification
                 finger_gesture_id = 0
