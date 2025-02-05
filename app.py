@@ -8,7 +8,7 @@ import cv2 as cv
 import numpy as np
 import mediapipe as mp
 import tkinter as tk
-from pynput.mouse import Controller
+from pynput.mouse import Controller, Button
 from playsound import playsound
 import imageio  # used for reading animated GIFs
 
@@ -29,7 +29,7 @@ def get_args():
     # Lower resolution for faster processing
     parser.add_argument("--width", type=int, default=1920, help="Capture width")
     parser.add_argument("--height", type=int, default=1080, help="Capture height")
-    parser.add_argument('--use_static_image_mode', action='store_true', 
+    parser.add_argument('--use_static_image_mode', action='store_true',
                         help="Use static image mode (not recommended for real-time)")
     parser.add_argument("--min_detection_confidence", type=float, default=0.7, help="Min detection confidence")
     parser.add_argument("--min_tracking_confidence", type=float, default=0.5, help="Min tracking confidence")
@@ -119,6 +119,21 @@ def move_mouse_to(hand_landmarks, screen_width, screen_height, mouse):
     normx = hand_landmarks.landmark[8].x
     normy = hand_landmarks.landmark[8].y
     mouse.position = (int(normx * screen_width), int(normy * screen_height))
+
+
+def check_thumb_index_click(hand_landmarks):
+    """
+    Check if the thumb tip (landmark 4) is very close to the index finger base (landmark 5).
+    If so, consider it a click.
+    """
+    thumb_tip = hand_landmarks.landmark[4]
+    index_base = hand_landmarks.landmark[5]
+    # Calculate Euclidean distance in normalized space (x, y)
+    thumb_index_distance = np.linalg.norm(np.array([thumb_tip.x - index_base.x, thumb_tip.y - index_base.y]))
+    # Adjust threshold as needed (here 0.05 is chosen arbitrarily)
+    if thumb_index_distance < 0.05:
+        return True
+    return False
 
 
 def select_mode(key, mode):
@@ -277,7 +292,14 @@ def main():
                 hand_sign_id = keypoint_classifier(pre_processed_landmark)
                 pointing_direction = detect_pointing_direction(hand_landmarks)
 
-                # Update point_history with the current frame's data.
+                # --- Check for thumb-index touch to simulate mouse click ---
+                if check_thumb_index_click(hand_landmarks):
+                    move_mouse_to(hand_landmarks, screen_width, screen_height, mouse)
+                    mouse.click(Button.left)
+                    cv.putText(debug_image, 'Click', (10, 154),
+                               cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255) if gif_shown else (0, 255, 0), 2)
+
+                # --- Process hand gestures and point history ---
                 if pointing_direction == "Pointing forward":
                     if hand_sign_id == 2:
                         point_history.append(landmark_list[8])
