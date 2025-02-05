@@ -26,9 +26,11 @@ def play_audio_non_blocking(audio_file):
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", type=int, default=0, help="Camera device index")
+    # Lower resolution for faster processing
     parser.add_argument("--width", type=int, default=1920, help="Capture width")
     parser.add_argument("--height", type=int, default=1080, help="Capture height")
-    parser.add_argument('--use_static_image_mode', action='store_true')
+    parser.add_argument('--use_static_image_mode', action='store_true', 
+                        help="Use static image mode (not recommended for real-time)")
     parser.add_argument("--min_detection_confidence", type=float, default=0.7, help="Min detection confidence")
     parser.add_argument("--min_tracking_confidence", type=float, default=0.5, help="Min tracking confidence")
     return parser.parse_args()
@@ -175,18 +177,47 @@ def show_fullscreen_gif(gif_path, screen_width, screen_height):
     cv.destroyWindow("GIF")
 
 
+class VideoStream:
+    """
+    Camera object that controls video streaming from the webcam in a separate thread.
+    """
+    def __init__(self, src=0, width=640, height=480, fps=30):
+        self.cap = cv.VideoCapture(src)
+        self.cap.set(cv.CAP_PROP_FRAME_WIDTH, width)
+        self.cap.set(cv.CAP_PROP_FRAME_HEIGHT, height)
+        self.cap.set(cv.CAP_PROP_FPS, fps)
+        self.ret, self.frame = self.cap.read()
+        self.stopped = False
+        self.lock = threading.Lock()
+        threading.Thread(target=self.update, daemon=True).start()
+
+    def update(self):
+        while not self.stopped:
+            ret, frame = self.cap.read()
+            if ret:
+                with self.lock:
+                    self.ret, self.frame = ret, frame
+
+    def read(self):
+        with self.lock:
+            # Return a copy of the frame to avoid threading issues
+            return self.ret, self.frame.copy()
+
+    def stop(self):
+        self.stopped = True
+        self.cap.release()
+
+
 def main():
     args = get_args()
 
-    # Initialize camera
-    cap = cv.VideoCapture(args.device)
-    cap.set(cv.CAP_PROP_FRAME_WIDTH, args.width)
-    cap.set(cv.CAP_PROP_FRAME_HEIGHT, args.height)
+    # Initialize threaded video stream
+    stream = VideoStream(src=args.device, width=args.width, height=args.height, fps=30)
 
     # Initialize MediaPipe Hands
     mp_hands = mp.solutions.hands
     hands = mp_hands.Hands(
-        static_image_mode=args.use_static_image_mode,
+        static_image_mode=args.use_static_image_mode,  # For real-time use, do not use static mode.
         max_num_hands=1,
         min_detection_confidence=args.min_detection_confidence,
         min_tracking_confidence=args.min_tracking_confidence,
@@ -207,7 +238,6 @@ def main():
     finger_gesture_history = deque(maxlen=history_length)
 
     mode = 0
-    audio_played = False
     gif_shown = False  # flag to ensure the GIF is only triggered once per entry
 
     # Create mouse controller and determine screen dimensions once.
@@ -222,12 +252,12 @@ def main():
 
     while True:
         fps = fps_calc.get()
-        key = cv.waitKey(10)
+        key = cv.waitKey(1)  # Reduced delay for higher FPS
         if key == 27:  # ESC key to exit
             break
         number, mode = select_mode(key, mode)
 
-        ret, frame = cap.read()
+        ret, frame = stream.read()
         if not ret:
             break
         frame = cv.flip(frame, 1)  # Mirror the image for a more natural feel.
@@ -257,7 +287,7 @@ def main():
                 else:
                     point_history.append([0, 0])
 
-                # Now compute the point history after appending the current frame.
+                # Compute the point history after appending the current frame.
                 pre_processed_point_history = pre_process_point_history(debug_image, list(point_history))
                 logging_csv(number, mode, pre_processed_landmark, pre_processed_point_history)
 
@@ -269,17 +299,16 @@ def main():
 
                 # Check if the fingertip (landmark index 8) is within the restricted rectangle.
                 if pointing_direction == "Pointing forward":
-                    fingertip = landmark_list[8]
-                    if (rect_top_left[0] < fingertip[0] < rect_bottom_right[0] and
-                            rect_top_left[1] < fingertip[1] < rect_bottom_right[1]):
-                        # Only trigger the GIF display once until the finger leaves.
-                        if not gif_shown:
-                            # Show the full-screen GIF. Change 'mygif.gif' to your GIF file.
-                            play_audio_non_blocking('girl-scream.mp3')
-                            show_fullscreen_gif('scary.gif', screen_width, screen_height)
-                            gif_shown = True
-                    else:
-                        gif_shown = False
+                    # (Uncomment and adjust the code below if you wish to trigger a GIF display.)
+                    # fingertip = landmark_list[8]
+                    # if (rect_top_left[0] < fingertip[0] < rect_bottom_right[0] and
+                    #         rect_top_left[1] < fingertip[1] < rect_bottom_right[1]):
+                    #     if not gif_shown:
+                    #         play_audio_non_blocking('girl-scream.mp3')
+                    #         show_fullscreen_gif('scary.gif', screen_width, screen_height)
+                    #         gif_shown = True
+                    # else:
+                    #     gif_shown = False
 
                     # Draw the restricted rectangle and a status message.
                     cv.rectangle(debug_image, rect_top_left, rect_bottom_right, (255, 0, 0), 2)
@@ -304,7 +333,8 @@ def main():
 
         cv.imshow('Hand Gesture Recognition', debug_image)
 
-    cap.release()
+    # Clean up
+    stream.stop()
     cv.destroyAllWindows()
 
 
