@@ -53,4 +53,4 @@ Installation
 1. **Clone the repository** (or download the code).
 2. **Install the required libraries**:
    ```bash
-   pip install opencv-python mediapipe numpy pynput playsound imageio
+   pip install opencv-python mediapipe numpy pynput playsound imageio tensorflow
