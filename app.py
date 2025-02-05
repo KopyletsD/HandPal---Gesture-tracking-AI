@@ -8,7 +8,7 @@ import cv2 as cv
 import numpy as np
 import mediapipe as mp
 import tkinter as tk
-from pynput.mouse import Controller
+from pynput.mouse import Controller, Button
 from playsound import playsound
 import imageio  # used for reading animated GIFs
 
@@ -29,7 +29,7 @@ def get_args():
     # Lower resolution for faster processing
     parser.add_argument("--width", type=int, default=1920, help="Capture width")
     parser.add_argument("--height", type=int, default=1080, help="Capture height")
-    parser.add_argument('--use_static_image_mode', action='store_true', 
+    parser.add_argument('--use_static_image_mode', action='store_true',
                         help="Use static image mode (not recommended for real-time)")
     parser.add_argument("--min_detection_confidence", type=float, default=0.7, help="Min detection confidence")
     parser.add_argument("--min_tracking_confidence", type=float, default=0.5, help="Min tracking confidence")
@@ -45,13 +45,17 @@ def calc_landmark_list(image, landmarks):
     ]
 
 
+# --- Improved normalization using bounding box ---
 def pre_process_landmark(landmark_list):
-    base_x, base_y = landmark_list[0]
-    # Convert landmarks to relative coordinates and flatten the list
-    relative_landmarks = [(x - base_x, y - base_y) for x, y in landmark_list]
-    flat_list = list(itertools.chain.from_iterable(relative_landmarks))
-    max_value = max(map(abs, flat_list)) or 1  # avoid division by zero
-    return [n / max_value for n in flat_list]
+    x_list = [p[0] for p in landmark_list]
+    y_list = [p[1] for p in landmark_list]
+    min_x, max_x = min(x_list), max(x_list)
+    min_y, max_y = min(y_list), max(y_list)
+    width = max_x - min_x if (max_x - min_x) != 0 else 1
+    height = max_y - min_y if (max_y - min_y) != 0 else 1
+    normalized_landmarks = [((x - min_x) / width, (y - min_y) / height) for (x, y) in landmark_list]
+    flat_list = list(itertools.chain.from_iterable(normalized_landmarks))
+    return flat_list
 
 
 def pre_process_point_history(image, point_history):
@@ -121,6 +125,21 @@ def move_mouse_to(hand_landmarks, screen_width, screen_height, mouse):
     mouse.position = (int(normx * screen_width), int(normy * screen_height))
 
 
+# --- Improved: dynamic threshold for thumb-index click detection ---
+def check_thumb_index_click(hand_landmarks):
+    thumb_tip = hand_landmarks.landmark[4]
+    index_base = hand_landmarks.landmark[5]
+    thumb_index_distance = np.linalg.norm(np.array([thumb_tip.x - index_base.x, thumb_tip.y - index_base.y]))
+    # Use a reference distance based on the hand size (wrist to middle fingertip)
+    wrist = hand_landmarks.landmark[0]
+    middle_tip = hand_landmarks.landmark[12]
+    reference_distance = np.linalg.norm(np.array([middle_tip.x - wrist.x, middle_tip.y - wrist.y]))
+    threshold = 0.3 * reference_distance  # Adjust factor based on experimentation
+    if thumb_index_distance < threshold:
+        return True
+    return False
+
+
 def select_mode(key, mode):
     number = key - 48 if 48 <= key <= 57 else -1
     if key == ord('n'):
@@ -132,19 +151,17 @@ def select_mode(key, mode):
     return number, mode
 
 
+# --- Improved: averaging landmarks for a more robust pointing direction estimation ---
 def detect_pointing_direction(hand_landmarks):
-    # Use index finger landmarks: 5 is the base (MCP) and 8 is the fingertip.
     index_base = hand_landmarks.landmark[5]
-    index_tip = hand_landmarks.landmark[8]
-    v = np.array([
-        index_tip.x - index_base.x,
-        index_tip.y - index_base.y,
-        index_tip.z - index_base.z
-    ])
+    # Average the positions of landmarks 7 and 8 for a more stable fingertip estimation
+    index_tip_x = (hand_landmarks.landmark[7].x + hand_landmarks.landmark[8].x) / 2
+    index_tip_y = (hand_landmarks.landmark[7].y + hand_landmarks.landmark[8].y) / 2
+    index_tip_z = (hand_landmarks.landmark[7].z + hand_landmarks.landmark[8].z) / 2
+    v = np.array([index_tip_x - index_base.x, index_tip_y - index_base.y, index_tip_z - index_base.z])
     norm = np.linalg.norm(v)
     if norm == 0:
         return "Direction Undetermined"
-    # Define camera forward as [0, 0, -1] (since MediaPipe uses a right-handed system)
     cos_angle = -v[2] / norm  # negative because forward is negative Z
     cos_angle = np.clip(cos_angle, -1.0, 1.0)
     angle = np.degrees(np.arccos(cos_angle))
@@ -249,6 +266,10 @@ def main():
     # Pre-calculate the restricted area (the "no-access" rectangle) coordinates.
     rect_top_left = (args.width // 4, args.height // 4)
     rect_bottom_right = (int(2 * args.width / 3.5), int(2 * args.height / 4))
+    
+    # Initialize previous landmarks for smoothing
+    previous_landmarks = None
+    smoothing_factor = 0.6  # Adjust between 0 (no smoothing) and 1 (full smoothing)
 
     while True:
         fps = fps_calc.get()
@@ -272,15 +293,32 @@ def main():
         if results.multi_hand_landmarks:
             for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
                 landmark_list = calc_landmark_list(debug_image, hand_landmarks)
-                pre_processed_landmark = pre_process_landmark(landmark_list)
+                # --- Apply exponential smoothing to landmarks ---
+                if previous_landmarks is None:
+                    smoothed_landmarks = landmark_list
+                else:
+                    smoothed_landmarks = [
+                        (int(smoothing_factor * prev[0] + (1 - smoothing_factor) * curr[0]),
+                         int(smoothing_factor * prev[1] + (1 - smoothing_factor) * curr[1]))
+                        for prev, curr in zip(previous_landmarks, landmark_list)
+                    ]
+                previous_landmarks = smoothed_landmarks
 
+                pre_processed_landmark = pre_process_landmark(smoothed_landmarks)
                 hand_sign_id = keypoint_classifier(pre_processed_landmark)
                 pointing_direction = detect_pointing_direction(hand_landmarks)
 
-                # Update point_history with the current frame's data.
+                # --- Check for thumb-index touch to simulate mouse click ---
+                if check_thumb_index_click(hand_landmarks):
+                    move_mouse_to(hand_landmarks, screen_width, screen_height, mouse)
+                    mouse.click(Button.left)
+                    cv.putText(debug_image, 'Click', (10, 154),
+                               cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255) if gif_shown else (0, 255, 0), 2)
+
+                # --- Process hand gestures and point history ---
                 if pointing_direction == "Pointing forward":
                     if hand_sign_id == 2:
-                        point_history.append(landmark_list[8])
+                        point_history.append(smoothed_landmarks[8])
                         move_mouse_to(hand_landmarks, screen_width, screen_height, mouse)
                     else:
                         point_history.append([0, 0])
@@ -299,27 +337,17 @@ def main():
 
                 # Check if the fingertip (landmark index 8) is within the restricted rectangle.
                 if pointing_direction == "Pointing forward":
-                    # (Uncomment and adjust the code below if you wish to trigger a GIF display.)
-                    # fingertip = landmark_list[8]
-                    # if (rect_top_left[0] < fingertip[0] < rect_bottom_right[0] and
-                    #         rect_top_left[1] < fingertip[1] < rect_bottom_right[1]):
-                    #     if not gif_shown:
-                    #         play_audio_non_blocking('girl-scream.mp3')
-                    #         show_fullscreen_gif('scary.gif', screen_width, screen_height)
-                    #         gif_shown = True
-                    # else:
-                    #     gif_shown = False
-
-                    # Draw the restricted rectangle and a status message.
                     cv.rectangle(debug_image, rect_top_left, rect_bottom_right, (255, 0, 0), 2)
                     status_text = "Fingertip inside rectangle!" if gif_shown else "Fingertip outside rectangle!"
                     cv.putText(debug_image, status_text, (10, 104),
                                cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255) if gif_shown else (0, 255, 0), 2)
+                    
+                move_mouse_to(hand_landmarks, screen_width, screen_height, mouse)
 
                 most_common_fg_id = Counter(finger_gesture_history).most_common(1)[0][0]
 
                 # Draw the hand landmarks and informational text.
-                debug_image = draw_landmarks(debug_image, landmark_list)
+                debug_image = draw_landmarks(debug_image, smoothed_landmarks)
                 debug_image = draw_info_text(debug_image, handedness,
                                              keypoint_classifier_labels[hand_sign_id],
                                              point_history_classifier_labels[most_common_fg_id])
