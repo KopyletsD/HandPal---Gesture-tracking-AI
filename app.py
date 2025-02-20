@@ -335,20 +335,19 @@ def main():
                 menu_top_left = (screen_width - menu_width - 20, (screen_height - menu_height) // 2)
                 circle_radius = 30  # Radius of the red circle
                 circle_center = (screen_width - 50, screen_height // 2)  # Circle center near the right edge
-                circle_clicked = False
                # Check if the mouse is inside the red circle and set the menu active
+                alrClicked = False
                 if pointing_direction == "Pointing forward":
                    if menuActive == False:
                        if is_mouse_inside_circle(mouse.position, circle_center, circle_radius):
                            menuActive = True  # Activate the menu
                            # Do not draw the red circle anymore after it is clicked
-                           circle_clicked = True  # Flag to track the click
                    if menuActive == True:
                        # Keep the menu visible
                        debug_image = create_menu(debug_image, menu_top_left, menu_width, menu_height, dot_radius)
                    
                    # If the circle hasn't been clicked, draw the red circle
-                   if not circle_clicked:
+                   if alrClicked == True:
                        debug_image = draw_circle_on_right(debug_image)
                
                        return debug_image
