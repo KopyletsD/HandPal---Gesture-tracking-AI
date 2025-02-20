@@ -2,6 +2,7 @@ import csv
 import argparse
 import itertools
 import threading
+import time
 from collections import Counter, deque
 
 import cv2 as cv
@@ -9,8 +10,8 @@ import numpy as np
 import mediapipe as mp
 import tkinter as tk
 from pynput.mouse import Controller
-from playsound import playsound
-import imageio  # used for reading animated GIFs
+# from playsound import playsound
+# import imageio  # used for reading animated GIFs
 
 from utils import CvFpsCalc
 from model import KeyPointClassifier, PointHistoryClassifier
@@ -19,8 +20,8 @@ from model import KeyPointClassifier, PointHistoryClassifier
 LARGE_POINTS = {4, 8, 12, 16, 20}
 
 
-def play_audio_non_blocking(audio_file):
-    threading.Thread(target=playsound, args=(audio_file,), daemon=True).start()
+# def play_audio_non_blocking(audio_file):
+#     threading.Thread(target=playsound, args=(audio_file,), daemon=True).start()
 
 
 def get_args():
@@ -154,27 +155,27 @@ def detect_pointing_direction(hand_landmarks):
         return "Pointing sideways"
 
 
-def show_fullscreen_gif(gif_path, screen_width, screen_height):
-    """
-    Reads an animated GIF from disk and displays it in a full-screen window.
-    Pressing ESC while the GIF is playing will exit the GIF display.
-    """
-    frames = imageio.mimread(gif_path)
-    cv.namedWindow("GIF", cv.WND_PROP_FULLSCREEN)
-    cv.setWindowProperty("GIF", cv.WND_PROP_FULLSCREEN, cv.WINDOW_FULLSCREEN)
-    delay = 100  # milliseconds delay between frames; adjust if needed
-    for frame in frames:
-        # Convert the frame (which may be RGBA) to BGR for OpenCV
-        if frame.shape[2] == 4:
-            frame = cv.cvtColor(frame, cv.COLOR_RGBA2BGR)
-        else:
-            frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
-        frame = cv.resize(frame, (screen_width, screen_height))
-        cv.imshow("GIF", frame)
-        # If the user presses ESC during the GIF, break early.
-        if cv.waitKey(delay) & 0xFF == 27:
-            break
-    cv.destroyWindow("GIF")
+# def show_fullscreen_gif(gif_path, screen_width, screen_height):
+#     """
+#     Reads an animated GIF from disk and displays it in a full-screen window.
+#     Pressing ESC while the GIF is playing will exit the GIF display.
+#     """
+#     frames = imageio.mimread(gif_path)
+#     cv.namedWindow("GIF", cv.WND_PROP_FULLSCREEN)
+#     cv.setWindowProperty("GIF", cv.WND_PROP_FULLSCREEN, cv.WINDOW_FULLSCREEN)
+#     delay = 100  # milliseconds delay between frames; adjust if needed
+#     for frame in frames:
+#         # Convert the frame (which may be RGBA) to BGR for OpenCV
+#         if frame.shape[2] == 4:
+#             frame = cv.cvtColor(frame, cv.COLOR_RGBA2BGR)
+#         else:
+#             frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
+#         frame = cv.resize(frame, (screen_width, screen_height))
+#         cv.imshow("GIF", frame)
+#         # If the user presses ESC during the GIF, break early.
+#         if cv.waitKey(delay) & 0xFF == 27:
+#             break
+#     cv.destroyWindow("GIF")
 
 
 class VideoStream:
@@ -182,7 +183,7 @@ class VideoStream:
     Camera object that controls video streaming from the webcam in a separate thread.
     """
     def __init__(self, src=0, width=640, height=480, fps=30):
-        self.cap = cv.VideoCapture(src)
+        self.cap = cv.VideoCapture("rtsp://sitai.duckdns.org:8554/webcam")
         self.cap.set(cv.CAP_PROP_FRAME_WIDTH, width)
         self.cap.set(cv.CAP_PROP_FRAME_HEIGHT, height)
         self.cap.set(cv.CAP_PROP_FPS, fps)
@@ -212,8 +213,8 @@ def main():
     args = get_args()
 
     # Initialize threaded video stream
-    stream = VideoStream(src=args.device, width=args.width, height=args.height, fps=30)
-
+    stream = VideoStream(src="rtsp://sitai.duckdns.org:8554/webcam", width=args.width, height=args.height, fps=30)
+    time.sleep(2)
     # Initialize MediaPipe Hands
     mp_hands = mp.solutions.hands
     hands = mp_hands.Hands(
