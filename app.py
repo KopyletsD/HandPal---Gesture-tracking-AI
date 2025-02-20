@@ -8,9 +8,7 @@ import cv2 as cv
 import numpy as np
 import mediapipe as mp
 import tkinter as tk
-from pynput.mouse import Controller
-from playsound import playsound
-import imageio  # used for reading animated GIFs
+from pynput.mouse import Controller, Button
 
 from utils import CvFpsCalc
 from model import KeyPointClassifier, PointHistoryClassifier
@@ -19,17 +17,13 @@ from model import KeyPointClassifier, PointHistoryClassifier
 LARGE_POINTS = {4, 8, 12, 16, 20}
 
 
-def play_audio_non_blocking(audio_file):
-    threading.Thread(target=playsound, args=(audio_file,), daemon=True).start()
-
-
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", type=int, default=0, help="Camera device index")
     # Lower resolution for faster processing
     parser.add_argument("--width", type=int, default=1920, help="Capture width")
     parser.add_argument("--height", type=int, default=1080, help="Capture height")
-    parser.add_argument('--use_static_image_mode', action='store_true', 
+    parser.add_argument('--use_static_image_mode', action='store_true',
                         help="Use static image mode (not recommended for real-time)")
     parser.add_argument("--min_detection_confidence", type=float, default=0.7, help="Min detection confidence")
     parser.add_argument("--min_tracking_confidence", type=float, default=0.5, help="Min tracking confidence")
@@ -44,6 +38,38 @@ def calc_landmark_list(image, landmarks):
         for lm in landmarks.landmark
     ]
 
+def create_menu(debug_image, menu_top_left, menu_width, menu_height, dot_radius):
+    # Draw rectangle (menu)
+    cv.rectangle(debug_image, menu_top_left, 
+                 (menu_top_left[0] + menu_width, menu_top_left[1] + menu_height), 
+                 (255, 255, 255), 2)
+    
+    # Draw blue dots inside the menu
+    num_dots = 5  # Number of dots
+    space_between_dots = menu_height // (num_dots + 1)
+    
+    for i in range(num_dots):
+        dot_center = (menu_top_left[0] + menu_width // 2, 
+                      menu_top_left[1] + (i + 1) * space_between_dots)
+        cv.circle(debug_image, dot_center, dot_radius, (255, 0, 0), -1)
+    
+    return debug_image
+
+
+def draw_circle_on_right(image):
+    # Get the image dimensions
+    height, width, _ = image.shape
+
+    # Set the circle's center at the right side of the image
+    center = (width - 50, height // 2)  # 50px from the right edge, vertically centered
+
+    # Set the radius and color of the circle
+    radius = 30  # You can change this to your desired radius
+    color = (0, 0, 255)  # Red color in BGR format (OpenCV uses BGR)
+
+    # Draw the circle on the image
+    cv.circle(image, center, radius, color, -1)  # -1 to fill the circle
+    return image
 
 def pre_process_landmark(landmark_list):
     base_x, base_y = landmark_list[0]
@@ -121,6 +147,21 @@ def move_mouse_to(hand_landmarks, screen_width, screen_height, mouse):
     mouse.position = (int(normx * screen_width), int(normy * screen_height))
 
 
+def check_thumb_index_click(hand_landmarks):
+    """
+    Check if the thumb tip (landmark 4) is very close to the index finger base (landmark 5).
+    If so, consider it a click.
+    """
+    thumb_tip = hand_landmarks.landmark[4]
+    index_base = hand_landmarks.landmark[5]
+    # Calculate Euclidean distance in normalized space (x, y)
+    thumb_index_distance = np.linalg.norm(np.array([thumb_tip.x - index_base.x, thumb_tip.y - index_base.y]))
+    # Adjust threshold as needed (here 0.05 is chosen arbitrarily)
+    if thumb_index_distance < 0.05:
+        return True
+    return False
+
+
 def select_mode(key, mode):
     number = key - 48 if 48 <= key <= 57 else -1
     if key == ord('n'):
@@ -153,28 +194,12 @@ def detect_pointing_direction(hand_landmarks):
     else:
         return "Pointing sideways"
 
-
-def show_fullscreen_gif(gif_path, screen_width, screen_height):
+def is_mouse_inside_circle(mouse_position, circle_center, radius):
     """
-    Reads an animated GIF from disk and displays it in a full-screen window.
-    Pressing ESC while the GIF is playing will exit the GIF display.
+    Check if the mouse position is inside the circle.
     """
-    frames = imageio.mimread(gif_path)
-    cv.namedWindow("GIF", cv.WND_PROP_FULLSCREEN)
-    cv.setWindowProperty("GIF", cv.WND_PROP_FULLSCREEN, cv.WINDOW_FULLSCREEN)
-    delay = 100  # milliseconds delay between frames; adjust if needed
-    for frame in frames:
-        # Convert the frame (which may be RGBA) to BGR for OpenCV
-        if frame.shape[2] == 4:
-            frame = cv.cvtColor(frame, cv.COLOR_RGBA2BGR)
-        else:
-            frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
-        frame = cv.resize(frame, (screen_width, screen_height))
-        cv.imshow("GIF", frame)
-        # If the user presses ESC during the GIF, break early.
-        if cv.waitKey(delay) & 0xFF == 27:
-            break
-    cv.destroyWindow("GIF")
+    distance = np.linalg.norm(np.array(mouse_position) - np.array(circle_center))
+    return distance <= radius
 
 
 class VideoStream:
@@ -238,8 +263,6 @@ def main():
     finger_gesture_history = deque(maxlen=history_length)
 
     mode = 0
-    gif_shown = False  # flag to ensure the GIF is only triggered once per entry
-
     # Create mouse controller and determine screen dimensions once.
     mouse = Controller()
     root = tk.Tk()
@@ -249,6 +272,9 @@ def main():
     # Pre-calculate the restricted area (the "no-access" rectangle) coordinates.
     rect_top_left = (args.width // 4, args.height // 4)
     rect_bottom_right = (int(2 * args.width / 3.5), int(2 * args.height / 4))
+
+    circle_center = (screen_width - 50, screen_height // 2)
+    circle_radius = 30
 
     while True:
         fps = fps_calc.get()
@@ -270,6 +296,7 @@ def main():
         image_rgb.flags.writeable = True
 
         if results.multi_hand_landmarks:
+            debug_image = draw_circle_on_right(debug_image)
             for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
                 landmark_list = calc_landmark_list(debug_image, hand_landmarks)
                 pre_processed_landmark = pre_process_landmark(landmark_list)
@@ -277,7 +304,12 @@ def main():
                 hand_sign_id = keypoint_classifier(pre_processed_landmark)
                 pointing_direction = detect_pointing_direction(hand_landmarks)
 
-                # Update point_history with the current frame's data.
+                # --- Check for thumb-index touch to simulate mouse click ---
+                if check_thumb_index_click(hand_landmarks):
+                    move_mouse_to(hand_landmarks, screen_width, screen_height, mouse)
+                    mouse.click(Button.left)
+
+                # --- Process hand gestures and point history ---
                 if pointing_direction == "Pointing forward":
                     if hand_sign_id == 2:
                         point_history.append(landmark_list[8])
@@ -296,25 +328,33 @@ def main():
                 if len(point_history) == history_length:
                     finger_gesture_id = point_history_classifier(pre_processed_point_history)
                 finger_gesture_history.append(finger_gesture_id)
-
-                # Check if the fingertip (landmark index 8) is within the restricted rectangle.
+                menuActive = False
+                menu_width = 300  # Width of the menu
+                menu_height = 800  # Height of the menu
+                dot_radius = 50
+                menu_top_left = (screen_width - menu_width - 20, (screen_height - menu_height) // 2)
+                circle_radius = 30  # Radius of the red circle
+                circle_center = (screen_width - 50, screen_height // 2)  # Circle center near the right edge
+                circle_clicked = False
+               # Check if the mouse is inside the red circle and set the menu active
                 if pointing_direction == "Pointing forward":
-                    # (Uncomment and adjust the code below if you wish to trigger a GIF display.)
-                    # fingertip = landmark_list[8]
-                    # if (rect_top_left[0] < fingertip[0] < rect_bottom_right[0] and
-                    #         rect_top_left[1] < fingertip[1] < rect_bottom_right[1]):
-                    #     if not gif_shown:
-                    #         play_audio_non_blocking('girl-scream.mp3')
-                    #         show_fullscreen_gif('scary.gif', screen_width, screen_height)
-                    #         gif_shown = True
-                    # else:
-                    #     gif_shown = False
+                   if menuActive == False:
+                       if is_mouse_inside_circle(mouse.position, circle_center, circle_radius):
+                           menuActive = True  # Activate the menu
+                           # Do not draw the red circle anymore after it is clicked
+                           circle_clicked = True  # Flag to track the click
+                   if menuActive == True:
+                       # Keep the menu visible
+                       debug_image = create_menu(debug_image, menu_top_left, menu_width, menu_height, dot_radius)
+                   
+                   # If the circle hasn't been clicked, draw the red circle
+                   if not circle_clicked:
+                       debug_image = draw_circle_on_right(debug_image)
+               
+                       return debug_image
+            #inserire qui la prossima modifica del menu
 
-                    # Draw the restricted rectangle and a status message.
-                    cv.rectangle(debug_image, rect_top_left, rect_bottom_right, (255, 0, 0), 2)
-                    status_text = "Fingertip inside rectangle!" if gif_shown else "Fingertip outside rectangle!"
-                    cv.putText(debug_image, status_text, (10, 104),
-                               cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255) if gif_shown else (0, 255, 0), 2)
+
 
                 most_common_fg_id = Counter(finger_gesture_history).most_common(1)[0][0]
 
