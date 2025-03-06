@@ -32,8 +32,6 @@ Dependencies
 - [MediaPipe](https://google.github.io/mediapipe/)
 - [tkinter](https://docs.python.org/3/library/tk.html) (Usually pre-installed with Python on most platforms)
 - [pynput](https://pypi.org/project/pynput/)
-- [playsound](https://pypi.org/project/playsound/)
-- [imageio](https://pypi.org/project/imageio/)
 
 
 Additionally, you need:
@@ -53,4 +51,4 @@ Installation
 1. **Clone the repository** (or download the code).
 2. **Install the required libraries**:
    ```bash
-   pip install opencv-python mediapipe numpy pynput playsound imageio tensorflow
+   pip install opencv-python mediapipe numpy pynput tensorflow
