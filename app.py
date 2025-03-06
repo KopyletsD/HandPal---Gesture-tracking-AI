@@ -10,6 +10,7 @@ import mediapipe as mp
 import tkinter as tk
 import time
 from pynput.mouse import Controller, Button
+import subprocess
 
 from utils import CvFpsCalc
 from model import KeyPointClassifier, PointHistoryClassifier
@@ -39,20 +40,18 @@ def calc_landmark_list(image, landmarks):
         for lm in landmarks.landmark
     ]
 
-def create_menu(debug_image, menu_top_left, menu_width, menu_height, dot_radius):
+def create_menu(debug_image, menu_top_left, menu_width, menu_height, dot_radius, mouse_position, circle_radius):
     # Draw rectangle (menu)
     cv.rectangle(debug_image, menu_top_left, 
                  (menu_top_left[0] + menu_width, menu_top_left[1] + menu_height), 
                  (255, 255, 255), 2)
     
-    # Draw blue dots inside the menu
-    num_dots = 5  # Number of dots
-    space_between_dots = menu_height // (num_dots + 1)
-    
-    for i in range(num_dots):
-        dot_center = (menu_top_left[0] + menu_width // 2, 
-                      menu_top_left[1] + (i + 1) * space_between_dots)
-        cv.circle(debug_image, dot_center, dot_radius, (255, 0, 0), -1)
+    # Draw one circle near the top of the rectangle
+    circle_center = (menu_top_left[0] + menu_width // 2, menu_top_left[1] + dot_radius + 10)
+    cv.circle(debug_image, circle_center, dot_radius, (255, 0, 0), -1)
+    if is_mouse_inside_circle(mouse_position, circle_center, circle_radius):
+        open_calculator()
+
     
     return debug_image
 
@@ -71,6 +70,12 @@ def draw_circle_on_right(image):
     # Draw the circle on the image
     cv.circle(image, center, radius, color, -1)  # -1 to fill the circle
     return image
+
+def open_calculator():
+    try:
+        subprocess.run('calc.exe')  # This will open the calculator in Windows
+    except Exception as e:
+        print(f"Error opening calculator: {e}")
 
 def pre_process_landmark(landmark_list):
     base_x, base_y = landmark_list[0]
@@ -353,12 +358,13 @@ def main():
                             alrClicked = True  # Mark that the circle was clicked
                             menuActive = not menuActive  # Toggle the menu state (active/inactive)
                             last_click_time = current_time  # Update the last click time
+                            
                         else:
                             alrClicked = False
                     
                     # If the menu is active, display the menu
                     if menuActive:
-                        debug_image = create_menu(debug_image, menu_top_left, menu_width, menu_height, dot_radius)
+                        debug_image = create_menu(debug_image, menu_top_left, menu_width, menu_height, dot_radius, mouse.position,circle_radius)
                         debug_image = draw_circle_on_right(debug_image)
                     
                     # If the menu is not active, draw the red circle
