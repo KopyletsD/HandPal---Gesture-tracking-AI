@@ -8,6 +8,7 @@ import cv2 as cv
 import numpy as np
 import mediapipe as mp
 import tkinter as tk
+import time
 from pynput.mouse import Controller, Button
 
 from utils import CvFpsCalc
@@ -234,6 +235,8 @@ class VideoStream:
 
 
 def main():
+    menuActive = False
+    alrClicked = False
     args = get_args()
 
     # Initialize threaded video stream
@@ -275,6 +278,10 @@ def main():
 
     circle_center = (screen_width - 50, screen_height // 2)
     circle_radius = 30
+
+    click_cooldown = 2.0  # 1 second cooldown between clicks
+    last_click_time = 0.0  # Initialize last click time to 0
+
 
     while True:
         fps = fps_calc.get()
@@ -328,42 +335,46 @@ def main():
                 if len(point_history) == history_length:
                     finger_gesture_id = point_history_classifier(pre_processed_point_history)
                 finger_gesture_history.append(finger_gesture_id)
-                menuActive = False
+
                 menu_width = 300  # Width of the menu
                 menu_height = 800  # Height of the menu
                 dot_radius = 50
                 menu_top_left = (screen_width - menu_width - 20, (screen_height - menu_height) // 2)
                 circle_radius = 30  # Radius of the red circle
                 circle_center = (screen_width - 50, screen_height // 2)  # Circle center near the right edge
-               # Check if the mouse is inside the red circle and set the menu active
-                alrClicked = False
+
+                # Track if the mouse is inside the red circle 
+
                 if pointing_direction == "Pointing forward":
-                   if menuActive == False:
-                       if is_mouse_inside_circle(mouse.position, circle_center, circle_radius):
-                           menuActive = True  # Activate the menu
-                           # Do not draw the red circle anymore after it is clicked
-                   if menuActive == True:
-                       # Keep the menu visible
-                       debug_image = create_menu(debug_image, menu_top_left, menu_width, menu_height, dot_radius)
-                   
-                   # If the circle hasn't been clicked, draw the red circle
-                   if alrClicked == True:
-                       debug_image = draw_circle_on_right(debug_image)
-               
-                       return debug_image
-            #inserire qui la prossima modifica del menu
+                    # Check if the mouse is inside the red circle and handle click logic with cooldown
+                    current_time = time.time()  # Get the current time
+                    if is_mouse_inside_circle(mouse.position, circle_center, circle_radius):
+                        if not alrClicked and (current_time - last_click_time >= click_cooldown):
+                            alrClicked = True  # Mark that the circle was clicked
+                            menuActive = not menuActive  # Toggle the menu state (active/inactive)
+                            last_click_time = current_time  # Update the last click time
+                        else:
+                            alrClicked = False
+                    
+                    # If the menu is active, display the menu
+                    if menuActive:
+                        debug_image = create_menu(debug_image, menu_top_left, menu_width, menu_height, dot_radius)
+                        debug_image = draw_circle_on_right(debug_image)
+                    
+                    # If the menu is not active, draw the red circle
+                    if not menuActive:
+                        debug_image = draw_circle_on_right(debug_image)
+                        alrClicked = False
+                    
+            most_common_fg_id = Counter(finger_gesture_history).most_common(1)[0][0]
 
-
-
-                most_common_fg_id = Counter(finger_gesture_history).most_common(1)[0][0]
-
-                # Draw the hand landmarks and informational text.
-                debug_image = draw_landmarks(debug_image, landmark_list)
-                debug_image = draw_info_text(debug_image, handedness,
-                                             keypoint_classifier_labels[hand_sign_id],
-                                             point_history_classifier_labels[most_common_fg_id])
-                cv.putText(debug_image, pointing_direction, (10, 140),
-                           cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 255), 2, cv.LINE_AA)
+            # Draw the hand landmarks and informational text.
+            debug_image = draw_landmarks(debug_image, landmark_list)
+            debug_image = draw_info_text(debug_image, handedness,
+                                         keypoint_classifier_labels[hand_sign_id],
+                                         point_history_classifier_labels[most_common_fg_id])
+            cv.putText(debug_image, pointing_direction, (10, 140),
+                       cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 255), 2, cv.LINE_AA)
         else:
             point_history.append([0, 0])
 
