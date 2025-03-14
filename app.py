@@ -1,32 +1,38 @@
-import csv
 import argparse
 import itertools
 import threading
-from collections import Counter, deque
-
+import win32api
+import win32con
+import win32gui
 import cv2 as cv
 import numpy as np
 import mediapipe as mp
 import tkinter as tk
 from pynput.mouse import Controller, Button
-from playsound import playsound
-import imageio  # used for reading animated GIFs
+import win32gui
+import win32con
 
-from utils import CvFpsCalc
-from model import KeyPointClassifier, PointHistoryClassifier
+CURSOR_PATH = "C:\\Users\\carminati.20133\\Desktop\\HandPal---Gesture-tracking-AI-click-function\\HandPal---Gesture-tracking-AI-click-function\\cursor.cur"
+
 
 # Set of landmark indices that are drawn larger
 LARGE_POINTS = {4, 8, 12, 16, 20}
 
+mouse = Controller()
 
-def play_audio_non_blocking(audio_file):
-    threading.Thread(target=playsound, args=(audio_file,), daemon=True).start()
+def set_custom_cursor():
+    hwnd = win32gui.GetForegroundWindow()
+    hcursor = win32gui.LoadImage(0, CURSOR_PATH, win32con.IMAGE_CURSOR, 0, 0, win32con.LR_LOADFROMFILE)
+    win32gui.SetCursor(hcursor)
+    win32gui.PostMessage(hwnd, win32con.WM_SETCURSOR, hwnd, win32con.HTCLIENT)
+
+
+
 
 
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", type=int, default=0, help="Camera device index")
-    # Lower resolution for faster processing
     parser.add_argument("--width", type=int, default=1920, help="Capture width")
     parser.add_argument("--height", type=int, default=1080, help="Capture height")
     parser.add_argument('--use_static_image_mode', action='store_true',
@@ -44,7 +50,6 @@ def calc_landmark_list(image, landmarks):
         for lm in landmarks.landmark
     ]
 
-
 def pre_process_landmark(landmark_list):
     base_x, base_y = landmark_list[0]
     # Convert landmarks to relative coordinates and flatten the list
@@ -53,35 +58,6 @@ def pre_process_landmark(landmark_list):
     max_value = max(map(abs, flat_list)) or 1  # avoid division by zero
     return [n / max_value for n in flat_list]
 
-
-def pre_process_point_history(image, point_history):
-    image_width, image_height = image.shape[1], image.shape[0]
-    if not point_history:
-        return []
-    base_x, base_y = point_history[0]
-    normalized_history = [((x - base_x) / image_width, (y - base_y) / image_height)
-                          for x, y in point_history]
-    return list(itertools.chain.from_iterable(normalized_history))
-
-
-def logging_csv(number, mode, landmark_list, point_history_list):
-    if mode == 1 and 0 <= number <= 9:
-        csv_path = 'model/keypoint_classifier/keypoint.csv'
-        with open(csv_path, 'a', newline="") as f:
-            csv.writer(f).writerow([number, *landmark_list])
-    elif mode == 2 and 0 <= number <= 9:
-        csv_path = 'model/point_history_classifier/point_history.csv'
-        with open(csv_path, 'a', newline="") as f:
-            csv.writer(f).writerow([number, *point_history_list])
-
-
-def draw_landmarks(image, landmark_list):
-    for idx, (x, y) in enumerate(landmark_list):
-        # Use a larger circle for certain landmark indices
-        radius = 8 if idx in LARGE_POINTS else 5
-        cv.circle(image, (x, y), radius, (255, 255, 255), -1)
-        cv.circle(image, (x, y), radius, (0, 0, 0), 1)
-    return image
 
 
 def draw_info_text(image, handedness, hand_sign_text, finger_gesture_text):
@@ -114,38 +90,22 @@ def draw_info(image, fps, mode, number):
                        cv.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1, cv.LINE_AA)
     return image
 
-
-def move_mouse_to(hand_landmarks, screen_width, screen_height, mouse):
+def move_mouse_to(hand_landmarks, screen_width, screen_height):
+    """Muove il mouse in base alla posizione dell'indice della mano destra."""
     normx = hand_landmarks.landmark[8].x
     normy = hand_landmarks.landmark[8].y
     mouse.position = (int(normx * screen_width), int(normy * screen_height))
 
 
 def check_thumb_index_click(hand_landmarks):
-    """
-    Check if the thumb tip (landmark 4) is very close to the index finger base (landmark 5).
-    If so, consider it a click.
-    """
+    """Simula un click sinistro se il pollice e l'indice della mano sinistra si toccano."""
     thumb_tip = hand_landmarks.landmark[4]
-    index_base = hand_landmarks.landmark[5]
-    # Calculate Euclidean distance in normalized space (x, y)
-    thumb_index_distance = np.linalg.norm(np.array([thumb_tip.x - index_base.x, thumb_tip.y - index_base.y]))
-    # Adjust threshold as needed (here 0.05 is chosen arbitrarily)
-    if thumb_index_distance < 0.05:
-        return True
-    return False
+    index_tip = hand_landmarks.landmark[8]
 
+    # Calcolo della distanza euclidea normalizzata
+    distance = np.linalg.norm(np.array([thumb_tip.x - index_tip.x, thumb_tip.y - index_tip.y]))
 
-def select_mode(key, mode):
-    number = key - 48 if 48 <= key <= 57 else -1
-    if key == ord('n'):
-        mode = 0
-    elif key == ord('k'):
-        mode = 1
-    elif key == ord('h'):
-        mode = 2
-    return number, mode
-
+    return distance < 0.05  # Soglia per il click
 
 def detect_pointing_direction(hand_landmarks):
     # Use index finger landmarks: 5 is the base (MCP) and 8 is the fingertip.
@@ -167,31 +127,7 @@ def detect_pointing_direction(hand_landmarks):
         return "Pointing forward"
     else:
         return "Pointing sideways"
-
-
-def show_fullscreen_gif(gif_path, screen_width, screen_height):
-    """
-    Reads an animated GIF from disk and displays it in a full-screen window.
-    Pressing ESC while the GIF is playing will exit the GIF display.
-    """
-    frames = imageio.mimread(gif_path)
-    cv.namedWindow("GIF", cv.WND_PROP_FULLSCREEN)
-    cv.setWindowProperty("GIF", cv.WND_PROP_FULLSCREEN, cv.WINDOW_FULLSCREEN)
-    delay = 100  # milliseconds delay between frames; adjust if needed
-    for frame in frames:
-        # Convert the frame (which may be RGBA) to BGR for OpenCV
-        if frame.shape[2] == 4:
-            frame = cv.cvtColor(frame, cv.COLOR_RGBA2BGR)
-        else:
-            frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
-        frame = cv.resize(frame, (screen_width, screen_height))
-        cv.imshow("GIF", frame)
-        # If the user presses ESC during the GIF, break early.
-        if cv.waitKey(delay) & 0xFF == 27:
-            break
-    cv.destroyWindow("GIF")
-
-
+    
 class VideoStream:
     """
     Camera object that controls video streaming from the webcam in a separate thread.
@@ -221,144 +157,98 @@ class VideoStream:
     def stop(self):
         self.stopped = True
         self.cap.release()
-
+        
+def change_cursor_on_index_pointing(hand_landmarks):
+    """Cambia il cursore se l'indice punta verso lo schermo."""
+    direction = detect_pointing_direction(hand_landmarks)
+    if direction == "Pointing forward":
+        # Cambia il colore e aumenta la dimensione del cursore
+        set_custom_cursor()  # Puoi scegliere un cursore diverso o personalizzato
+        # Puoi anche usare un cursore personalizzato se lo desideri, ad esempio:
+        # set_cursor(win32con.IDC_HAND)
+        # Per cambiare la dimensione, dipende dal sistema operativo
+        # Alcuni sistemi permettono di usare "larger" cursori (ad esempio con `win32api`)
+    else:
+        # Ripristina il cursore normale
+       set_custom_cursor() 
 
 def main():
     args = get_args()
 
-    # Initialize threaded video stream
-    stream = VideoStream(src=args.device, width=args.width, height=args.height, fps=30)
+    # Inizializzazione della webcam
+    cap = cv.VideoCapture(args.device)
+    cap.set(cv.CAP_PROP_FRAME_WIDTH, args.width)
+    cap.set(cv.CAP_PROP_FRAME_HEIGHT, args.height)
 
-    # Initialize MediaPipe Hands
+    # Inizializzazione MediaPipe Hands
     mp_hands = mp.solutions.hands
     hands = mp_hands.Hands(
-        static_image_mode=args.use_static_image_mode,  # For real-time use, do not use static mode.
-        max_num_hands=1,
+        static_image_mode=args.use_static_image_mode,
+        max_num_hands=2,
         min_detection_confidence=args.min_detection_confidence,
         min_tracking_confidence=args.min_tracking_confidence,
     )
 
-    keypoint_classifier = KeyPointClassifier()
-    point_history_classifier = PointHistoryClassifier()
-
-    # Load label files
-    with open('model/keypoint_classifier/keypoint_classifier_label.csv', encoding='utf-8-sig') as f:
-        keypoint_classifier_labels = [row[0] for row in csv.reader(f)]
-    with open('model/point_history_classifier/point_history_classifier_label.csv', encoding='utf-8-sig') as f:
-        point_history_classifier_labels = [row[0] for row in csv.reader(f)]
-
-    fps_calc = CvFpsCalc(buffer_len=10)
-    history_length = 16
-    point_history = deque(maxlen=history_length)
-    finger_gesture_history = deque(maxlen=history_length)
-
-    mode = 0
-    gif_shown = False  # flag to ensure the GIF is only triggered once per entry
-
-    # Create mouse controller and determine screen dimensions once.
-    mouse = Controller()
+    # Ottenere le dimensioni dello schermo
     root = tk.Tk()
-    root.withdraw()  # Hide the Tkinter window
+    root.withdraw()
     screen_width, screen_height = root.winfo_screenwidth(), root.winfo_screenheight()
 
-    # Pre-calculate the restricted area (the "no-access" rectangle) coordinates.
-    rect_top_left = (args.width // 4, args.height // 4)
-    rect_bottom_right = (int(2 * args.width / 3.5), int(2 * args.height / 4))
+    prev_cursor_set = False
 
-    while True:
-        fps = fps_calc.get()
-        key = cv.waitKey(1)  # Reduced delay for higher FPS
-        if key == 27:  # ESC key to exit
-            break
-        number, mode = select_mode(key, mode)
-
-        ret, frame = stream.read()
+    while cap.isOpened():
+        ret, frame = cap.read()
         if not ret:
             break
-        frame = cv.flip(frame, 1)  # Mirror the image for a more natural feel.
+
+        frame = cv.flip(frame, 1)
         debug_image = frame.copy()
 
-        # Process the image for hand detection.
         image_rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-        image_rgb.flags.writeable = False
         results = hands.process(image_rgb)
-        image_rgb.flags.writeable = True
+
+        hand_detected = False  # Flag per controllare il cambio del cursore
 
         if results.multi_hand_landmarks:
             for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
-                landmark_list = calc_landmark_list(debug_image, hand_landmarks)
-                pre_processed_landmark = pre_process_landmark(landmark_list)
+                label = handedness.classification[0].label  # "Left" o "Right"
 
-                hand_sign_id = keypoint_classifier(pre_processed_landmark)
-                pointing_direction = detect_pointing_direction(hand_landmarks)
+                if label == "Right":
+                    move_mouse_to(hand_landmarks, screen_width, screen_height)
+                    hand_detected = True 
+                    set_custom_cursor() 
+                    prev_cursor_set = True
+                    
 
-                # --- Check for thumb-index touch to simulate mouse click ---
-                if check_thumb_index_click(hand_landmarks):
-                    move_mouse_to(hand_landmarks, screen_width, screen_height, mouse)
-                    mouse.click(Button.left)
-                    cv.putText(debug_image, 'Click', (10, 154),
-                               cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255) if gif_shown else (0, 255, 0), 2)
+                elif label == "Left":
+                    if check_thumb_index_click(hand_landmarks):
+                        mouse.click(Button.left)
+                        cv.putText(debug_image, "Click!", (10, 100), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-                # --- Process hand gestures and point history ---
-                if pointing_direction == "Pointing forward":
-                    if hand_sign_id == 2:
-                        point_history.append(landmark_list[8])
-                        move_mouse_to(hand_landmarks, screen_width, screen_height, mouse)
-                    else:
-                        point_history.append([0, 0])
-                else:
-                    point_history.append([0, 0])
+                # Disegna i punti della mano
+                for idx, (x, y) in enumerate(calc_landmark_list(debug_image, hand_landmarks)):
+                    radius = 8 if idx in LARGE_POINTS else 5
+                    cv.circle(debug_image, (x, y), radius, (255, 255, 255), -1)
+                    cv.circle(debug_image, (x, y), radius, (0, 0, 0), 1)
 
-                # Compute the point history after appending the current frame.
-                pre_processed_point_history = pre_process_point_history(debug_image, list(point_history))
-                logging_csv(number, mode, pre_processed_landmark, pre_processed_point_history)
-
-                # Process point history for finger gesture classification.
-                finger_gesture_id = 0
-                if len(point_history) == history_length:
-                    finger_gesture_id = point_history_classifier(pre_processed_point_history)
-                finger_gesture_history.append(finger_gesture_id)
-
-                # Check if the fingertip (landmark index 8) is within the restricted rectangle.
-                if pointing_direction == "Pointing forward":
-                    # (Uncomment and adjust the code below if you wish to trigger a GIF display.)
-                    # fingertip = landmark_list[8]
-                    # if (rect_top_left[0] < fingertip[0] < rect_bottom_right[0] and
-                    #         rect_top_left[1] < fingertip[1] < rect_bottom_right[1]):
-                    #     if not gif_shown:
-                    #         play_audio_non_blocking('girl-scream.mp3')
-                    #         show_fullscreen_gif('scary.gif', screen_width, screen_height)
-                    #         gif_shown = True
-                    # else:
-                    #     gif_shown = False
-
-                    # Draw the restricted rectangle and a status message.
-                    cv.rectangle(debug_image, rect_top_left, rect_bottom_right, (255, 0, 0), 2)
-                    status_text = "Fingertip inside rectangle!" if gif_shown else "Fingertip outside rectangle!"
-                    cv.putText(debug_image, status_text, (10, 104),
-                               cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255) if gif_shown else (0, 255, 0), 2)
-
-                most_common_fg_id = Counter(finger_gesture_history).most_common(1)[0][0]
-
-                # Draw the hand landmarks and informational text.
-                debug_image = draw_landmarks(debug_image, landmark_list)
-                debug_image = draw_info_text(debug_image, handedness,
-                                             keypoint_classifier_labels[hand_sign_id],
-                                             point_history_classifier_labels[most_common_fg_id])
-                cv.putText(debug_image, pointing_direction, (10, 140),
-                           cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 255), 2, cv.LINE_AA)
+        # Cambio del cursore
+        if hand_detected:
+            if not prev_cursor_set:
+                set_custom_cursor() 
+                prev_cursor_set = True
         else:
-            point_history.append([0, 0])
+            if prev_cursor_set:
+                set_custom_cursor() 
+                prev_cursor_set = False
 
-        debug_image = draw_point_history(debug_image, list(point_history))
-        debug_image = draw_info(debug_image, fps, mode, number)
+        cv.imshow("Hand Tracking", debug_image)
 
-        cv.imshow('Hand Gesture Recognition', debug_image)
+        if cv.waitKey(1) & 0xFF == 27:  # ESC per uscire
+            break
 
-    # Clean up
-    stream.stop()
+    cap.release()
     cv.destroyAllWindows()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
