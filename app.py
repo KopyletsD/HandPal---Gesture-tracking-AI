@@ -2,7 +2,7 @@ import csv
 import argparse
 import itertools
 import threading
-import time
+import subprocess
 from collections import Counter, deque
 
 import cv2 as cv
@@ -10,8 +10,6 @@ import numpy as np
 import mediapipe as mp
 import tkinter as tk
 from pynput.mouse import Controller
-# from playsound import playsound
-# import imageio  # used for reading animated GIFs
 
 from utils import CvFpsCalc
 from model import KeyPointClassifier, PointHistoryClassifier
@@ -20,20 +18,19 @@ from model import KeyPointClassifier, PointHistoryClassifier
 LARGE_POINTS = {4, 8, 12, 16, 20}
 
 
-# def play_audio_non_blocking(audio_file):
-#     threading.Thread(target=playsound, args=(audio_file,), daemon=True).start()
-
-
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--device", type=int, default=0, help="Camera device index")
-    # Lower resolution for faster processing
+    parser.add_argument("--device", type=int, default=0, help="Camera device index or RTSP URL")
     parser.add_argument("--width", type=int, default=1920, help="Capture width")
     parser.add_argument("--height", type=int, default=1080, help="Capture height")
     parser.add_argument('--use_static_image_mode', action='store_true', 
                         help="Use static image mode (not recommended for real-time)")
     parser.add_argument("--min_detection_confidence", type=float, default=0.7, help="Min detection confidence")
     parser.add_argument("--min_tracking_confidence", type=float, default=0.5, help="Min tracking confidence")
+    parser.add_argument("--rtsp_url", type=str, default="rtsp://sitai.duckdns.org:8554/webcam?tcp", 
+                        help="RTSP URL for video stream")
+    parser.add_argument("--use_opencv", action="store_true", default=False,
+                        help="Use OpenCV for frame capture (True) or FFmpeg (False)")
     return parser.parse_args()
 
 
@@ -155,27 +152,6 @@ def detect_pointing_direction(hand_landmarks):
         return "Pointing sideways"
 
 
-# def show_fullscreen_gif(gif_path, screen_width, screen_height):
-#     """
-#     Reads an animated GIF from disk and displays it in a full-screen window.
-#     Pressing ESC while the GIF is playing will exit the GIF display.
-#     """
-#     frames = imageio.mimread(gif_path)
-#     cv.namedWindow("GIF", cv.WND_PROP_FULLSCREEN)
-#     cv.setWindowProperty("GIF", cv.WND_PROP_FULLSCREEN, cv.WINDOW_FULLSCREEN)
-#     delay = 100  # milliseconds delay between frames; adjust if needed
-#     for frame in frames:
-#         # Convert the frame (which may be RGBA) to BGR for OpenCV
-#         if frame.shape[2] == 4:
-#             frame = cv.cvtColor(frame, cv.COLOR_RGBA2BGR)
-#         else:
-#             frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
-#         frame = cv.resize(frame, (screen_width, screen_height))
-#         cv.imshow("GIF", frame)
-#         # If the user presses ESC during the GIF, break early.
-#         if cv.waitKey(delay) & 0xFF == 27:
-#             break
-#     cv.destroyWindow("GIF")
 
 
 class VideoStream:
@@ -183,7 +159,7 @@ class VideoStream:
     Camera object that controls video streaming from the webcam in a separate thread.
     """
     def __init__(self, src=0, width=640, height=480, fps=30):
-        self.cap = cv.VideoCapture("rtsp://sitai.duckdns.org:8554/webcam")
+        self.cap = cv.VideoCapture(src)
         self.cap.set(cv.CAP_PROP_FRAME_WIDTH, width)
         self.cap.set(cv.CAP_PROP_FRAME_HEIGHT, height)
         self.cap.set(cv.CAP_PROP_FPS, fps)
@@ -201,7 +177,8 @@ class VideoStream:
 
     def read(self):
         with self.lock:
-            # Return a copy of the frame to avoid threading issues
+            if self.frame is None:
+                return False, None  # Return safely instead of causing an error
             return self.ret, self.frame.copy()
 
     def stop(self):
@@ -211,14 +188,35 @@ class VideoStream:
 
 def main():
     args = get_args()
-
-    # Initialize threaded video stream
-    stream = VideoStream(src="rtsp://sitai.duckdns.org:8554/webcam", width=args.width, height=args.height, fps=30)
-    time.sleep(2)
+    rtsp_url = args.rtsp_url
+    
+    # Initialize capture method based on the flag
+    use_opencv = args.use_opencv
+    stream = None
+    process = None
+    
+    if use_opencv:
+        print("Using OpenCV VideoStream for capture...")
+        stream = VideoStream(src=args.device, width=args.width, height=args.height, fps=30)
+    else:
+        print("Using FFmpeg for capture...")
+        # Use a more portable way to locate ffmpeg
+        import shutil
+        ffmpeg_path = shutil.which('ffmpeg')  # Will find ffmpeg in PATH
+        if not ffmpeg_path:
+            ffmpeg_path = "ffmpeg"  # Default to just the command name if not found
+            
+        ffmpeg_cmd = [
+            ffmpeg_path, '-rtsp_transport', 'tcp', 
+            '-analyzeduration', '10000000', '-probesize', '50000000',
+            '-i', rtsp_url, '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-'
+        ]
+        process = subprocess.Popen(ffmpeg_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    
     # Initialize MediaPipe Hands
     mp_hands = mp.solutions.hands
     hands = mp_hands.Hands(
-        static_image_mode=args.use_static_image_mode,  # For real-time use, do not use static mode.
+        static_image_mode=args.use_static_image_mode,
         max_num_hands=1,
         min_detection_confidence=args.min_detection_confidence,
         min_tracking_confidence=args.min_tracking_confidence,
@@ -239,7 +237,6 @@ def main():
     finger_gesture_history = deque(maxlen=history_length)
 
     mode = 0
-    gif_shown = False  # flag to ensure the GIF is only triggered once per entry
 
     # Create mouse controller and determine screen dimensions once.
     mouse = Controller()
@@ -247,24 +244,33 @@ def main():
     root.withdraw()  # Hide the Tkinter window
     screen_width, screen_height = root.winfo_screenwidth(), root.winfo_screenheight()
 
-    # Pre-calculate the restricted area (the "no-access" rectangle) coordinates.
-    rect_top_left = (args.width // 4, args.height // 4)
-    rect_bottom_right = (int(2 * args.width / 3.5), int(2 * args.height / 4))
-
+    frame_size = args.width * args.height * 3  # For FFmpeg approach
+    
     while True:
+        # Read frame based on selected capture method
+        if use_opencv:
+            ret, frame = stream.read()
+            if not ret or frame is None:
+                print("Error: Unable to read frame from OpenCV stream")
+                break
+        else:
+            # Read frame from FFmpeg
+            raw_frame = process.stdout.read(frame_size)
+            if len(raw_frame) < frame_size:
+                print("Error: Incomplete frame from FFmpeg")
+                break
+            frame = np.frombuffer(raw_frame, dtype=np.uint8).reshape((args.height, args.width, 3))
+        
         fps = fps_calc.get()
-        key = cv.waitKey(1)  # Reduced delay for higher FPS
+        key = cv.waitKey(1)
         if key == 27:  # ESC key to exit
             break
         number, mode = select_mode(key, mode)
 
-        ret, frame = stream.read()
-        if not ret:
-            break
-        frame = cv.flip(frame, 1)  # Mirror the image for a more natural feel.
+        frame = cv.flip(frame, 1)  # Mirror the image for a more natural feel
         debug_image = frame.copy()
 
-        # Process the image for hand detection.
+        # Process the image for hand detection
         image_rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
         image_rgb.flags.writeable = False
         results = hands.process(image_rgb)
@@ -278,7 +284,7 @@ def main():
                 hand_sign_id = keypoint_classifier(pre_processed_landmark)
                 pointing_direction = detect_pointing_direction(hand_landmarks)
 
-                # Update point_history with the current frame's data.
+                # Update point_history with the current frame's data
                 if pointing_direction == "Pointing forward":
                     if hand_sign_id == 2:
                         point_history.append(landmark_list[8])
@@ -288,44 +294,25 @@ def main():
                 else:
                     point_history.append([0, 0])
 
-                # Compute the point history after appending the current frame.
+                # Compute the point history after appending the current frame
                 pre_processed_point_history = pre_process_point_history(debug_image, list(point_history))
                 logging_csv(number, mode, pre_processed_landmark, pre_processed_point_history)
 
-                # Process point history for finger gesture classification.
+                # Process point history for finger gesture classification
                 finger_gesture_id = 0
                 if len(point_history) == history_length:
                     finger_gesture_id = point_history_classifier(pre_processed_point_history)
                 finger_gesture_history.append(finger_gesture_id)
 
-                # Check if the fingertip (landmark index 8) is within the restricted rectangle.
-                if pointing_direction == "Pointing forward":
-                    # (Uncomment and adjust the code below if you wish to trigger a GIF display.)
-                    # fingertip = landmark_list[8]
-                    # if (rect_top_left[0] < fingertip[0] < rect_bottom_right[0] and
-                    #         rect_top_left[1] < fingertip[1] < rect_bottom_right[1]):
-                    #     if not gif_shown:
-                    #         play_audio_non_blocking('girl-scream.mp3')
-                    #         show_fullscreen_gif('scary.gif', screen_width, screen_height)
-                    #         gif_shown = True
-                    # else:
-                    #     gif_shown = False
-
-                    # Draw the restricted rectangle and a status message.
-                    cv.rectangle(debug_image, rect_top_left, rect_bottom_right, (255, 0, 0), 2)
-                    status_text = "Fingertip inside rectangle!" if gif_shown else "Fingertip outside rectangle!"
-                    cv.putText(debug_image, status_text, (10, 104),
-                               cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255) if gif_shown else (0, 255, 0), 2)
-
                 most_common_fg_id = Counter(finger_gesture_history).most_common(1)[0][0]
 
-                # Draw the hand landmarks and informational text.
+                # Draw the hand landmarks and informational text
                 debug_image = draw_landmarks(debug_image, landmark_list)
                 debug_image = draw_info_text(debug_image, handedness,
-                                             keypoint_classifier_labels[hand_sign_id],
-                                             point_history_classifier_labels[most_common_fg_id])
+                                           keypoint_classifier_labels[hand_sign_id],
+                                           point_history_classifier_labels[most_common_fg_id])
                 cv.putText(debug_image, pointing_direction, (10, 140),
-                           cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 255), 2, cv.LINE_AA)
+                          cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 255), 2, cv.LINE_AA)
         else:
             point_history.append([0, 0])
 
@@ -334,8 +321,13 @@ def main():
 
         cv.imshow('Hand Gesture Recognition', debug_image)
 
-    # Clean up
-    stream.stop()
+    # Clean up based on the method used
+    if use_opencv:
+        if stream:
+            stream.stop()
+    else:
+        if process:
+            process.terminate()
     cv.destroyAllWindows()
 
 
