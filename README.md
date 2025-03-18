@@ -51,4 +51,4 @@ Installation
 1. **Clone the repository** (or download the code).
 2. **Install the required libraries**:
    ```bash
-   pip install opencv-python mediapipe numpy pynput tensorflow
+   pip install opencv-python mediapipe numpy pynput tensorflow pypiwin32

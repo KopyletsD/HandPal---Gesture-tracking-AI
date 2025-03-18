@@ -3,20 +3,56 @@ import argparse
 import itertools
 import threading
 import subprocess
+import win32api
+import win32con
+import win32gui
+import time
 from collections import Counter, deque
 
 import cv2 as cv
 import numpy as np
 import mediapipe as mp
 import tkinter as tk
-from pynput.mouse import Controller
+from pynput.mouse import Controller, Button
 
 from utils import CvFpsCalc
 from model import KeyPointClassifier, PointHistoryClassifier
 
+
 # Set of landmark indices that are drawn larger
 LARGE_POINTS = {4, 8, 12, 16, 20}
+CURSOR_CHANGE_COOLDOWN = 200
+FRAME_SKIP = 5
+last_cursor_change_time = 0
+mouse = Controller()
+CURSOR_PATH = ".\\cursor.cur"
 
+def set_custom_cursor():
+    hwnd = win32gui.GetForegroundWindow()
+    hcursor = win32gui.LoadImage(0, CURSOR_PATH, win32con.IMAGE_CURSOR, 0, 0, win32con.LR_LOADFROMFILE)
+    win32gui.SetCursor(hcursor)
+    win32gui.PostMessage(hwnd, win32con.WM_SETCURSOR, hwnd, win32con.HTCLIENT)
+
+def restore_default_cursor():
+    win32gui.SetCursor(win32gui.LoadCursor(0, win32con.IDC_ARROW))  # Restore default arrow cursor
+
+def update_cursor(hand_detected, prev_cursor_set):
+    global last_cursor_change_time
+
+    current_time = int(time.time() * 1000)  # Convert to milliseconds
+
+    # Check cooldown
+    if current_time - last_cursor_change_time < CURSOR_CHANGE_COOLDOWN:
+        return  # Skip if cooldown is active
+
+    if hand_detected and not prev_cursor_set:
+        set_custom_cursor()
+        prev_cursor_set = True
+        last_cursor_change_time = current_time  # Reset cooldown
+    elif not hand_detected and prev_cursor_set:
+        restore_default_cursor()
+        prev_cursor_set = False
+        last_cursor_change_time = current_time  # Reset cooldown
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -62,7 +98,10 @@ def pre_process_point_history(image, point_history):
     return list(itertools.chain.from_iterable(normalized_history))
 
 
-def logging_csv(number, mode, landmark_list, point_history_list):
+def logging_csv(number, mode, landmark_list, point_history_list, frame_count):
+    if frame_count % FRAME_SKIP != 0:
+        return  # Skip logging to reduce I/O overhead
+
     if mode == 1 and 0 <= number <= 9:
         csv_path = 'model/keypoint_classifier/keypoint.csv'
         with open(csv_path, 'a', newline="") as f:
@@ -113,11 +152,28 @@ def draw_info(image, fps, mode, number):
     return image
 
 
-def move_mouse_to(hand_landmarks, screen_width, screen_height, mouse):
+def move_mouse_to(hand_landmarks, screen_width, screen_height, alpha=0.6, threshold=5):
     normx = hand_landmarks.landmark[8].x
     normy = hand_landmarks.landmark[8].y
-    mouse.position = (int(normx * screen_width), int(normy * screen_height))
+    target_x = int(normx * screen_width)
+    target_y = int(normy * screen_height)
+    current_x, current_y = mouse.position
+    if abs(current_x - target_x) > threshold or abs(current_y - target_y) > threshold:
+        new_x = int(current_x + alpha * (target_x - current_x))
+        new_y = int(current_y + alpha * (target_y - current_y))
+        mouse.position = (new_x, new_y)
 
+
+
+def check_thumb_index_click(hand_landmarks):
+    """Simula un click sinistro se il pollice e l'indice della mano sinistra si toccano."""
+    thumb_tip = hand_landmarks.landmark[4]
+    index_tip = hand_landmarks.landmark[8]
+
+    # Calcolo della distanza euclidea normalizzata
+    distance = np.linalg.norm(np.array([thumb_tip.x - index_tip.x, thumb_tip.y - index_tip.y]))
+
+    return distance < 0.05  # Soglia per il click
 
 def select_mode(key, mode):
     number = key - 48 if 48 <= key <= 57 else -1
@@ -185,16 +241,19 @@ class VideoStream:
         self.stopped = True
         self.cap.release()
 
+    
 
 def main():
     args = get_args()
+
     rtsp_url = args.rtsp_url
-    
+    mjpeg_url = "udp://127.0.0.1:8554"
     # Initialize capture method based on the flag
     use_opencv = args.use_opencv
     stream = None
     process = None
     
+    # Initialize the webcam or video stream
     if use_opencv:
         print("Using OpenCV VideoStream for capture...")
         stream = VideoStream(src=args.device, width=args.width, height=args.height, fps=30)
@@ -204,7 +263,7 @@ def main():
         import shutil
         ffmpeg_path = shutil.which('ffmpeg')  # Will find ffmpeg in PATH
         if not ffmpeg_path:
-            ffmpeg_path = "ffmpeg"  # Default to just the command name if not found
+            ffmpeg_path = "..\ffmpeg.exe"  # Default to just the command name if not found
             
         ffmpeg_cmd = [
             ffmpeg_path, '-rtsp_transport', 'tcp', 
@@ -239,15 +298,18 @@ def main():
     mode = 0
 
     # Create mouse controller and determine screen dimensions once.
-    mouse = Controller()
     root = tk.Tk()
     root.withdraw()  # Hide the Tkinter window
     screen_width, screen_height = root.winfo_screenwidth(), root.winfo_screenheight()
 
-    frame_size = args.width * args.height * 3  # For FFmpeg approach
-    
+    cap = cv.VideoCapture(mjpeg_url)
+    prev_cursor_set = True
+    hand_detected = False
+    results_holder = [None]
+    frame_count = 0
     while True:
         # Read frame based on selected capture method
+        
         if use_opencv:
             ret, frame = stream.read()
             if not ret or frame is None:
@@ -255,12 +317,11 @@ def main():
                 break
         else:
             # Read frame from FFmpeg
-            raw_frame = process.stdout.read(frame_size)
-            if len(raw_frame) < frame_size:
-                print("Error: Incomplete frame from FFmpeg")
+            ret, frame = cap.read()
+            if not ret:
+                print("Error: Unable to read frame from FFmpeg")
                 break
-            frame = np.frombuffer(raw_frame, dtype=np.uint8).reshape((args.height, args.width, 3))
-        
+            
         fps = fps_calc.get()
         key = cv.waitKey(1)
         if key == 27:  # ESC key to exit
@@ -271,11 +332,14 @@ def main():
         debug_image = frame.copy()
 
         # Process the image for hand detection
-        image_rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-        image_rgb.flags.writeable = False
-        results = hands.process(image_rgb)
-        image_rgb.flags.writeable = True
+        def process_hand(image, hands, results_holder):
+            image_rgb = cv.cvtColor(image, cv.COLOR_BGR2RGB)
+            results_holder[0] = hands.process(image_rgb)
+        thread = threading.Thread(target=process_hand, args=(frame, hands, results_holder))
+        thread.start()
+        thread.join()  # Ensure the thread completes before accessing results
 
+        results = results_holder[0]
         if results.multi_hand_landmarks:
             for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
                 landmark_list = calc_landmark_list(debug_image, hand_landmarks)
@@ -283,20 +347,33 @@ def main():
 
                 hand_sign_id = keypoint_classifier(pre_processed_landmark)
                 pointing_direction = detect_pointing_direction(hand_landmarks)
+                label = handedness.classification[0].label
+                if label == "Right":
+                    move_mouse_to(hand_landmarks, screen_width, screen_height)
+                    hand_detected = True 
+                    set_custom_cursor() 
+                    prev_cursor_set = True
+                    
+
+                elif label == "Left":
+                    if check_thumb_index_click(hand_landmarks):
+                        mouse.click(Button.left)
+                        cv.putText(debug_image, "Click!", (10, 100), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
                 # Update point_history with the current frame's data
-                if pointing_direction == "Pointing forward":
-                    if hand_sign_id == 2:
-                        point_history.append(landmark_list[8])
-                        move_mouse_to(hand_landmarks, screen_width, screen_height, mouse)
-                    else:
-                        point_history.append([0, 0])
-                else:
-                    point_history.append([0, 0])
+                # if pointing_direction == "Pointing forward":
+                    # if hand_sign_id == 2:
+                        # point_history.append(landmark_list[8])
+                        # move_mouse_to(hand_landmarks, screen_width, screen_height)
+                    # else:
+                        # point_history.append([0, 0])
+                # else:
+                    # point_history.append([0, 0])
 
                 # Compute the point history after appending the current frame
                 pre_processed_point_history = pre_process_point_history(debug_image, list(point_history))
-                logging_csv(number, mode, pre_processed_landmark, pre_processed_point_history)
+                frame_count += 1
+                logging_csv(number, mode, pre_processed_landmark, pre_processed_point_history, frame_count)
 
                 # Process point history for finger gesture classification
                 finger_gesture_id = 0
@@ -319,6 +396,16 @@ def main():
         debug_image = draw_point_history(debug_image, list(point_history))
         debug_image = draw_info(debug_image, fps, mode, number)
 
+        # Cambio del cursore
+        update_cursor(hand_detected, prev_cursor_set)
+        if hand_detected:
+            if not prev_cursor_set:
+                set_custom_cursor() 
+                prev_cursor_set = True
+        else:
+            if prev_cursor_set:
+                set_custom_cursor() 
+                prev_cursor_set = False
         cv.imshow('Hand Gesture Recognition', debug_image)
 
     # Clean up based on the method used
