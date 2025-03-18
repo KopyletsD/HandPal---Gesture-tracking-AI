@@ -1,2 +1,0 @@
-.\ffmpeg -f dshow -rtbufsize 16M -framerate 30 -video_size 640x480 -pixel_format yuyv422 -i video="GENERAL WEBCAM" -c:v libx264 -preset ultrafast -tune zerolatency -g 30 -keyint_min 30 -b:v 2000k -maxrate 2000k -bufsize 4000k -pix_fmt yuv420p -vsync 0 -analyzeduration 0 -probesize 32 -fflags nobuffer -flags low_delay -strict experimental -c:a aac -b:a 128k -af "aresample=async=1:min_hard_comp=0.100:first_pts=0" -f rtsp -rtsp_transport udp rtsp://sitai.duckdns.org:8554/webcam
-rtsp://sitai.duckdns.org:8554/webcam
