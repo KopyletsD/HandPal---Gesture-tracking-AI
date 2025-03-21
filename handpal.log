@@ -1,0 +1,321 @@
+2025-03-21 14:44:55,535 - HandPal - INFO - HandGestureTracker inizializzato
+2025-03-21 14:44:55,535 - HandPal - INFO - Avvio del loop principale
+2025-03-21 14:54:18,463 - HandPal - INFO - Pulizia delle risorse
+2025-03-21 14:54:18,753 - HandPal - INFO - Configurazione salvata
+2025-03-21 14:54:18,753 - HandPal - INFO - Programma terminato
+2025-03-21 14:55:37,780 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 14:55:47,361 - HandPal - INFO - HandGestureTracker inizializzato
+2025-03-21 14:55:47,362 - HandPal - INFO - Avvio del loop principale
+2025-03-21 14:55:47,364 - HandPal - ERROR - Errore imprevisto: 'NoneType' object has no attribute 'copy'
+Traceback (most recent call last):
+  File "c:\Users\carminati.20133\Desktop\HandPal---Gesture-tracking-AI-click-function\HandPal---Gesture-tracking-AI-click-function\app.py", line 597, in main
+    tracker.run()
+  File "c:\Users\carminati.20133\Desktop\HandPal---Gesture-tracking-AI-click-function\HandPal---Gesture-tracking-AI-click-function\app.py", line 488, in run
+    ret, frame, processing_frame = self.video_stream.read()
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\carminati.20133\Desktop\HandPal---Gesture-tracking-AI-click-function\HandPal---Gesture-tracking-AI-click-function\app.py", line 298, in read
+    return self.ret, self.frame.copy(), self.processing_frame.copy()
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'copy'
+2025-03-21 14:55:47,373 - HandPal - INFO - Programma terminato
+2025-03-21 14:56:01,698 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 14:56:07,907 - HandPal - INFO - HandGestureTracker inizializzato
+2025-03-21 14:56:07,907 - HandPal - INFO - Avvio del loop principale
+2025-03-21 14:56:07,908 - HandPal - ERROR - Errore imprevisto: 'NoneType' object has no attribute 'copy'
+Traceback (most recent call last):
+  File "c:\Users\carminati.20133\Desktop\HandPal---Gesture-tracking-AI-click-function\HandPal---Gesture-tracking-AI-click-function\app.py", line 597, in main
+    tracker.run()
+  File "c:\Users\carminati.20133\Desktop\HandPal---Gesture-tracking-AI-click-function\HandPal---Gesture-tracking-AI-click-function\app.py", line 488, in run
+    ret, frame, processing_frame = self.video_stream.read()
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\carminati.20133\Desktop\HandPal---Gesture-tracking-AI-click-function\HandPal---Gesture-tracking-AI-click-function\app.py", line 298, in read
+    return self.ret, self.frame.copy(), self.processing_frame.copy()
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'copy'
+2025-03-21 14:56:07,908 - HandPal - INFO - Programma terminato
+2025-03-21 14:56:32,134 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 14:56:38,416 - HandPal - INFO - HandGestureTracker inizializzato
+2025-03-21 14:56:38,416 - HandPal - INFO - Avvio del loop principale
+2025-03-21 14:57:46,939 - HandPal - INFO - Pulizia delle risorse
+2025-03-21 14:57:47,246 - HandPal - INFO - Configurazione salvata
+2025-03-21 14:57:47,246 - HandPal - INFO - Programma terminato
+2025-03-21 15:06:36,042 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:06:42,438 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:06:50,492 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:06:50,492 - HandPal - INFO - Calibrazione completata: x=(0.297-0.720), y=(0.524-0.711)
+2025-03-21 15:06:50,492 - HandPal - INFO - Calibrazione completata!
+2025-03-21 15:10:24,446 - HandPal - INFO - Applicazione terminata
+2025-03-21 15:10:47,167 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:11:13,761 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:11:21,228 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:11:21,228 - HandPal - INFO - Calibrazione completata: x=(0.329-0.544), y=(0.473-1.123)
+2025-03-21 15:11:21,228 - HandPal - INFO - Calibrazione completata!
+2025-03-21 15:11:29,196 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:11:33,546 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:11:34,006 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:11:34,509 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:11:47,282 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:11:47,282 - HandPal - INFO - Calibrazione completata: x=(0.120-0.680), y=(0.090-0.431)
+2025-03-21 15:11:47,282 - HandPal - INFO - Calibrazione completata!
+2025-03-21 15:11:57,990 - HandPal - INFO - Applicazione terminata
+2025-03-21 15:12:02,917 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:12:34,010 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:12:41,462 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:12:41,462 - HandPal - INFO - Calibrazione completata: x=(0.346-0.934), y=(0.455-1.089)
+2025-03-21 15:12:41,462 - HandPal - INFO - Calibrazione completata!
+2025-03-21 15:13:13,337 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:13:21,165 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:13:21,165 - HandPal - INFO - Calibrazione completata: x=(0.416-0.468), y=(0.205-0.306)
+2025-03-21 15:13:21,165 - HandPal - INFO - Calibrazione completata!
+2025-03-21 15:13:40,187 - HandPal - INFO - Applicazione terminata
+2025-03-21 15:14:29,829 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:14:35,344 - HandPal - INFO - Webcam inizializzata. Risoluzione: 1280.0x720.0
+2025-03-21 15:16:21,899 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:16:24,902 - HandPal - INFO - Punto di calibrazione 1 raccolto
+2025-03-21 15:16:27,928 - HandPal - INFO - Punto di calibrazione 2 raccolto
+2025-03-21 15:16:31,337 - HandPal - INFO - Punto di calibrazione 3 raccolto
+2025-03-21 15:16:34,347 - HandPal - INFO - Punto di calibrazione 4 raccolto
+2025-03-21 15:16:34,347 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:16:34,347 - HandPal - INFO - Calibrazione completata: x=(0.368-0.789), y=(0.200-0.519)
+2025-03-21 15:16:57,866 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:17:00,907 - HandPal - INFO - Punto di calibrazione 1 raccolto
+2025-03-21 15:17:03,908 - HandPal - INFO - Punto di calibrazione 2 raccolto
+2025-03-21 15:17:06,924 - HandPal - INFO - Punto di calibrazione 3 raccolto
+2025-03-21 15:17:09,933 - HandPal - INFO - Punto di calibrazione 4 raccolto
+2025-03-21 15:17:09,933 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:17:09,933 - HandPal - INFO - Calibrazione completata: x=(0.221-0.818), y=(0.195-0.900)
+2025-03-21 15:21:29,943 - HandPal - INFO - Interruzione da tastiera
+2025-03-21 15:21:30,269 - HandPal - INFO - Applicazione terminata
+2025-03-21 15:21:36,491 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:21:41,916 - HandPal - INFO - Webcam inizializzata. Risoluzione: 1280.0x720.0
+2025-03-21 15:21:46,035 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:21:54,822 - HandPal - INFO - Punto di calibrazione 1 raccolto
+2025-03-21 15:21:57,831 - HandPal - INFO - Punto di calibrazione 2 raccolto
+2025-03-21 15:22:00,855 - HandPal - INFO - Punto di calibrazione 3 raccolto
+2025-03-21 15:22:03,861 - HandPal - INFO - Punto di calibrazione 4 raccolto
+2025-03-21 15:22:03,875 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:22:03,875 - HandPal - INFO - Calibrazione completata: x=(0.056-0.837), y=(0.167-0.777)
+2025-03-21 15:24:23,365 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:24:24,784 - HandPal - INFO - Iniziata calibrazione. Segui i punti sullo schermo...
+2025-03-21 15:24:30,694 - HandPal - INFO - Punto di calibrazione 1 raccolto
+2025-03-21 15:24:33,703 - HandPal - INFO - Punto di calibrazione 2 raccolto
+2025-03-21 15:24:36,724 - HandPal - INFO - Punto di calibrazione 3 raccolto
+2025-03-21 15:24:39,749 - HandPal - INFO - Punto di calibrazione 4 raccolto
+2025-03-21 15:24:39,751 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:24:39,751 - HandPal - INFO - Calibrazione completata: x=(0.238-0.806), y=(0.319-0.660)
+2025-03-21 15:25:05,968 - HandPal - INFO - Applicazione terminata
+2025-03-21 15:29:23,304 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:29:27,581 - HandPal - INFO - HandPal avviato con successo!
+2025-03-21 15:31:01,416 - HandPal - INFO - Click destro
+2025-03-21 15:31:06,356 - HandPal - INFO - Click sinistro
+2025-03-21 15:31:06,888 - HandPal - INFO - Click sinistro
+2025-03-21 15:31:08,164 - HandPal - INFO - Click sinistro
+2025-03-21 15:31:20,838 - HandPal - INFO - Click sinistro
+2025-03-21 15:31:33,509 - HandPal - INFO - Click destro
+2025-03-21 15:31:34,584 - HandPal - INFO - Click sinistro
+2025-03-21 15:31:35,453 - HandPal - INFO - Click destro
+2025-03-21 15:31:37,651 - HandPal - INFO - Click destro
+2025-03-21 15:31:39,029 - HandPal - INFO - Click destro
+2025-03-21 15:31:39,537 - HandPal - INFO - Click destro
+2025-03-21 15:31:40,145 - HandPal - INFO - Click destro
+2025-03-21 15:33:13,728 - HandPal - INFO - Click sinistro
+2025-03-21 15:33:16,571 - HandPal - INFO - Click sinistro
+2025-03-21 15:33:17,827 - HandPal - INFO - Click sinistro
+2025-03-21 15:33:19,195 - HandPal - INFO - Click sinistro
+2025-03-21 15:33:23,263 - HandPal - INFO - Click sinistro
+2025-03-21 15:34:02,490 - HandPal - INFO - Click sinistro
+2025-03-21 15:34:08,512 - HandPal - INFO - Click sinistro
+2025-03-21 15:34:09,022 - HandPal - INFO - Click sinistro
+2025-03-21 15:34:10,118 - HandPal - INFO - Click sinistro
+2025-03-21 15:34:16,605 - HandPal - INFO - Click destro
+2025-03-21 15:34:29,220 - HandPal - INFO - Click destro
+2025-03-21 15:34:32,393 - HandPal - INFO - Click sinistro
+2025-03-21 15:34:42,082 - HandPal - INFO - Click sinistro
+2025-03-21 15:34:57,654 - HandPal - INFO - Click destro
+2025-03-21 15:35:27,005 - HandPal - INFO - HandPal fermato.
+2025-03-21 15:35:32,563 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:35:36,814 - HandPal - INFO - HandPal avviato con successo!
+2025-03-21 15:35:42,823 - HandPal - INFO - HandPal fermato.
+2025-03-21 15:36:45,598 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:36:49,891 - HandPal - INFO - HandPal avviato con successo!
+2025-03-21 15:37:01,883 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-03-21 15:37:56,031 - HandPal - INFO - HandPal fermato.
+2025-03-21 15:38:32,200 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:38:36,436 - HandPal - INFO - HandPal avviato con successo!
+2025-03-21 15:39:00,204 - HandPal - INFO - Click sinistro
+2025-03-21 15:39:04,484 - HandPal - INFO - Click sinistro
+2025-03-21 15:39:08,547 - HandPal - INFO - Click sinistro
+2025-03-21 15:39:36,678 - HandPal - INFO - Click sinistro
+2025-03-21 15:39:57,619 - HandPal - INFO - Click sinistro
+2025-03-21 15:39:59,759 - HandPal - INFO - Click sinistro
+2025-03-21 15:40:00,671 - HandPal - INFO - Click sinistro
+2025-03-21 15:40:21,242 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-03-21 15:40:30,640 - HandPal - INFO - Punto di calibrazione 1 registrato: (0.48801714181900024, 0.7767246961593628)
+2025-03-21 15:40:35,946 - HandPal - INFO - Punto di calibrazione 2 registrato: (0.48801714181900024, 0.7767246961593628)
+2025-03-21 15:40:38,089 - HandPal - INFO - Click sinistro
+2025-03-21 15:40:43,464 - HandPal - INFO - Punto di calibrazione 3 registrato: (0.48801714181900024, 0.7767246961593628)
+2025-03-21 15:40:47,337 - HandPal - INFO - Punto di calibrazione 4 registrato: (0.48801714181900024, 0.7767246961593628)
+2025-03-21 15:40:47,337 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:40:47,337 - HandPal - INFO - Calibrazione completata e salvata.
+2025-03-21 15:47:35,837 - HandPal - INFO - HandPal fermato.
+2025-03-21 15:47:45,080 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:47:49,294 - HandPal - INFO - HandPal avviato con successo!
+2025-03-21 15:48:00,424 - HandPal - INFO - Click sinistro
+2025-03-21 15:48:00,945 - HandPal - INFO - Click sinistro
+2025-03-21 15:48:24,074 - HandPal - INFO - HandPal fermato.
+2025-03-21 15:48:28,905 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:48:33,138 - HandPal - INFO - HandPal avviato con successo!
+2025-03-21 15:48:40,396 - HandPal - INFO - HandPal fermato.
+2025-03-21 15:49:25,995 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 15:49:30,349 - HandPal - INFO - HandPal avviato con successo!
+2025-03-21 15:49:32,105 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-03-21 15:49:47,873 - HandPal - INFO - Punto di calibrazione 1 registrato: (0.9916865825653076, 0.04345183074474335)
+2025-03-21 15:49:56,888 - HandPal - INFO - Punto di calibrazione 2 registrato: (0.9814979434013367, 0.04565885663032532)
+2025-03-21 15:50:08,451 - HandPal - INFO - Punto di calibrazione 3 registrato: (0.9775625467300415, 0.9552881121635437)
+2025-03-21 15:50:17,756 - HandPal - INFO - Punto di calibrazione 4 registrato: (0.023361235857009888, 0.9695627689361572)
+2025-03-21 15:50:17,756 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:50:17,756 - HandPal - INFO - Calibrazione completata e salvata.
+2025-03-21 15:50:41,082 - HandPal - INFO - Click sinistro
+2025-03-21 15:50:44,998 - HandPal - INFO - Click sinistro
+2025-03-21 15:50:50,111 - HandPal - INFO - Click sinistro
+2025-03-21 15:52:40,307 - HandPal - INFO - Click sinistro
+2025-03-21 15:52:41,422 - HandPal - INFO - Click sinistro
+2025-03-21 15:52:47,293 - HandPal - INFO - Click sinistro
+2025-03-21 15:52:52,526 - HandPal - INFO - Click sinistro
+2025-03-21 15:52:53,459 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-03-21 15:53:16,925 - HandPal - INFO - Punto di calibrazione 1 registrato: (0.9764769077301025, 0.020517513155937195)
+2025-03-21 15:53:19,332 - HandPal - INFO - Punto di calibrazione 2 registrato: (0.9708528518676758, 0.025125786662101746)
+2025-03-21 15:53:21,215 - HandPal - INFO - Punto di calibrazione 3 registrato: (0.9504273533821106, 0.8411441445350647)
+2025-03-21 15:53:23,185 - HandPal - INFO - Punto di calibrazione 4 registrato: (0.9623432159423828, 0.9210286140441895)
+2025-03-21 15:53:23,185 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:53:23,185 - HandPal - INFO - Calibrazione completata e salvata.
+2025-03-21 15:53:29,558 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-03-21 15:53:34,306 - HandPal - INFO - Punto di calibrazione 1 registrato: (0.9680977463722229, 0.038536131381988525)
+2025-03-21 15:53:40,227 - HandPal - INFO - Punto di calibrazione 2 registrato: (0.980908989906311, 0.9481281638145447)
+2025-03-21 15:53:46,280 - HandPal - INFO - Punto di calibrazione 3 registrato: (0.9410718679428101, 0.9681220650672913)
+2025-03-21 15:53:50,048 - HandPal - INFO - Punto di calibrazione 4 registrato: (0.044123515486717224, 0.9454771280288696)
+2025-03-21 15:53:50,048 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:53:50,048 - HandPal - INFO - Calibrazione completata e salvata.
+2025-03-21 15:54:01,605 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-03-21 15:54:07,645 - HandPal - INFO - Punto di calibrazione 1 registrato: (0.012948542833328247, 0.03852960467338562)
+2025-03-21 15:54:11,178 - HandPal - INFO - Punto di calibrazione 2 registrato: (0.9849070310592651, 0.03384236991405487)
+2025-03-21 15:54:16,926 - HandPal - INFO - Punto di calibrazione 3 registrato: (0.9674356579780579, 0.9481444954872131)
+2025-03-21 15:54:20,974 - HandPal - INFO - Punto di calibrazione 4 registrato: (0.008275017142295837, 0.9679667949676514)
+2025-03-21 15:54:20,975 - HandPal - INFO - Configurazione salvata
+2025-03-21 15:54:20,976 - HandPal - INFO - Calibrazione completata e salvata.
+2025-03-21 15:54:41,709 - HandPal - INFO - Click sinistro
+2025-03-21 15:54:43,390 - HandPal - INFO - Click sinistro
+2025-03-21 15:54:44,562 - HandPal - INFO - Click sinistro
+2025-03-21 15:54:45,177 - HandPal - INFO - Click sinistro
+2025-03-21 15:54:45,710 - HandPal - INFO - Click sinistro
+2025-03-21 15:54:48,003 - HandPal - INFO - Click sinistro
+2025-03-21 15:54:50,152 - HandPal - INFO - Click sinistro
+2025-03-21 15:55:01,756 - HandPal - INFO - Click sinistro
+2025-03-21 15:55:06,969 - HandPal - INFO - Click sinistro
+2025-03-21 15:55:11,737 - HandPal - INFO - Click sinistro
+2025-03-21 15:55:17,387 - HandPal - INFO - Click sinistro
+2025-03-21 16:00:43,834 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 16:00:48,142 - HandPal - INFO - HandPal avviato con successo!
+2025-03-21 16:00:54,581 - HandPal - INFO - Modalità debug: attivata
+2025-03-21 16:01:03,163 - HandPal - INFO - Modalità debug: disattivata
+2025-03-21 16:01:07,044 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-03-21 16:01:12,076 - HandPal - INFO - Punto di calibrazione 1 registrato: (0.024463310837745667, 0.03805705904960632)
+2025-03-21 16:01:14,953 - HandPal - INFO - Punto di calibrazione 2 registrato: (0.9809992909431458, 0.04246944189071655)
+2025-03-21 16:01:23,681 - HandPal - INFO - Punto di calibrazione 3 registrato: (0.97740638256073, 0.9536502361297607)
+2025-03-21 16:01:27,428 - HandPal - INFO - Punto di calibrazione 4 registrato: (0.030467182397842407, 0.9767334461212158)
+2025-03-21 16:01:27,428 - HandPal - INFO - Configurazione salvata
+2025-03-21 16:01:27,428 - HandPal - INFO - Calibrazione completata e salvata con valori: X: 0.024463310837745667-0.9809992909431458, Y: 0.03805705904960632-0.9767334461212158
+2025-03-21 16:01:44,502 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:01,655 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:03,676 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:04,474 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:04,998 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:10,893 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:11,454 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:17,499 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:18,359 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:20,910 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:21,649 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:22,145 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:23,031 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:23,549 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:24,374 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:27,707 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:29,030 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:30,016 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:30,738 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:31,536 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:32,062 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:32,564 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:33,152 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:35,071 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:35,605 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:36,669 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:37,216 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:38,966 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:40,780 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:42,334 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:43,584 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:46,023 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:46,567 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:47,280 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:48,000 - HandPal - INFO - Click sinistro
+2025-03-21 16:02:52,906 - HandPal - INFO - Click sinistro
+2025-03-21 16:03:27,883 - HandPal - INFO - Modalità debug: attivata
+2025-03-21 16:03:28,318 - HandPal - INFO - Modalità debug: disattivata
+2025-03-21 16:03:28,515 - HandPal - INFO - Modalità debug: attivata
+2025-03-21 16:03:28,676 - HandPal - INFO - Modalità debug: disattivata
+2025-03-21 16:03:28,841 - HandPal - INFO - Modalità debug: attivata
+2025-03-21 16:03:29,034 - HandPal - INFO - Modalità debug: disattivata
+2025-03-21 16:03:29,199 - HandPal - INFO - Modalità debug: attivata
+2025-03-21 16:03:29,397 - HandPal - INFO - Modalità debug: disattivata
+2025-03-21 16:04:49,455 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 16:04:53,683 - HandPal - INFO - HandPal avviato con successo!
+2025-03-21 16:05:05,789 - HandPal - INFO - Modalità debug: attivata
+2025-03-21 16:05:20,819 - HandPal - INFO - Modalità debug: disattivata
+2025-03-21 16:05:22,999 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-03-21 16:05:33,451 - HandPal - INFO - Punto di calibrazione 1 registrato: (0.012259669601917267, 0.007354572415351868)
+2025-03-21 16:05:38,730 - HandPal - INFO - Punto di calibrazione 2 registrato: (0.984865665435791, 0.03292876482009888)
+2025-03-21 16:05:43,596 - HandPal - INFO - Punto di calibrazione 3 registrato: (0.9768006205558777, 0.9626027941703796)
+2025-03-21 16:05:46,563 - HandPal - INFO - Punto di calibrazione 4 registrato: (0.014408573508262634, 0.9538073539733887)
+2025-03-21 16:05:46,563 - HandPal - INFO - Configurazione salvata
+2025-03-21 16:05:46,563 - HandPal - INFO - Calibrazione completata e salvata con valori: X: 0.012259669601917267-0.984865665435791, Y: 0.007354572415351868-0.9626027941703796
+2025-03-21 16:05:53,975 - HandPal - INFO - Click sinistro
+2025-03-21 16:05:54,871 - HandPal - INFO - Click sinistro
+2025-03-21 16:05:57,435 - HandPal - INFO - Click sinistro
+2025-03-21 16:06:03,518 - HandPal - INFO - Click sinistro
+2025-03-21 16:06:07,981 - HandPal - INFO - Click sinistro
+2025-03-21 16:06:13,203 - HandPal - INFO - Click sinistro
+2025-03-21 16:07:29,155 - HandPal - INFO - Configurazione caricata dal file
+2025-03-21 16:07:33,421 - HandPal - INFO - HandPal avviato con successo!
+2025-03-21 16:07:40,106 - HandPal - INFO - Modalità debug: attivata
+2025-03-21 16:08:06,058 - HandPal - INFO - Modalità debug: disattivata
+2025-03-21 16:08:09,225 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-03-21 16:08:15,062 - HandPal - INFO - Punto di calibrazione 1 registrato: (0.0020528584718704224, 0.05157497525215149)
+2025-03-21 16:08:17,904 - HandPal - INFO - Punto di calibrazione 2 registrato: (0.9821391105651855, 0.04637071490287781)
+2025-03-21 16:08:26,110 - HandPal - INFO - Punto di calibrazione 3 registrato: (0.9702034592628479, 0.9624990820884705)
+2025-03-21 16:08:29,939 - HandPal - INFO - Punto di calibrazione 4 registrato: (0.030111655592918396, 0.9817172288894653)
+2025-03-21 16:08:29,939 - HandPal - INFO - Configurazione salvata
+2025-03-21 16:08:29,939 - HandPal - INFO - Calibrazione completata e salvata con valori: X: 0.0020528584718704224-0.9821391105651855, Y: 0.04637071490287781-0.9817172288894653
+2025-03-21 16:08:43,811 - HandPal - INFO - Modalità debug: attivata
+2025-03-21 16:08:43,942 - HandPal - INFO - Modalità debug: disattivata
+2025-03-21 16:08:44,357 - HandPal - INFO - Modalità debug: attivata
+2025-03-21 16:09:30,590 - HandPal - INFO - Modalità debug: disattivata
+2025-03-21 16:09:48,131 - HandPal - INFO - Click sinistro
+2025-03-21 16:10:03,596 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-03-21 16:10:12,629 - HandPal - INFO - Punto di calibrazione 1 registrato: (0.022350534796714783, 0.044886231422424316)
+2025-03-21 16:10:15,454 - HandPal - INFO - Punto di calibrazione 2 registrato: (0.962244987487793, 0.02805042266845703)
+2025-03-21 16:10:21,324 - HandPal - INFO - Punto di calibrazione 3 registrato: (0.9552979469299316, 0.9403024315834045)
+2025-03-21 16:10:22,550 - HandPal - INFO - Punto di calibrazione 4 registrato: (0.481250524520874, 0.745224118232727)
+2025-03-21 16:10:22,550 - HandPal - INFO - Configurazione salvata
+2025-03-21 16:10:22,550 - HandPal - INFO - Calibrazione completata e salvata con valori: X: 0.022350534796714783-0.962244987487793, Y: 0.02805042266845703-0.9403024315834045
+2025-03-21 16:10:49,011 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-03-21 16:10:56,541 - HandPal - INFO - Punto di calibrazione 1 registrato: (0.023982882499694824, 0.05275137722492218)
+2025-03-21 16:10:59,009 - HandPal - INFO - Punto di calibrazione 2 registrato: (0.9745586514472961, 0.032727524638175964)
+2025-03-21 16:11:01,603 - HandPal - INFO - Punto di calibrazione 3 registrato: (0.9457892179489136, 0.9957190155982971)
+2025-03-21 16:11:05,378 - HandPal - INFO - Punto di calibrazione 4 registrato: (0.02688451111316681, 0.9532771706581116)
+2025-03-21 16:11:05,378 - HandPal - INFO - Configurazione salvata
+2025-03-21 16:11:05,378 - HandPal - INFO - Calibrazione completata e salvata con valori: X: 0.023982882499694824-0.9745586514472961, Y: 0.032727524638175964-0.9957190155982971
+2025-03-21 16:11:17,117 - HandPal - INFO - Click sinistro
+2025-03-21 16:11:19,681 - HandPal - INFO - Modalità debug: attivata
+2025-03-21 16:11:24,589 - HandPal - INFO - Modalità debug: disattivata
