@@ -4,5 +4,6 @@ tensorflow == 2.9.0
 scikit-learn == 1.0.2
 matplotlib == 3.5.1
 protobuf<3.20,>=3.9.2
+playsound==1.2.2
 pynput==1.7.7
-pypiwin32==223
+imageio==2.37.0
