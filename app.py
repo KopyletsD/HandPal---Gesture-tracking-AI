@@ -11,6 +11,7 @@ import tkinter as tk
 import time
 from pynput.mouse import Controller, Button
 import subprocess
+import webbrowser
 
 from utils import CvFpsCalc
 from model import KeyPointClassifier, PointHistoryClassifier
@@ -40,21 +41,108 @@ def calc_landmark_list(image, landmarks):
         for lm in landmarks.landmark
     ]
 
-def create_menu(debug_image, menu_top_left, menu_width, menu_height, dot_radius, mouse_position, circle_radius):
-    # Draw rectangle (menu)
-    cv.rectangle(debug_image, menu_top_left, 
-                 (menu_top_left[0] + menu_width, menu_top_left[1] + menu_height), 
-                 (255, 255, 255), 2)
+def create_menu(debug_image, menu_top_left, mouse_position, is_clicking):
+    """
+    Creates an improved menu with multiple application options and visual feedback.
     
-    # Draw one circle near the top of the rectangle
-    circle_center = (menu_top_left[0] + menu_width // 2, menu_top_left[1] + dot_radius + 10)
-    cv.circle(debug_image, circle_center, dot_radius, (255, 0, 0), -1)
-    if is_mouse_inside_circle(mouse_position, circle_center, circle_radius):
-        open_calculator()
-
+    Args:
+        debug_image: The image to draw the menu on
+        menu_top_left: Top-left coordinates of the menu
+        mouse_position: Current mouse position for hover detection
+        is_clicking: Boolean indicating if the user is currently clicking
     
-    return debug_image
+    Returns:
+        The image with the menu drawn on it and a list of actions to execute
+    """
+    # Menu dimensions
+    menu_width = 200
+    menu_height = 300
+    button_height = 50
+    padding = 10
+    
+    # Menu background with semi-transparency
+    overlay = debug_image.copy()
+    menu_bottom_right = (menu_top_left[0] + menu_width, menu_top_left[1] + menu_height)
+    cv.rectangle(overlay, menu_top_left, menu_bottom_right, (50, 50, 50), -1)
+    cv.addWeighted(overlay, 0.7, debug_image, 0.3, 0, debug_image)
+    
+    # Menu border
+    cv.rectangle(debug_image, menu_top_left, menu_bottom_right, (200, 200, 200), 2)
+    
+    # Menu title
+    title_y = menu_top_left[1] + 30
+    cv.putText(debug_image, "MENU", (menu_top_left[0] + 70, title_y), 
+               cv.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2, cv.LINE_AA)
+    
+    # Define menu buttons
+    menu_items = [
+        {"label": "Calculator", "icon": "🧮", "action": open_calculator, "color": (0, 120, 255)},
+        {"label": "Browser", "icon": "🌐", "action": open_browser, "color": (0, 200, 0)},
+        {"label": "Notepad", "icon": "📝", "action": open_notepad, "color": (255, 100, 0)},
+        {"label": "Music", "icon": "🎵", "action": open_music_player, "color": (180, 0, 180)}
+    ]
+    
+    # Draw menu items
+    actions_to_execute = []
+    
+    for i, item in enumerate(menu_items):
+        # Button position
+        button_top = menu_top_left[1] + 50 + (i * (button_height + padding))
+        button_bottom = button_top + button_height
+        button_left = menu_top_left[0] + padding
+        button_right = menu_top_left[0] + menu_width - padding
+        
+        # Check if mouse is hovering over this button
+        is_hovering = (button_left <= mouse_position[0] <= button_right and 
+                       button_top <= mouse_position[1] <= button_bottom)
+        
+        # Draw button with hover effect
+        button_color = item["color"] if not is_hovering else tuple(min(c + 50, 255) for c in item["color"])
+        cv.rectangle(debug_image, (button_left, button_top), (button_right, button_bottom), 
+                     button_color, -1 if is_hovering else 2)
+        
+        # Icon and label
+        icon_x = button_left + 20
+        text_x = button_left + 50
+        text_y = button_top + 32
+        
+        # Draw icon placeholder 
+        cv.circle(debug_image, (icon_x, text_y - 10), 10, (255, 255, 255), -1)
+        
+        # Draw label
+        cv.putText(debug_image, item["label"], (text_x, text_y), 
+                   cv.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1, cv.LINE_AA)
+        
+        # Store action if clicking on this button
+        if is_clicking and is_hovering:
+            actions_to_execute.append(item["action"])
+    
+    return debug_image, actions_to_execute
 
+def open_calculator():
+    try:
+        subprocess.Popen('calc.exe')  # For Windows
+    except Exception as e:
+        print(f"Error opening calculator: {e}")
+
+def open_browser():
+    try:
+        webbrowser.open('https://www.google.com')
+    except Exception as e:
+        print(f"Error opening browser: {e}")
+
+def open_notepad():
+    try:
+        subprocess.Popen('notepad.exe')  # For Windows
+    except Exception as e:
+        print(f"Error opening notepad: {e}")
+
+def open_music_player():
+    try:
+        # For Windows, open the default music player
+        subprocess.Popen('wmplayer.exe')
+    except Exception as e:
+        print(f"Error opening music player: {e}")
 
 def draw_circle_on_right(image):
     # Get the image dimensions
@@ -70,12 +158,6 @@ def draw_circle_on_right(image):
     # Draw the circle on the image
     cv.circle(image, center, radius, color, -1)  # -1 to fill the circle
     return image
-
-def open_calculator():
-    try:
-        subprocess.run('calc.exe')  # This will open the calculator in Windows
-    except Exception as e:
-        print(f"Error opening calculator: {e}")
 
 def pre_process_landmark(landmark_list):
     base_x, base_y = landmark_list[0]
@@ -168,7 +250,7 @@ def check_thumb_index_click(hand_landmarks):
     return False
 
 
-def select_mode(key, mode):
+def select_mode(key, mode, menu_active):
     number = key - 48 if 48 <= key <= 57 else -1
     if key == ord('n'):
         mode = 0
@@ -176,7 +258,9 @@ def select_mode(key, mode):
         mode = 1
     elif key == ord('h'):
         mode = 2
-    return number, mode
+    elif key == ord('m'):
+        menu_active = not menu_active
+    return number, mode, menu_active
 
 
 def detect_pointing_direction(hand_landmarks):
@@ -232,7 +316,10 @@ class VideoStream:
     def read(self):
         with self.lock:
             # Return a copy of the frame to avoid threading issues
-            return self.ret, self.frame.copy()
+            if self.ret:
+                return self.ret, self.frame.copy()
+            else:
+                return False, None
 
     def stop(self):
         self.stopped = True
@@ -240,8 +327,10 @@ class VideoStream:
 
 
 def main():
-    menuActive = False
-    alrClicked = False
+    # Initialize variables
+    menu_active = False
+    alr_clicked = False
+    
     args = get_args()
 
     # Initialize threaded video stream
@@ -277,23 +366,19 @@ def main():
     root.withdraw()  # Hide the Tkinter window
     screen_width, screen_height = root.winfo_screenwidth(), root.winfo_screenheight()
 
-    # Pre-calculate the restricted area (the "no-access" rectangle) coordinates.
-    rect_top_left = (args.width // 4, args.height // 4)
-    rect_bottom_right = (int(2 * args.width / 3.5), int(2 * args.height / 4))
-
     circle_center = (screen_width - 50, screen_height // 2)
     circle_radius = 30
 
-    click_cooldown = 2.0  # 1 second cooldown between clicks
+    click_cooldown = 2.0  # 2 second cooldown between clicks
     last_click_time = 0.0  # Initialize last click time to 0
-
+    menu_top_left = (20, 100)  # Position for the menu
 
     while True:
         fps = fps_calc.get()
         key = cv.waitKey(1)  # Reduced delay for higher FPS
         if key == 27:  # ESC key to exit
             break
-        number, mode = select_mode(key, mode)
+        number, mode, menu_active = select_mode(key, mode, menu_active)
 
         ret, frame = stream.read()
         if not ret:
@@ -307,89 +392,74 @@ def main():
         results = hands.process(image_rgb)
         image_rgb.flags.writeable = True
 
+        is_clicking = False
+        current_mouse_pos = mouse.position
+
         if results.multi_hand_landmarks:
             debug_image = draw_circle_on_right(debug_image)
             for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
+                # Calculate landmark coordinates
                 landmark_list = calc_landmark_list(debug_image, hand_landmarks)
-                pre_processed_landmark = pre_process_landmark(landmark_list)
+                
+                # Pre-process landmark coordinates for gesture recognition
+                pre_processed_landmark_list = pre_process_landmark(landmark_list)
+                
+                # Append index finger tip coordinates to point history
+                point_history.append(landmark_list[8])
+                
+                # Pre-process point history
+                pre_processed_point_history_list = pre_process_point_history(debug_image, point_history)
 
-                hand_sign_id = keypoint_classifier(pre_processed_landmark)
-                pointing_direction = detect_pointing_direction(hand_landmarks)
-
-                # --- Check for thumb-index touch to simulate mouse click ---
-                if check_thumb_index_click(hand_landmarks):
-                    move_mouse_to(hand_landmarks, screen_width, screen_height, mouse)
-                    mouse.click(Button.left)
-
-                # --- Process hand gestures and point history ---
-                if pointing_direction == "Pointing forward":
-                    if hand_sign_id == 2:
-                        point_history.append(landmark_list[8])
-                        move_mouse_to(hand_landmarks, screen_width, screen_height, mouse)
+                # Hand sign classification
+                hand_sign_id = keypoint_classifier(pre_processed_landmark_list)
+                
+                # Point history classification if necessary
+                if hand_sign_id == 2:  # Assuming 2 indicates a pointing gesture
+                    point_history_len = len(pre_processed_point_history_list)
+                    if point_history_len >= 1:
+                        finger_gesture_id = point_history_classifier(pre_processed_point_history_list)
                     else:
-                        point_history.append([0, 0])
+                        finger_gesture_id = 0
+                    finger_gesture_history.append(finger_gesture_id)
+                    most_common_fg_id = Counter(finger_gesture_history).most_common(1)[0][0]
+                    finger_gesture_text = point_history_classifier_labels[most_common_fg_id]
                 else:
-                    point_history.append([0, 0])
+                    finger_gesture_text = ""
+                
+                # Get hand gesture labels
+                hand_sign_text = keypoint_classifier_labels[hand_sign_id]
+                
+                # Draw landmarks and info on the image
+                debug_image = draw_landmarks(debug_image, landmark_list)
+                debug_image = draw_info_text(debug_image, handedness, hand_sign_text, finger_gesture_text)
 
-                # Compute the point history after appending the current frame.
-                pre_processed_point_history = pre_process_point_history(debug_image, list(point_history))
-                logging_csv(number, mode, pre_processed_landmark, pre_processed_point_history)
-
-                # Process point history for finger gesture classification.
-                finger_gesture_id = 0
-                if len(point_history) == history_length:
-                    finger_gesture_id = point_history_classifier(pre_processed_point_history)
-                finger_gesture_history.append(finger_gesture_id)
-
-                menu_width = 300  # Width of the menu
-                menu_height = 800  # Height of the menu
-                dot_radius = 50
-                menu_top_left = (screen_width - menu_width - 20, (screen_height - menu_height) // 2)
-                circle_radius = 30  # Radius of the red circle
-                circle_center = (screen_width - 50, screen_height // 2)  # Circle center near the right edge
-
-                # Track if the mouse is inside the red circle 
-
-                if pointing_direction == "Pointing forward":
-                    # Check if the mouse is inside the red circle and handle click logic with cooldown
-                    current_time = time.time()  # Get the current time
-                    if is_mouse_inside_circle(mouse.position, circle_center, circle_radius):
-                        if not alrClicked and (current_time - last_click_time >= click_cooldown):
-                            alrClicked = True  # Mark that the circle was clicked
-                            menuActive = not menuActive  # Toggle the menu state (active/inactive)
-                            last_click_time = current_time  # Update the last click time
-                            
-                        else:
-                            alrClicked = False
-                    
-                    # If the menu is active, display the menu
-                    if menuActive:
-                        debug_image = create_menu(debug_image, menu_top_left, menu_width, menu_height, dot_radius, mouse.position,circle_radius)
-                        debug_image = draw_circle_on_right(debug_image)
-                    
-                    # If the menu is not active, draw the red circle
-                    if not menuActive:
-                        debug_image = draw_circle_on_right(debug_image)
-                        alrClicked = False
-                    
-            most_common_fg_id = Counter(finger_gesture_history).most_common(1)[0][0]
-
-            # Draw the hand landmarks and informational text.
-            debug_image = draw_landmarks(debug_image, landmark_list)
-            debug_image = draw_info_text(debug_image, handedness,
-                                         keypoint_classifier_labels[hand_sign_id],
-                                         point_history_classifier_labels[most_common_fg_id])
-            cv.putText(debug_image, pointing_direction, (10, 140),
-                       cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 255), 2, cv.LINE_AA)
+                # Control the mouse based on hand position
+                move_mouse_to(hand_landmarks, screen_width, screen_height, mouse)
+                
+                # Check for click gesture
+                is_clicking = check_thumb_index_click(hand_landmarks)
+                if is_clicking and time.time() - last_click_time > click_cooldown:
+                    last_click_time = time.time()
+                
+                # Log data if in logging mode
+                if mode in (1, 2):
+                    logging_csv(number, mode, pre_processed_landmark_list, pre_processed_point_history_list)
+                
         else:
             point_history.append([0, 0])
 
-        debug_image = draw_point_history(debug_image, list(point_history))
+        debug_image = draw_point_history(debug_image, point_history)
         debug_image = draw_info(debug_image, fps, mode, number)
+
+        # Draw the menu if active
+        if menu_active:
+            debug_image, actions = create_menu(debug_image, menu_top_left, current_mouse_pos, is_clicking)
+            # Execute any actions triggered by menu interaction
+            for action in actions:
+                action()
 
         cv.imshow('Hand Gesture Recognition', debug_image)
 
-    # Clean up
     stream.stop()
     cv.destroyAllWindows()
 
