@@ -1137,3 +1137,144 @@ AttributeError: 'NoneType' object has no attribute 'copy'
 2025-04-04 14:35:38,616 - HandPal - INFO - Comando 'q' ricevuto, fermando...
 2025-04-04 14:35:38,617 - HandPal - INFO - Fermando HandPal...
 2025-04-04 14:35:38,686 - HandPal - INFO - Applicazione terminata.
+2025-04-04 15:23:16,130 - HandPal - INFO - Configurazione caricata dal file
+2025-04-04 15:23:16,162 - HandPal - INFO - Avvio HandPal...
+2025-04-04 15:23:23,085 - HandPal - INFO - Webcam richiesta 1980x1440, ottenuta 1920.0x1080.0
+2025-04-04 15:23:23,085 - HandPal - INFO - HandPal avviato con successo!
+2025-04-04 15:23:26,683 - HandPal - INFO - Calibrazione avviata. Segui le istruzioni sullo schermo.
+2025-04-04 15:23:30,664 - HandPal - INFO - Punto di calibrazione 1/4 registrato: (0.023, 0.039)
+2025-04-04 15:23:34,168 - HandPal - INFO - Punto di calibrazione 2/4 registrato: (0.959, 0.040)
+2025-04-04 15:23:48,064 - HandPal - WARNING - Impossibile registrare punto di calibrazione: mano destra non rilevata.
+2025-04-04 15:23:50,150 - HandPal - INFO - Punto di calibrazione 3/4 registrato: (0.917, 0.956)
+2025-04-04 15:23:52,516 - HandPal - INFO - Punto di calibrazione 4/4 registrato: (0.006, 0.961)
+2025-04-04 15:23:52,516 - HandPal - INFO - Completamento calibrazione...
+2025-04-04 15:23:52,516 - HandPal - INFO - Configurazione salvata
+2025-04-04 15:23:52,516 - HandPal - INFO - Calibrazione completata e salvata. Valori: X[0.006-0.959], Y[0.039-0.961]
+2025-04-04 15:24:05,224 - HandPal - INFO - Comando 'q' ricevuto, fermando...
+2025-04-04 15:24:05,224 - HandPal - INFO - Fermando HandPal...
+2025-04-04 15:24:05,239 - HandPal - INFO - Applicazione terminata.
+2025-04-04 15:24:50,983 - HandPal - INFO - Configurazione caricata da C:\Users\padovani.20144/.handpal_config.json
+2025-04-04 15:24:51,008 - HandPal - INFO - Dimensioni schermo rilevate: 1920x1080
+2025-04-04 15:24:51,008 - HandPal - INFO - Avvio HandPal...
+2025-04-04 15:24:57,934 - HandPal - INFO - Webcam richiesta 1980x1440, ottenuta 1920.0x1080.0 @ 30.0 FPS
+2025-04-04 15:24:57,934 - HandPal - INFO - DetectionThread initializzato
+2025-04-04 15:24:57,942 - HandPal - INFO - DetectionThread avviato
+2025-04-04 15:24:57,942 - HandPal - INFO - HandPal avviato con successo! Il loop principale inizierà.
+2025-04-04 15:24:57,944 - HandPal - INFO - Main loop avviato.
+2025-04-04 15:25:10,098 - HandPal - INFO - Click sinistro eseguito
+2025-04-04 15:25:43,081 - HandPal - INFO - Comando 'q' ricevuto, fermando...
+2025-04-04 15:25:43,081 - HandPal - INFO - Fermando HandPal...
+2025-04-04 15:25:43,119 - HandPal - INFO - DetectionThread terminato.
+2025-04-04 15:25:43,451 - HandPal - INFO - HandPal fermato.
+2025-04-04 15:25:43,451 - HandPal - INFO - Main loop terminato.
+2025-04-04 15:25:43,451 - HandPal - INFO - Applicazione terminata.
+2025-04-04 15:25:47,129 - HandPal - INFO - Cursore personalizzato 'red_cursor.cur' impostato con successo.
+2025-04-04 15:25:47,130 - HandPal - INFO - Configurazione caricata da C:\Users\padovani.20144/.handpal_config.json
+2025-04-04 15:25:47,152 - HandPal - INFO - Dimensioni schermo rilevate: 1920x1080
+2025-04-04 15:25:47,159 - HandPal - INFO - Avvio HandPal...
+2025-04-04 15:25:54,078 - HandPal - INFO - Webcam richiesta 1980x1440, ottenuta 1920.0x1080.0 @ 30.0 FPS
+2025-04-04 15:25:54,080 - HandPal - INFO - DetectionThread initializzato
+2025-04-04 15:25:54,086 - HandPal - INFO - DetectionThread avviato
+2025-04-04 15:25:54,086 - HandPal - INFO - HandPal avviato con successo! Il loop principale inizierà.
+2025-04-04 15:25:54,086 - HandPal - INFO - Main loop avviato.
+2025-04-04 15:26:04,645 - HandPal - INFO - Click sinistro eseguito
+2025-04-04 15:26:06,225 - HandPal - INFO - Click sinistro eseguito
+2025-04-04 15:26:16,138 - HandPal - INFO - Click sinistro eseguito
+2025-04-04 15:26:41,993 - HandPal - INFO - Avvio calibrazione...
+2025-04-04 15:26:47,015 - HandPal - INFO - Punto di calibrazione 1/4 registrato: (0.003, 0.018)
+2025-04-04 15:26:50,216 - HandPal - INFO - Punto di calibrazione 2/4 registrato: (0.989, 0.006)
+2025-04-04 15:26:52,919 - HandPal - INFO - Calibrazione annullata dall'utente.
+2025-04-04 15:26:52,919 - HandPal - INFO - Calibrazione annullata.
+2025-04-04 15:27:48,995 - HandPal - INFO - Cursore personalizzato 'red_cursor.cur' impostato con successo.
+2025-04-04 15:27:48,995 - HandPal - INFO - Configurazione caricata da C:\Users\padovani.20144/.handpal_config.json
+2025-04-04 15:27:49,034 - HandPal - INFO - Dimensioni schermo rilevate: 1920x1080
+2025-04-04 15:27:49,035 - HandPal - INFO - Avvio HandPal...
+2025-04-04 15:27:55,986 - HandPal - INFO - Webcam richiesta 1980x1440, ottenuta 1920.0x1080.0 @ 30.0 FPS
+2025-04-04 15:27:55,986 - HandPal - INFO - DetectionThread initializzato
+2025-04-04 15:27:55,994 - HandPal - INFO - DetectionThread avviato
+2025-04-04 15:27:55,994 - HandPal - INFO - HandPal avviato con successo! Il loop principale inizierà.
+2025-04-04 15:27:55,994 - HandPal - INFO - Main loop avviato.
+2025-04-04 15:28:02,543 - HandPal - INFO - Comando 'q' ricevuto, fermando...
+2025-04-04 15:28:02,543 - HandPal - INFO - Fermando HandPal...
+2025-04-04 15:28:02,572 - HandPal - INFO - DetectionThread terminato.
+2025-04-04 15:28:02,879 - HandPal - INFO - HandPal fermato.
+2025-04-04 15:28:02,879 - HandPal - INFO - Main loop terminato.
+2025-04-04 15:28:02,895 - HandPal - ERROR - Errore nel ripristino dei cursori predefiniti: Impossibile ripristinare i cursori predefiniti (Errore 0).
+2025-04-04 15:28:02,895 - HandPal - INFO - Applicazione terminata.
+2025-04-04 15:29:51,909 - HandPal - INFO - Cursore personalizzato 'red_cursor.cur' impostato con successo.
+2025-04-04 15:29:51,909 - HandPal - INFO - Configurazione caricata da C:\Users\padovani.20144/.handpal_config.json
+2025-04-04 15:29:51,942 - HandPal - INFO - Dimensioni schermo rilevate: 1980x1440
+2025-04-04 15:29:51,942 - HandPal - INFO - Avvio HandPal...
+2025-04-04 15:30:15,425 - HandPal - INFO - Cursore personalizzato 'red_cursor.cur' impostato con successo.
+2025-04-04 15:30:15,425 - HandPal - INFO - Configurazione caricata da C:\Users\padovani.20144/.handpal_config.json
+2025-04-04 15:30:15,465 - HandPal - INFO - Dimensioni schermo rilevate: 1980x1440
+2025-04-04 15:30:15,466 - HandPal - INFO - Avvio HandPal...
+2025-04-04 15:30:22,306 - HandPal - INFO - Webcam richiesta 1980x1440, ottenuta 1920.0x1080.0 @ 30.0 FPS
+2025-04-04 15:30:22,309 - HandPal - INFO - DetectionThread initializzato
+2025-04-04 15:30:22,315 - HandPal - INFO - DetectionThread avviato
+2025-04-04 15:30:22,315 - HandPal - INFO - HandPal avviato con successo! Il loop principale inizierà.
+2025-04-04 15:30:22,315 - HandPal - INFO - Main loop avviato.
+2025-04-04 15:30:25,609 - HandPal - INFO - Comando 'q' ricevuto, fermando...
+2025-04-04 15:30:25,609 - HandPal - INFO - Fermando HandPal...
+2025-04-04 15:30:25,643 - HandPal - INFO - DetectionThread terminato.
+2025-04-04 15:30:25,959 - HandPal - INFO - HandPal fermato.
+2025-04-04 15:30:25,965 - HandPal - INFO - Main loop terminato.
+2025-04-04 15:30:25,982 - HandPal - ERROR - Errore nel ripristino dei cursori predefiniti: Impossibile ripristinare i cursori predefiniti (Errore 0).
+2025-04-04 15:30:25,983 - HandPal - INFO - Applicazione terminata.
+2025-04-04 15:30:55,252 - HandPal - INFO - Cursore personalizzato 'red_cursor.cur' impostato con successo.
+2025-04-04 15:30:55,253 - HandPal - INFO - Configurazione caricata da C:\Users\padovani.20144/.handpal_config.json
+2025-04-04 15:38:11,343 - HandPal - INFO - Logging impostato a livello INFO.
+2025-04-04 15:38:11,343 - HandPal - INFO - Configurazione caricata da C:\Users\padovani.20144/.handpal_config.json
+2025-04-04 15:38:11,343 - HandPal - INFO - Tentativo di impostare il cursore personalizzato: red_cursor.cur
+2025-04-04 15:38:11,343 - HandPal - INFO - Cursore personalizzato 'red_cursor.cur' impostato con successo.
+2025-04-04 15:38:11,379 - HandPal - INFO - Dimensioni schermo rilevate: 1920x1080
+2025-04-04 15:38:11,380 - HandPal - INFO - Tentativo di avviare HandPal...
+2025-04-04 15:38:11,380 - HandPal - INFO - Avvio HandPal...
+2025-04-04 15:38:12,796 - HandPal - INFO - Webcam richiesta 1980x1440, ottenuta 1920x1080 @ 30.0 FPS (Buffer: -1.0)
+2025-04-04 15:38:12,801 - HandPal - INFO - DetectionThread initializzato (process res: 640x360, flip: True)
+2025-04-04 15:38:12,803 - HandPal - INFO - DetectionThread avviato
+2025-04-04 15:38:12,803 - HandPal - INFO - HandPal avviato con successo! Il loop principale inizierà.
+2025-04-04 15:38:12,803 - HandPal - INFO - Main loop avviato.
+2025-04-04 15:38:23,692 - HandPal - INFO - Comando 'q' ricevuto, fermando...
+2025-04-04 15:38:23,693 - HandPal - INFO - Fermando HandPal...
+2025-04-04 15:38:23,751 - HandPal - INFO - DetectionThread terminato. Elaborati 252 frames in 10.95s (Avg FPS: 23.0)
+2025-04-04 15:38:24,017 - HandPal - INFO - Finestre OpenCV chiuse.
+2025-04-04 15:38:24,017 - HandPal - INFO - HandPal fermato.
+2025-04-04 15:38:24,017 - HandPal - INFO - Main loop terminato.
+2025-04-04 15:38:24,017 - HandPal - INFO - Esecuzione blocco finally per cleanup...
+2025-04-04 15:38:24,017 - HandPal - INFO - Ripristino cursore di sistema predefinito...
+2025-04-04 15:38:24,043 - HandPal - ERROR - Errore nel ripristino dei cursori predefiniti: Impossibile ripristinare i cursori predefiniti (Errore 0).
+2025-04-04 15:38:24,044 - HandPal - INFO - Applicazione HandPal terminata.
+2025-04-04 15:38:47,054 - HandPal - INFO - Logging impostato a livello INFO.
+2025-04-04 15:38:47,054 - HandPal - INFO - Configurazione caricata da C:\Users\padovani.20144/.handpal_config.json
+2025-04-04 15:38:47,054 - HandPal - WARNING - Impossibile convertire l'argomento CLI 'display_width' (1280) al tipo <class 'NoneType'>. Usando valore fornito.
+2025-04-04 15:38:47,054 - HandPal - WARNING - Impossibile convertire l'argomento CLI 'display_height' (720) al tipo <class 'NoneType'>. Usando valore fornito.
+2025-04-04 15:38:47,054 - HandPal - INFO - Tentativo di impostare il cursore personalizzato: red_cursor.cur
+2025-04-04 15:38:47,070 - HandPal - INFO - Cursore personalizzato 'red_cursor.cur' impostato con successo.
+2025-04-04 15:38:47,093 - HandPal - INFO - Dimensioni schermo rilevate: 1920x1080
+2025-04-04 15:38:47,099 - HandPal - INFO - Tentativo di avviare HandPal...
+2025-04-04 15:38:47,099 - HandPal - INFO - Avvio HandPal...
+2025-04-04 15:38:48,196 - HandPal - INFO - Webcam richiesta 1980x1440, ottenuta 1920x1080 @ 30.0 FPS (Buffer: -1.0)
+2025-04-04 15:38:48,202 - HandPal - INFO - DetectionThread initializzato (process res: 640x360, flip: True)
+2025-04-04 15:38:48,203 - HandPal - INFO - DetectionThread avviato
+2025-04-04 15:38:48,203 - HandPal - INFO - HandPal avviato con successo! Il loop principale inizierà.
+2025-04-04 15:38:48,204 - HandPal - INFO - Main loop avviato.
+2025-04-04 15:38:48,227 - HandPal - INFO - Dimensione finestra impostata a 1280x720
+2025-04-04 15:39:23,251 - HandPal - INFO - Avvio calibrazione...
+2025-04-04 15:39:27,827 - HandPal - INFO - Punto di calibrazione 1/4 (in alto a sinistra) registrato: (-0.016, 0.016)
+2025-04-04 15:39:31,027 - HandPal - INFO - Punto di calibrazione 2/4 (in alto a destra) registrato: (0.973, 0.026)
+2025-04-04 15:39:37,253 - HandPal - WARNING - Impossibile registrare punto di calibrazione: mano destra non rilevata.
+2025-04-04 15:39:42,305 - HandPal - INFO - Punto di calibrazione 3/4 (in basso a destra) registrato: (0.935, 0.904)
+2025-04-04 15:39:44,738 - HandPal - INFO - Punto di calibrazione 4/4 (in basso a sinistra) registrato: (0.028, 0.986)
+2025-04-04 15:39:44,738 - HandPal - INFO - Completamento calibrazione...
+2025-04-04 15:39:44,738 - HandPal - WARNING - Valori di calibrazione X non validi (-0.02, 0.96), ripristino default X.
+2025-04-04 15:39:44,739 - HandPal - INFO - Configurazione salvata in C:\Users\padovani.20144/.handpal_config.json
+2025-04-04 15:39:44,739 - HandPal - INFO - Calibrazione completata e salvata. Valori: X[-0.016-0.973], Y[0.016-0.986]
+2025-04-04 15:39:59,228 - HandPal - INFO - Click sinistro eseguito
+2025-04-04 15:40:01,327 - HandPal - INFO - Click sinistro eseguito
+2025-04-04 15:40:06,126 - HandPal - INFO - Click sinistro eseguito
+2025-04-04 15:40:08,891 - HandPal - INFO - Click sinistro eseguito
+2025-04-04 15:40:11,858 - HandPal - INFO - Click sinistro eseguito
+2025-04-04 15:40:16,009 - HandPal - INFO - Click sinistro eseguito
+2025-04-04 15:40:18,367 - HandPal - INFO - Click sinistro eseguito
+2025-04-04 15:40:31,800 - HandPal - INFO - Click sinistro eseguito
