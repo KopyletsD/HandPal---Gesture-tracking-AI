@@ -14,7 +14,7 @@ import time
 from pynput.mouse import Controller, Button
 import subprocess
 import webbrowser
-from tkinter import Frame, Button as TkButton, Label, Toplevel
+from tkinter import Frame, Button as TkButton, Label, Toplevel, BOTH, X
 from PIL import Image, ImageTk
 
 from utils import CvFpsCalc
@@ -23,63 +23,146 @@ from model import KeyPointClassifier, PointHistoryClassifier
 # Set of landmark indices that are drawn larger
 LARGE_POINTS = {4, 8, 12, 16, 20}
 
-# Classe per il menu sempre visibile
+# CSV file path for applications
+APP_CSV_PATH = 'applications.csv'
+
+# Create default applications CSV file if not exists
+def create_default_apps_csv():
+    if not os.path.exists(APP_CSV_PATH):
+        with open(APP_CSV_PATH, 'w', newline='', encoding='utf-8') as f:  # Specify utf-8 encoding
+            writer = csv.writer(f)
+            writer.writerow(['label', 'path', 'color', 'icon'])
+            writer.writerow(['Calculator', 'C:\\Windows\\System32\\calc.exe', '#0078D7', '🧮'])
+            writer.writerow(['Browser', 'https://www.google.com', '#00C800', '🌐'])
+            writer.writerow(['Notepad', 'notepad.exe', '#FF6400', '📝'])
+
+# Function to read applications from CSV
+def read_applications_from_csv():
+    create_default_apps_csv()  # Ensure CSV exists
+    applications = []
+    
+    try:
+        with open(APP_CSV_PATH, 'r', newline='', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                applications.append({
+                    'label': row['label'],
+                    'path': row['path'],
+                    'color': row['color'] if 'color' in row else '#555555',
+                    'icon': row['icon'] if 'icon' in row and row['icon'] else '📱'
+                })
+    except Exception as e:
+        print(f"Error reading applications CSV: {e}")
+        # Return some default applications in case of error
+        applications = [
+            {'label': 'Calculator', 'path': 'C:\\Windows\\System32\\calc.exe', 'color': '#0078D7', 'icon': '🧮'},
+            {'label': 'Browser', 'path': 'https://www.google.com', 'color': '#00C800', 'icon': '🌐'},
+            {'label': 'Notepad', 'path': 'notepad.exe', 'color': '#FF6400', 'icon': '📝'}
+        ]
+    
+    return applications
+
+# Function to launch application based on path
+def launch_application(path):
+    try:
+        if path.startswith('http'):
+            webbrowser.open(path)
+        else:
+            subprocess.Popen(path)
+    except Exception as e:
+        print(f"Error launching application {path}: {e}")
+
+# Class for the floating menu
 class FloatingMenu:
     def __init__(self, root=None):
         if root is None:
             self.root = tk.Tk()
-            self.root.withdraw()  # Nascondi la finestra principale
+            self.root.withdraw()  # Hide main window
         else:
             self.root = root
             
         self.window = Toplevel(self.root)
         self.window.title("Gesture Menu")
-        self.window.attributes("-topmost", True)  # Sempre in primo piano
-        self.window.overrideredirect(True)  # Rimuovi la barra del titolo
-        self.window.geometry("220x320+50+50")  # Dimensioni e posizione
-        self.window.configure(bg='#333333')
+        self.window.attributes("-topmost", True)  # Always on top
+        self.window.overrideredirect(True)  # Remove title bar
+        self.window.geometry("280x400+50+50")  # Size and position
+        self.window.configure(bg='#222831')  # Dark theme background
         
-        # Crea gli elementi del menu
+        # Load applications from CSV
+        self.applications = read_applications_from_csv()
+        
+        # Create menu elements
         self.create_menu_elements()
         
-        # Nascondi il menu all'inizio
+        # Hide menu initially
         self.hide()
         
-        # Stato del menu
+        # Menu state
         self.visible = False
         
-        # Per spostare la finestra
+        # For moving the window
         self.window.bind("<ButtonPress-1>", self.start_move)
         self.window.bind("<ButtonRelease-1>", self.stop_move)
         self.window.bind("<B1-Motion>", self.do_move)
         
     def create_menu_elements(self):
-        # Titolo
-        title_frame = Frame(self.window, bg='#333333')
-        title_frame.pack(pady=10, fill=tk.X)
+        # Title with modern design
+        title_frame = Frame(self.window, bg='#222831', pady=15)
+        title_frame.pack(fill=X)
         
-        title_label = Label(title_frame, text="GESTURE MENU", font=("Arial", 12, "bold"), 
-                           bg='#333333', fg='white')
+        title_label = Label(title_frame, text="GESTURE CONTROL", font=("Helvetica", 14, "bold"), 
+                           bg='#222831', fg='#EEEEEE')
         title_label.pack()
         
-        # Pulsanti
-        self.buttons = []
-        button_configs = [
-            {"text": "Calculator", "bg": "#0078D7", "command": open_calculator},
-            {"text": "Browser", "bg": "#00C800", "command": open_browser},
-            {"text": "Notepad", "bg": "#FF6400", "command": open_notepad},
-            {"text": "Music Player", "bg": "#B400B4", "command": open_music_player},
-            {"text": "Close Menu", "bg": "#D72000", "command": self.hide}
-        ]
+        subtitle = Label(title_frame, text="Select Application", font=("Helvetica", 10), 
+                        bg='#222831', fg='#00ADB5')
+        subtitle.pack(pady=(0, 10))
         
-        for config in button_configs:
-            button_frame = Frame(self.window, bg='#333333')
-            button_frame.pack(pady=5, padx=10, fill=tk.X)
+        # Container for buttons
+        self.button_container = Frame(self.window, bg='#222831', padx=20)
+        self.button_container.pack(fill=BOTH, expand=True)
+        
+        # Create application buttons dynamically from CSV
+        self.buttons = []
+        for app in self.applications:
+            button_frame = Frame(self.button_container, bg='#222831', pady=8)
+            button_frame.pack(fill=X)
             
-            button = TkButton(button_frame, text=config["text"], bg=config["bg"], fg="white",
-                           font=("Arial", 10), width=15, height=2, command=config["command"])
-            button.pack(fill=tk.X)
+            # Create button with app info
+            button = TkButton(
+                button_frame, 
+                text=f"{app['icon']} {app['label']}", 
+                bg=app['color'],
+                fg="white",
+                font=("Helvetica", 11),
+                relief=tk.FLAT,
+                borderwidth=0,
+                padx=10,
+                pady=8,
+                width=20,
+                command=lambda path=app['path']: launch_application(path)
+            )
+            button.pack(fill=X)
             self.buttons.append(button)
+        
+        # Close button at bottom
+        bottom_frame = Frame(self.window, bg='#222831', pady=15)
+        bottom_frame.pack(fill=X, side=tk.BOTTOM)
+        
+        close_button = TkButton(
+            bottom_frame, 
+            text="✖ Close Menu", 
+            bg='#393E46',
+            fg='#EEEEEE',
+            font=("Helvetica", 10),
+            relief=tk.FLAT,
+            borderwidth=0,
+            padx=10,
+            pady=5,
+            width=15,
+            command=self.hide
+        )
+        close_button.pack(pady=5)
     
     def show(self):
         self.window.deiconify()
@@ -117,7 +200,6 @@ class FloatingMenu:
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--device", type=int, default=0, help="Camera device index")
-    # Lower resolution for faster processing
     parser.add_argument("--width", type=int, default=1280, help="Capture width")
     parser.add_argument("--height", type=int, default=720, help="Capture height")
     parser.add_argument('--use_static_image_mode', action='store_true',
@@ -136,124 +218,6 @@ def calc_landmark_list(image, landmarks):
          min(int(lm.y * image_height), image_height - 1)]
         for lm in landmarks.landmark
     ]
-
-def create_menu(debug_image, menu_top_left, mouse_position, is_clicking):
-    """
-    Creates an improved menu with multiple application options and visual feedback.
-    
-    Args:
-        debug_image: The image to draw the menu on
-        menu_top_left: Top-left coordinates of the menu
-        mouse_position: Current mouse position for hover detection
-        is_clicking: Boolean indicating if the user is currently clicking
-    
-    Returns:
-        The image with the menu drawn on it and a list of actions to execute
-    """
-    # Menu dimensions
-    menu_width = 200
-    menu_height = 300
-    button_height = 50
-    padding = 10
-    
-    # Menu background with semi-transparency
-    overlay = debug_image.copy()
-    menu_bottom_right = (menu_top_left[0] + menu_width, menu_top_left[1] + menu_height)
-    cv.rectangle(overlay, menu_top_left, menu_bottom_right, (50, 50, 50), -1)
-    cv.addWeighted(overlay, 0.7, debug_image, 0.3, 0, debug_image)
-    
-    # Menu border
-    cv.rectangle(debug_image, menu_top_left, menu_bottom_right, (200, 200, 200), 2)
-    
-    # Menu title
-    title_y = menu_top_left[1] + 30
-    cv.putText(debug_image, "MENU", (menu_top_left[0] + 70, title_y), 
-               cv.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2, cv.LINE_AA)
-    
-    # Define menu buttons
-    menu_items = [
-        {"label": "Calculator", "icon": "🧮", "action": open_calculator, "color": (0, 120, 255)},
-        {"label": "Browser", "icon": "🌐", "action": open_browser, "color": (0, 200, 0)},
-        {"label": "Notepad", "icon": "📝", "action": open_notepad, "color": (255, 100, 0)},
-        {"label": "Music", "icon": "🎵", "action": open_music_player, "color": (180, 0, 180)}
-    ]
-    
-    # Draw menu items
-    actions_to_execute = []
-    
-    for i, item in enumerate(menu_items):
-        # Button position
-        button_top = menu_top_left[1] + 50 + (i * (button_height + padding))
-        button_bottom = button_top + button_height
-        button_left = menu_top_left[0] + padding
-        button_right = menu_top_left[0] + menu_width - padding
-        
-        # Check if mouse is hovering over this button
-        is_hovering = (button_left <= mouse_position[0] <= button_right and 
-                       button_top <= mouse_position[1] <= button_bottom)
-        
-        # Draw button with hover effect
-        button_color = item["color"] if not is_hovering else tuple(min(c + 50, 255) for c in item["color"])
-        cv.rectangle(debug_image, (button_left, button_top), (button_right, button_bottom), 
-                     button_color, -1 if is_hovering else 2)
-        
-        # Icon and label
-        icon_x = button_left + 20
-        text_x = button_left + 50
-        text_y = button_top + 32
-        
-        # Draw icon placeholder 
-        cv.circle(debug_image, (icon_x, text_y - 10), 10, (255, 255, 255), -1)
-        
-        # Draw label
-        cv.putText(debug_image, item["label"], (text_x, text_y), 
-                   cv.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1, cv.LINE_AA)
-        
-        # Store action if clicking on this button
-        if is_clicking and is_hovering:
-            actions_to_execute.append(item["action"])
-    
-    return debug_image, actions_to_execute
-
-def open_calculator():
-    try:
-        subprocess.Popen('calc.exe')  # For Windows
-    except Exception as e:
-        print(f"Error opening calculator: {e}")
-
-def open_browser():
-    try:
-        webbrowser.open('https://www.google.com')
-    except Exception as e:
-        print(f"Error opening browser: {e}")
-
-def open_notepad():
-    try:
-        subprocess.Popen('notepad.exe')  # For Windows
-    except Exception as e:
-        print(f"Error opening notepad: {e}")
-
-def open_music_player():
-    try:
-        # For Windows, open the default music player
-        subprocess.Popen('wmplayer.exe')
-    except Exception as e:
-        print(f"Error opening music player: {e}")
-
-def draw_circle_on_right(image):
-    # Get the image dimensions
-    height, width, _ = image.shape
-
-    # Set the circle's center at the right side of the image
-    center = (width - 50, height // 2)  # 50px from the right edge, vertically centered
-
-    # Set the radius and color of the circle
-    radius = 30  # You can change this to your desired radius
-    color = (0, 0, 255)  # Red color in BGR format (OpenCV uses BGR)
-
-    # Draw the circle on the image
-    cv.circle(image, center, radius, color, -1)  # -1 to fill the circle
-    return image, center, radius
 
 def pre_process_landmark(landmark_list):
     base_x, base_y = landmark_list[0]
@@ -355,7 +319,7 @@ def select_mode(key, mode, menu_active, floating_menu):
     elif key == ord('h'):
         mode = 2
     elif key == ord('m'):
-        # Toggle il menu flottante invece di quello OpenCV
+        # Toggle floating menu
         floating_menu.toggle()
     return number, mode
 
@@ -388,51 +352,73 @@ def is_mouse_inside_circle(mouse_position, circle_center, radius):
     distance = np.linalg.norm(np.array(mouse_position) - np.array(circle_center))
     return distance <= radius
 
+def draw_circle_on_right(image):
+    # Get the image dimensions
+    height, width, _ = image.shape
+
+    # Set the circle's center at the right side of the image
+    center = (width - 50, height // 2)  # 50px from the right edge, vertically centered
+
+    # Set the radius and color of the circle
+    radius = 30  # You can change this to your desired radius
+    # Draw pulsing circle effect
+    color_intensity = 150 + int(50 * np.sin(time.time() * 5))  # Pulsing effect
+    color = (0, color_intensity, 255)  # Blue color with pulsing intensity
+
+    # Draw the circle on the image
+    cv.circle(image, center, radius, color, -1)  # -1 to fill the circle
+    
+    # Add a small text label
+    cv.putText(image, "Menu", (center[0]-20, center[1]+40), 
+               cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv.LINE_AA)
+    
+    return image, center, radius
+
 def perform_gesture_detection(image, circle_data, hands, keypoint_classifier, 
                             point_history_classifier, point_history, finger_gesture_history,
                             keypoint_classifier_labels, point_history_classifier_labels,
                             history_length, floating_menu):
     """
-    Esegui il rilevamento dei gesti e il controllo del mouse in una funzione separata.
-    Questa funzione può essere chiamata sia nell'app principale che in modalità background.
+    Perform gesture detection and mouse control in a separate function.
+    This function can be called in both the main app and background mode.
     """
-    # Estrai i dati del cerchio se disponibili
+    # Extract circle data if available
     circle_center, circle_radius = circle_data if circle_data else (None, None)
     
-    # Inizializza il mouse controller
+    # Initialize mouse controller
     mouse = Controller()
     
-    # Converti l'immagine in RGB per MediaPipe
+    # Convert image to RGB for MediaPipe
     image_rgb = cv.cvtColor(image, cv.COLOR_BGR2RGB)
     
-    # Processa l'immagine con MediaPipe Hands
+    # Process image with MediaPipe Hands
     results = hands.process(image_rgb)
     
-    # Se non ci sono mani rilevate, svuota la storia dei punti
+    # If no hands detected, clear point history
     if results.multi_hand_landmarks is None:
         point_history.appendleft([0, 0])
         return image, mouse.position, False
     
-    # Variabili per il controllo del mouse
+    # Variables for mouse control
     is_clicking = False
     mouse_position = mouse.position
     
     for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
-        # Punti di riferimento della mano
+        # Hand landmarks
         landmark_list = calc_landmark_list(image, hand_landmarks)
         
-        # Normalizzazione
+        # Normalization
         pre_processed_landmark_list = pre_process_landmark(landmark_list)
         pre_processed_point_history_list = pre_process_point_history(image, point_history)
         
-        # Classificazione del gesto della mano
+        # Hand sign classification
         hand_sign_id = keypoint_classifier(pre_processed_landmark_list)
-        if hand_sign_id == 2:  # Indice esteso
-            point_history.appendleft(landmark_list[8])  # Punta dell'indice
+        if hand_sign_id == 2:  # Index finger extended
+            point_history.appendleft(landmark_list[8])  # Index fingertip
         else:
             point_history.appendleft([0, 0])
         
-        # Classificazione del gesto delle dita
+        # Finger gesture classification
         finger_gesture_id = 0
         point_history_len = len(pre_processed_point_history_list)
         if point_history_len == (history_length * 2):
@@ -440,24 +426,24 @@ def perform_gesture_detection(image, circle_data, hands, keypoint_classifier,
         finger_gesture_history.append(finger_gesture_id)
         most_common_fg_id = Counter(finger_gesture_history).most_common(1)[0][0]
         
-        # CONTROLLO DEL MOUSE E INTERAZIONE MENU
-        # Controlla se l'utente sta cliccando
+        # MOUSE CONTROL AND MENU INTERACTION
+        # Check if user is clicking
         is_clicking = check_thumb_index_click(hand_landmarks)
         
-        # Muovi il mouse con l'indice
-        move_mouse_to(hand_landmarks, 1920, 1080, mouse)  # Usa risoluzione dello schermo
+        # Move mouse with index finger
+        move_mouse_to(hand_landmarks, 1920, 1080, mouse)  # Use screen resolution
         mouse_position = mouse.position
         
-        # Esegui click se è stato rilevato
+        # Execute click if detected
         if is_clicking:
             mouse.press(Button.left)
             mouse.release(Button.left)
         
-        # Controlla se l'indice sta puntando verso il cerchio (per attivare il menu)
+        # Check if index finger is pointing towards circle (to activate menu)
         if circle_center and circle_radius and is_mouse_inside_circle(mouse_position, circle_center, circle_radius):
             floating_menu.show()
         
-        # Disegna i punti della mano e le informazioni nel debug_image
+        # Draw hand landmarks and information on debug_image
         image = draw_landmarks(image, landmark_list)
         image = draw_point_history(image, point_history)
         image = draw_info_text(image, handedness, 
@@ -494,19 +480,19 @@ class VideoStream:
     def stop(self):
         self.stopped = True
 
-# Classe per eseguire il riconoscimento gestuale in background
+# Class to run gesture recognition in background
 class GestureRecognitionThread(threading.Thread):
     def __init__(self, args):
         threading.Thread.__init__(self, daemon=True)
         self.args = args
         self.stopped = False
         
-        # Crea il menu flottante
+        # Create floating menu
         self.root = tk.Tk()
-        self.root.withdraw()  # Nascondi la finestra principale
+        self.root.withdraw()  # Hide main window
         self.floating_menu = FloatingMenu(self.root)
         
-        # Inizializza la webcam
+        # Initialize webcam
         self.video_stream = VideoStream(
             src=args.device,
             width=args.width,
@@ -523,82 +509,85 @@ class GestureRecognitionThread(threading.Thread):
             min_tracking_confidence=args.min_tracking_confidence,
         )
         
-        # Carica i classificatori
+        # Load classifiers
         self.keypoint_classifier = KeyPointClassifier()
         self.point_history_classifier = PointHistoryClassifier()
         
-        # Leggi le etichette dei classificatori
+        # Read classifier labels
         with open('model/keypoint_classifier/keypoint_classifier_label.csv', encoding='utf-8-sig') as f:
             self.keypoint_classifier_labels = [row[0] for row in csv.reader(f)]
         with open('model/point_history_classifier/point_history_classifier_label.csv', encoding='utf-8-sig') as f:
             self.point_history_classifier_labels = [row[0] for row in csv.reader(f)]
         
-        # Storia dei punti
+        # Point history
         self.history_length = 16
         self.point_history = deque(maxlen=self.history_length)
         self.finger_gesture_history = deque(maxlen=self.history_length)
         
-        # Calcolatore FPS
+        # FPS calculator
         self.cvFpsCalc = CvFpsCalc(buffer_len=10)
         
-        # Stato del mouse
+        # Mouse state
         self.mouse = Controller()
         self.mouse_position = (0, 0)
         self.is_clicking = False
         
-        # Crea un mini-display per mostrare l'input della videocamera
+        # Create mini-display to show camera input
         self.mini_display = Toplevel(self.root)
         self.mini_display.title("Camera Preview")
-        self.mini_display.geometry("320x240+1600+50")  # Posiziona in alto a destra
-        self.mini_display.attributes("-topmost", True)  # Sempre in primo piano
-        self.mini_display.protocol("WM_DELETE_WINDOW", self.on_closing)  # Gestisci la chiusura
+        self.mini_display.geometry("320x300+1600+50")  # Position in top right
+        self.mini_display.attributes("-topmost", True)  # Always on top
+        self.mini_display.configure(bg='#222831')  # Dark theme background
+        self.mini_display.protocol("WM_DELETE_WINDOW", self.on_closing)  # Handle closing
         
-        # Crea un'etichetta per mostrare il feed della videocamera
-        self.camera_label = Label(self.mini_display)
-        self.camera_label.pack(fill=tk.BOTH, expand=True)
+        # Create label to show camera feed
+        self.camera_label = Label(self.mini_display, bg='#222831')
+        self.camera_label.pack(fill=BOTH, expand=True, padx=10, pady=10)
         
-        # Aggiungi un pulsante per mostrare/nascondere il menu
-        self.menu_button = TkButton(self.mini_display, text="Menu On/Off", 
-                                  bg="#555555", fg="white", command=self.floating_menu.toggle)
-        self.menu_button.pack(fill=tk.X, pady=5)
+        # Add button to show/hide menu
+        self.menu_button = TkButton(self.mini_display, text="Toggle Menu", 
+                                  bg="#00ADB5", fg="white", font=("Helvetica", 10, "bold"),
+                                  relief=tk.FLAT, command=self.floating_menu.toggle)
+        self.menu_button.pack(fill=X, padx=10, pady=5)
         
-        # Aggiungi un pulsante per uscire
-        self.exit_button = TkButton(self.mini_display, text="Exit", 
-                                   bg="#FF0000", fg="white", command=self.stop)
-        self.exit_button.pack(fill=tk.X)
+        # Add exit button
+        self.exit_button = TkButton(self.mini_display, text="Exit Application", 
+                                   bg="#D72000", fg="white", font=("Helvetica", 10),
+                                   relief=tk.FLAT, command=self.stop)
+        self.exit_button.pack(fill=X, padx=10, pady=5)
         
     def update_mini_display(self, image):
-        """Aggiorna il mini-display con l'immagine corrente"""
-        # Ridimensiona l'immagine per il mini-display
-        small_image = cv.resize(image, (320, 240))
-        # Converti da BGR a RGB
+        """Update mini-display with current image"""
+        # Resize image for mini-display
+        small_image = cv.resize(image, (300, 200))
+        # Convert from BGR to RGB
         small_image = cv.cvtColor(small_image, cv.COLOR_BGR2RGB)
-        # Converti in formato per tkinter
+        # Convert to format for tkinter
         img_tk = ImageTk.PhotoImage(image=Image.fromarray(small_image))
-        # Aggiorna l'etichetta
+        # Update label
         self.camera_label.config(image=img_tk)
-        self.camera_label.image = img_tk  # Mantieni un riferimento
+        self.camera_label.image = img_tk  # Keep a reference
     
     def run(self):
-        """Loop principale del thread di riconoscimento gestuale"""
+        """Main loop for gesture recognition thread"""
         while not self.stopped:
-            # Aggiorna tkinter UI
+            # Update tkinter UI
             self.root.update()
             
-            # Leggi il frame dalla videocamera
+            # Read frame from camera
             ret, image = self.video_stream.read()
             if not ret:
                 continue
                 
-            # Ribalta l'immagine orizzontalmente
+            # Flip image horizontally
             image = cv.flip(image, 1)
             debug_image = image.copy()
             
-            # Disegna un cerchio sulla destra dell'immagine
+            # Draw a circle on the right side of the image
             debug_image, circle_center, circle_radius = draw_circle_on_right(debug_image)
             circle_data = (circle_center, circle_radius)
             
-            # Esegui il rilevamento dei gesti
+            # Perform gesture detection
             debug_image, mouse_pos, is_click = perform_gesture_detection(
                 debug_image, circle_data, self.hands, self.keypoint_classifier, 
                 self.point_history_classifier, self.point_history, 
@@ -607,49 +596,52 @@ class GestureRecognitionThread(threading.Thread):
                 self.floating_menu
             )
             
-            # Aggiorna le informazioni FPS
+            # Update FPS information
             fps = self.cvFpsCalc.get()
             debug_image = draw_info(debug_image, fps, 0, -1)
             
-            # Aggiorna il mini-display
+            # Update mini-display
             self.update_mini_display(debug_image)
             
-            # Pausa breve per ridurre l'utilizzo della CPU
+            # Short pause to reduce CPU usage
             time.sleep(0.01)
         
-        # Pulisci quando fermato
+        # Clean up when stopped
         self.cleanup()
     
     def stop(self):
-        """Ferma il thread di riconoscimento e pulisci le risorse"""
+        """Stop recognition thread and clean up resources"""
         self.stopped = True
         
     def on_closing(self):
-        """Gestisci la chiusura della finestra del mini-display"""
+        """Handle mini-display window closing"""
         self.stop()
         
     def cleanup(self):
-        """Pulisci le risorse"""
+        """Clean up resources"""
         self.video_stream.stop()
         self.mini_display.destroy()
         self.root.destroy()
-        # Esci dall'applicazione
+        # Exit application
         os._exit(0)
 
 def main():
-    # Analizza gli argomenti da riga di comando
+    # Parse command line arguments
     args = get_args()
     
-    # Se richiesto di eseguire in background
+    # Create default applications CSV if it doesn't exist
+    create_default_apps_csv()
+    
+    # If requested to run in background
     if args.run_in_background:
-        # Avvia il thread di riconoscimento gestuale in background
+        # Start gesture recognition thread in background
         gesture_thread = GestureRecognitionThread(args)
         gesture_thread.start()
-        # Usa tkinter come loop principale
+        # Use tkinter as main loop
         gesture_thread.root.mainloop()
         return
         
-    # Inizializza la webcam con thread
+    # Initialize webcam with thread
     video_stream = VideoStream(
         src=args.device,
         width=args.width,
@@ -657,9 +649,9 @@ def main():
         fps=30
     )
     
-    # Crea il menu flottante
+    # Create floating menu
     root = tk.Tk()
-    root.withdraw()  # Nascondi la finestra principale
+    root.withdraw()  # Hide main window
     floating_menu = FloatingMenu(root)
     
     # MediaPipe Hands
@@ -671,33 +663,33 @@ def main():
         min_tracking_confidence=args.min_tracking_confidence,
     )
 
-    # Carica i classificatori
+    # Load classifiers
     keypoint_classifier = KeyPointClassifier()
     point_history_classifier = PointHistoryClassifier()
 
-    # Leggi le etichette dei classificatori
+    # Read classifier labels
     with open('model/keypoint_classifier/keypoint_classifier_label.csv', encoding='utf-8-sig') as f:
         keypoint_classifier_labels = [row[0] for row in csv.reader(f)]
     with open('model/point_history_classifier/point_history_classifier_label.csv', encoding='utf-8-sig') as f:
         point_history_classifier_labels = [row[0] for row in csv.reader(f)]
 
-    # Inizializza le variabili di stato
+    # Initialize state variables
     mode = 0
     number = -1
 
-    # Storia dei punti
+    # Point history
     history_length = 16
     point_history = deque(maxlen=history_length)
     finger_gesture_history = deque(maxlen=history_length)
 
-    # Calcolatore FPS
+    # FPS calculator
     cvFpsCalc = CvFpsCalc(buffer_len=10)
     
-    # Controller del mouse
+    # Mouse controller
     mouse = Controller()
 
     while True:
-        # Aggiorna il menu flottante
+        # Update floating menu
         root.update()
         
         fps = cvFpsCalc.get()
@@ -705,15 +697,15 @@ def main():
         if not ret:
             break
 
-        # Ribalta l'immagine orizzontalmente per creare un effetto "specchio"
+        # Flip image horizontally to create a "mirror" effect
         image = cv.flip(image, 1)
         debug_image = image.copy()
 
-        # Disegna un cerchio sulla destra dell'immagine
+        # Draw a circle on the right side of the image
         debug_image, circle_center, circle_radius = draw_circle_on_right(debug_image)
         circle_data = (circle_center, circle_radius)
         
-        # Esegui il rilevamento dei gesti
+        # Perform gesture detection
         debug_image, mouse_position, is_clicking = perform_gesture_detection(
             debug_image, circle_data, hands, keypoint_classifier, 
             point_history_classifier, point_history, finger_gesture_history,
@@ -721,38 +713,38 @@ def main():
             history_length, floating_menu
         )
 
-        # Disegna le informazioni su FPS e modalità
+        # Draw information on FPS and mode
         debug_image = draw_info(debug_image, fps, mode, number)
         
-        # Istruzioni per l'utente
+        # User instructions
         cv.putText(debug_image, "Press 'M' to toggle menu, 'Q' to exit", (10, 150),
                   cv.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1, cv.LINE_AA)
         cv.putText(debug_image, "Press 'B' to switch to background mode", (10, 180),
                   cv.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1, cv.LINE_AA)
 
-        # Mostra l'immagine
+        # Show image
         cv.imshow('Hand Gesture Recognition', debug_image)
 
-        # Gestisci l'input da tastiera
+        # Handle keyboard input
         key = cv.waitKey(1)
-        if key == 27 or key == ord('q'):  # ESC o 'q' per uscire
+        if key == 27 or key == ord('q'):  # ESC or 'q' to exit
             break
-        if key == ord('b'):  # 'b' per passare alla modalità background
-            # Passa alla modalità background
+        if key == ord('b'):  # 'b' to switch to background mode
+            # Switch to background mode
             video_stream.stop()
             cv.destroyAllWindows()
             
-            # Avvia il thread di riconoscimento gestuale in background
+            # Start gesture recognition thread in background
             args.run_in_background = True
             gesture_thread = GestureRecognitionThread(args)
             gesture_thread.start()
-            # Usa tkinter come loop principale
+            # Use tkinter as main loop
             gesture_thread.root.mainloop()
             return
             
         number, mode = select_mode(key, mode, False, floating_menu)
 
-    # Pulisci
+    # Clean up
     video_stream.stop()
     cv.destroyAllWindows()
     root.destroy()
