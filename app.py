@@ -589,7 +589,7 @@ class HandPal:
         l_type, thick_n, thick_b = 1, 1, 2
 
         if results and results.multi_hand_landmarks: frame = self.draw_landmarks(frame, results.multi_hand_landmarks)
-        #frame = self.draw_menu_trigger_circle(frame) # Updates pixel zone
+        frame = self.draw_menu_trigger_circle(frame) # Updates pixel zone
 
         # --- Calibration Overlay --- (Unchanged)
         if self.calibration_active:
