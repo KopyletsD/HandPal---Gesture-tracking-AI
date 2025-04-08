@@ -60,3 +60,14 @@ Installation
    ```bash
    pip install opencv-python tensorflow scikit-learn matplotlib protobuf playsound==1.2.2 imageio pynput mediapipe numpy
 
+
+Planned Improvements
+--------------------
+- [ ] Drag and Drop (Carmi)
+- [ ] Tutorial (Stefanica)
+- [ ] Presentation (Pado)
+- [ ] Zoom (Stefanica)
+- [ ] Recogntion Single User and Focus on One Hand Pair (Carmi)
+- [ ] Dynamic Menu from csv (Kopy)
+- [ ] Merge (Pado)
+- [ ] Refactoring della Codebase (Kopy)
