@@ -60,7 +60,7 @@ class Config:
         "min_tracking_confidence": 0.5, "use_static_image_mode": False,
         "smoothing_factor": 0.7, "inactivity_zone": 0.015, "click_cooldown": 0.4,
         "gesture_sensitivity": 0.07,
-        "gesture_settings": {"scroll_sensitivity": 12, "double_click_time": 0.35},
+        "gesture_settings": {"scroll_sensitivity": 4, "double_click_time": 0.35},
         "calibration": {"enabled": True, "screen_margin": 0.1, "x_min": 0.15,
                         "x_max": 0.85, "y_min": 0.15, "y_max": 0.85, "active": False},
         "max_fps": 60, "custom_cursor_path": "red_cursor.cur"
@@ -161,28 +161,69 @@ class GestureRecognizer:
         elif self.gesture_state["active_gesture"] == "click": self.gesture_state["active_gesture"] = None
         return gesture
 
-    def check_scroll_gesture(self, hand_lm, handedness):
-        if handedness != "Left" or hand_lm is None or self.gesture_state.get("active_gesture") == "click": return None
-        try: lm=hand_lm.landmark; idx_t, mid_t=lm[8],lm[12]; idx_m, mid_m=lm[5],lm[9]; ring_t, pink_t=lm[16],lm[20]
-        except (IndexError, TypeError): return None
-        y_ext, x_cls, y_fld = 0.05, 0.08, 0.01; idx_ext=idx_t.y<idx_m.y-y_ext; mid_ext=mid_t.y<mid_m.y-y_ext
-        cls=abs(idx_t.x-mid_t.x)<x_cls; ring_fld=ring_t.y>mid_m.y+y_fld; pink_fld=pink_t.y>mid_m.y+y_fld
-        is_scroll = idx_ext and mid_ext and cls and ring_fld and pink_fld; delta = None; tip_id = 8
-        if is_scroll:
-            if not self.gesture_state["scroll_active"]:
-                self.gesture_state.update({"scroll_active":True,"active_gesture":"scroll"}); self.gesture_state["scroll_history"].clear(); self.last_positions[tip_id]=idx_t.y; logger.debug("Scroll start")
-            if tip_id in self.last_positions:
-                prev_y, curr_y = self.last_positions[tip_id], idx_t.y; raw_dy = curr_y - prev_y
-                if abs(raw_dy) > 0.002:
-                    scaled = raw_dy * self.config["gesture_settings.scroll_sensitivity"]; self.gesture_state["scroll_history"].append(scaled); self.last_positions[tip_id]=curr_y
-                if len(self.gesture_state["scroll_history"]) > 0:
-                    smooth = sum(self.gesture_state["scroll_history"]) / len(self.gesture_state["scroll_history"]);
-                    if abs(smooth) > 0.1: delta = smooth
-            elif tip_id not in self.last_positions and self.gesture_state["scroll_active"]: self.last_positions[tip_id]=idx_t.y
-        elif self.gesture_state["scroll_active"]:
-                self.gesture_state.update({"scroll_active":False}); self.gesture_state["active_gesture"] = None if self.gesture_state["active_gesture"]=="scroll" else self.gesture_state["active_gesture"]
-                self.gesture_state["scroll_history"].clear(); self.last_positions.pop(tip_id, None); logger.debug("Scroll end")
-        return delta
+    def check_scroll_gesture(self, hand_landmarks, handedness):
+         """Rileva il gesto di scorrimento (indice e medio estesi verticalmente), solo per la mano sinistra."""
+         # Esegui il riconoscimento solo se è la mano sinistra
+         if handedness != "Left":
+             return None
+         
+         # Verifica che non ci sia un gesto di click attivo
+         if self.gesture_state["active_gesture"] == "click":
+             return None
+             
+         index_tip = hand_landmarks.landmark[8]
+         middle_tip = hand_landmarks.landmark[12]
+         index_mcp = hand_landmarks.landmark[5]  # Base dell'indice
+         middle_mcp = hand_landmarks.landmark[9]  # Base del medio
+         ring_tip = hand_landmarks.landmark[16]  # Punta dell'anulare
+         pinky_tip = hand_landmarks.landmark[20]  # Punta del mignolo
+         
+         # Verifica che entrambe le dita siano estese e vicine, e che anulare e mignolo siano piegati
+         index_extended = index_tip.y < index_mcp.y
+         middle_extended = middle_tip.y < middle_mcp.y
+         fingers_close = abs(index_tip.x - middle_tip.x) < 0.08
+         ring_pinky_folded = (ring_tip.y > index_mcp.y) and (pinky_tip.y > index_mcp.y)
+         
+         if index_extended and middle_extended and fingers_close and ring_pinky_folded:
+             # Attiva modalità scroll
+             if not self.gesture_state["scroll_active"]:
+                 # Inizia nuovo scorrimento, resetta storia
+                 self.gesture_state["scroll_active"] = True
+                 self.gesture_state["scroll_history"].clear()
+                 self.gesture_state["active_gesture"] = "scroll"
+             
+             # Calcola movimento verticale
+             if 8 in self.last_positions:
+                 prev_y = self.last_positions[8][1]
+                 curr_y = index_tip.y
+                 delta_y = (curr_y - prev_y) * self.config["gesture_settings"]["scroll_sensitivity"]
+                 
+                 # Aggiungi alla storia solo se movimento significativo
+                 if abs(delta_y) > 0.0005:
+                     self.gesture_state["scroll_history"].append(delta_y)
+                 
+                 # Calcola la media per smoothing
+                 if len(self.gesture_state["scroll_history"]) > 0:
+                     smooth_delta = sum(self.gesture_state["scroll_history"]) / len(self.gesture_state["scroll_history"])
+                     
+                     # Aggiorna posizione e restituisci solo se delta significativo
+                     if abs(smooth_delta) > 0.001:
+                         self.last_positions[8] = (index_tip.x, index_tip.y)
+                         return smooth_delta * 100
+                 
+             # Sempre aggiorna l'ultima posizione per il riferimento
+             self.last_positions[8] = (index_tip.x, index_tip.y)
+         else:
+             # Disattiva scroll quando le dita non sono più in posizione
+             if self.gesture_state["scroll_active"]:
+                 self.gesture_state["scroll_active"] = False
+                 self.gesture_state["scroll_history"].clear()
+                 
+                 # Resetta il gesto attivo se necessario
+                 if self.gesture_state["active_gesture"] == "scroll":
+                     self.gesture_state["active_gesture"] = None
+             
+         return None
 
     def detect_hand_pose(self, hand_lm, handedness):
         if hand_lm is None or handedness not in ["Left", "Right"]: return "U"
