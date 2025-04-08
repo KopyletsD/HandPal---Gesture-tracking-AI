@@ -27,13 +27,18 @@ Features
 Dependencies
 ------------
 - Python 3.7+ (Recommended)
-- [OpenCV](https://pypi.org/project/opencv-python/) (cv2)
-- [NumPy](https://pypi.org/project/numpy/)
-- [MediaPipe](https://google.github.io/mediapipe/)
-- [tkinter](https://docs.python.org/3/library/tk.html) (Usually pre-installed with Python on most platforms)
+- [OpenCV](https://pypi.org/project/opencv-python/) (`opencv-python`)
+- [TensorFlow](https://pypi.org/project/tensorflow/)
+- [Scikit-learn](https://pypi.org/project/scikit-learn/)
+- [Matplotlib](https://pypi.org/project/matplotlib/)
+- [Protobuf](https://pypi.org/project/protobuf/)
+- [Playsound 1.2.2](https://pypi.org/project/playsound/1.2.2/)
+- [ImageIO](https://pypi.org/project/imageio/)
 - [pynput](https://pypi.org/project/pynput/)
-- [playsound](https://pypi.org/project/playsound/)
-- [imageio](https://pypi.org/project/imageio/)
+- [MediaPipe](https://pypi.org/project/mediapipe/)
+- [NumPy](https://pypi.org/project/numpy/)
+- [tkinter](https://docs.python.org/3/library/tk.html) (Usually pre-installed with Python on most platforms)
+
 
 
 Additionally, you need:
