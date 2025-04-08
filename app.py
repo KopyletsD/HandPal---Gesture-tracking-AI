@@ -54,17 +54,35 @@ def restore_default_cursor():
 # -----------------------------------------------------------------------------
 class Config:
     DEFAULT_CONFIG = {
-        "device": 0, "width": 1280, "height": 720, "process_width": 640,
-        "process_height": 360, "flip_camera": True, "display_width": None,
-        "display_height": None, "min_detection_confidence": 0.6,
-        "min_tracking_confidence": 0.5, "use_static_image_mode": False,
-        "smoothing_factor": 0.7, "inactivity_zone": 0.015, "click_cooldown": 0.4,
-        "gesture_sensitivity": 0.07,
-        "gesture_settings": {"scroll_sensitivity": 4, "double_click_time": 0.35},
-        "calibration": {"enabled": True, "screen_margin": 0.1, "x_min": 0.15,
-                        "x_max": 0.85, "y_min": 0.15, "y_max": 0.85, "active": False},
-        "max_fps": 60, "custom_cursor_path": "red_cursor.cur"
+    "device": 0,
+    "width": 1280,
+    "height": 720,
+    "process_width": 640,
+    "process_height": 360,
+    "flip_camera": True,
+    "display_width": None,
+    "display_height": None,
+    "min_detection_confidence": 0.6,
+    "min_tracking_confidence": 0.5,
+    "use_static_image_mode": False,
+    "smoothing_factor": 0.7,
+    "inactivity_zone": 0.015,
+    "click_cooldown": 0.4,
+    "gesture_sensitivity": 0.02,  # Valore ridotto per richiedere un contatto quasi totale
+    "gesture_settings": {"scroll_sensitivity": 4, "double_click_time": 0.35},
+    "calibration": {
+        "enabled": True,
+        "screen_margin": 0.1,
+        "x_min": 0.15,
+        "x_max": 0.85,
+        "y_min": 0.15,
+        "y_max": 0.85,
+        "active": False
+    },
+    "max_fps": 60,
+    "custom_cursor_path": "red_cursor.cur"
     }
+
     CONFIG_FILENAME = os.path.expanduser("~/.handpal_config.json")
 
     def _deep_update(self, target, source):
@@ -147,19 +165,32 @@ class GestureRecognizer:
         return np.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2)
 
     def check_thumb_index_click(self, hand_lm, handedness):
-        if handedness != "Left" or hand_lm is None or self.gesture_state["scroll_active"]: return None
-        try: thumb, index = hand_lm.landmark[4], hand_lm.landmark[8]
-        except (IndexError, TypeError): return None
-        dist = self._dist(thumb, index); now = time.time(); thresh = self.config["gesture_sensitivity"]; gesture = None
+        if handedness != "Left" or hand_lm is None or self.gesture_state["scroll_active"]:
+            return None
+        try:
+            thumb, index = hand_lm.landmark[4], hand_lm.landmark[8]
+        except (IndexError, TypeError):
+            return None
+        dist = self._dist(thumb, index)
+        now = time.time()
+        thresh = self.config["gesture_sensitivity"]
+        gesture = None
         if dist < thresh:
+            # gestisci il cooldown e il double click
             cooldown = self.config["click_cooldown"]
             if (now - self.gesture_state["last_click_time"]) > cooldown:
-                double_click_t = self.config["gesture_settings.double_click_time"]
-                if (now - self.gesture_state["last_click_time"]) < double_click_t and self.gesture_state["last_click_button"] == Button.left: gesture = "double_click"
-                else: gesture = "click"
-                self.gesture_state["last_click_time"] = now; self.gesture_state["last_click_button"] = Button.left; self.gesture_state["active_gesture"] = "click"
-        elif self.gesture_state["active_gesture"] == "click": self.gesture_state["active_gesture"] = None
+                double_click_t = self.config["gesture_settings"]["double_click_time"]
+                if (now - self.gesture_state["last_click_time"]) < double_click_t and self.gesture_state["last_click_button"] == Button.left:
+                    gesture = "double_click"
+                else:
+                    gesture = "click"
+                self.gesture_state["last_click_time"] = now
+                self.gesture_state["last_click_button"] = Button.left
+                self.gesture_state["active_gesture"] = "click"
+        elif self.gesture_state["active_gesture"] == "click":
+            self.gesture_state["active_gesture"] = None
         return gesture
+
 
     def check_scroll_gesture(self, hand_landmarks, handedness):
          """Rileva il gesto di scorrimento (indice e medio estesi verticalmente), solo per la mano sinistra."""
