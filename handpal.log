@@ -1,0 +1,1887 @@
+2025-04-11 15:03:29,651 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:03:29,651 - __main__ - INFO - Logging level set to: INFO
+2025-04-11 15:03:29,651 - __main__ - INFO - Loading configuration...
+2025-04-11 15:03:29,651 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:03:29,651 - handpal.config - WARNING - Invalid nested CLI arg key 'log.level'.
+2025-04-11 15:03:29,651 - handpal.config - WARNING - Invalid nested CLI arg key 'reset.config'.
+2025-04-11 15:03:29,651 - handpal.config - WARNING - Invalid nested CLI arg key 'config.file'.
+2025-04-11 15:03:29,651 - __main__ - INFO - Configuration loaded.
+2025-04-11 15:03:29,651 - __main__ - INFO - Attempting to set custom cursor from config: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:03:29,651 - __main__ - ERROR - Cursor file specified in config not found: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:03:29,651 - __main__ - INFO - Initializing HandPal Application Controller...
+2025-04-11 15:03:29,651 - handpal.app_controller - INFO - Initializing application components...
+2025-04-11 15:03:29,651 - handpal.apps.manager - INFO - Loaded 3 applications from c:\Users\kopylets.22180\Desktop\Refactor_Handpal\data\applications.csv
+2025-04-11 15:03:29,978 - handpal.app_controller - INFO - Tkinter root initialized successfully.
+2025-04-11 15:03:30,658 - handpal.ui.menu - INFO - FloatingMenu initialized.
+2025-04-11 15:03:30,658 - handpal.ui.ui_manager - INFO - FloatingMenu created successfully.
+2025-04-11 15:03:30,672 - handpal.app_controller - INFO - ApplicationController initialized.
+2025-04-11 15:03:30,672 - handpal.app_controller - INFO - Screen dimensions: (1920, 1080)
+2025-04-11 15:03:30,673 - __main__ - INFO - Application Controller initialized.
+2025-04-11 15:03:30,673 - __main__ - INFO - Starting application main loop...
+2025-04-11 15:03:30,673 - handpal.app_controller - INFO - Starting HandPal Application Controller...
+2025-04-11 15:03:30,683 - handpal.ui.ui_manager - INFO - Display window created with default size.
+2025-04-11 15:03:30,683 - handpal.app_controller - INFO - Starting detection thread...
+2025-04-11 15:03:30,683 - handpal.detection.detector - INFO - DetectionThread configured: Device=0, CamRes=1280x720@60fps, ProcRes=640x360, Flip=True
+2025-04-11 15:03:30,684 - handpal.detection.detector - INFO - Initializing detection resources...
+2025-04-11 15:03:31,685 - handpal.app_controller - INFO - HandPal started successfully. Entering main loop...
+2025-04-11 15:03:31,863 - handpal.detection.detector - INFO - Webcam 0 opened. Actual settings: 1280x720 @ 60.0 FPS (Buffer: -1.0)
+2025-04-11 15:03:31,893 - handpal.detection.detector - INFO - MediaPipe Hands initialized.
+2025-04-11 15:03:31,893 - handpal.detection.detector - INFO - DetectionThread run loop starting...
+2025-04-11 15:03:35,808 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:04:02,370 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:04:02,922 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:04:03,650 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:04:04,129 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:04:04,688 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:04:35,066 - handpal.app_controller - INFO - 'q' pressed. Stopping application.
+2025-04-11 15:04:35,067 - handpal.app_controller - INFO - Stop signal received. Initiating shutdown sequence...
+2025-04-11 15:04:35,067 - handpal.app_controller - INFO - Exiting main loop.
+2025-04-11 15:04:35,068 - handpal.app_controller - INFO - Main loop exited. Performing final cleanup.
+2025-04-11 15:04:35,068 - handpal.app_controller - INFO - Performing application cleanup...
+2025-04-11 15:04:35,079 - handpal.detection.detector - INFO - DetectionThread run loop finished. Processed 779 frames in 63.19s (Avg Detector FPS: 12.3)
+2025-04-11 15:04:35,079 - handpal.detection.detector - INFO - Releasing detection resources...
+2025-04-11 15:04:35,359 - handpal.ui.ui_manager - INFO - Destroying UI Manager...
+2025-04-11 15:04:35,371 - handpal.ui.menu - INFO - FloatingMenu destroyed.
+2025-04-11 15:04:35,379 - handpal.app_controller - INFO - Application cleanup finished.
+2025-04-11 15:04:35,379 - __main__ - INFO - Application has finished running.
+2025-04-11 15:04:35,379 - __main__ - INFO - Executing main finally block...
+2025-04-11 15:04:35,379 - __main__ - INFO - HandPal application finished.
+2025-04-11 15:20:06,544 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:20:06,544 - __main__ - INFO - Logging level set to: INFO
+2025-04-11 15:20:06,544 - __main__ - INFO - Loading configuration...
+2025-04-11 15:20:06,544 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:20:06,544 - handpal.config - WARNING - Invalid nested CLI arg key 'log.level'.
+2025-04-11 15:20:06,544 - handpal.config - WARNING - Invalid nested CLI arg key 'reset.config'.
+2025-04-11 15:20:06,544 - handpal.config - WARNING - Invalid nested CLI arg key 'config.file'.
+2025-04-11 15:20:06,544 - __main__ - INFO - Configuration loaded.
+2025-04-11 15:20:06,544 - __main__ - INFO - Attempting to set custom cursor from config: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:20:06,544 - __main__ - ERROR - Cursor file specified in config not found: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:20:06,544 - __main__ - INFO - Initializing HandPal Application Controller...
+2025-04-11 15:20:06,544 - handpal.app_controller - INFO - Initializing application components...
+2025-04-11 15:20:06,544 - handpal.apps.manager - INFO - Loaded 3 applications from c:\Users\kopylets.22180\Desktop\Refactor_Handpal\data\applications.csv
+2025-04-11 15:20:06,583 - handpal.app_controller - INFO - Tkinter root initialized successfully.
+2025-04-11 15:20:06,886 - handpal.ui.menu - INFO - FloatingMenu initialized.
+2025-04-11 15:20:06,886 - handpal.ui.ui_manager - INFO - FloatingMenu created successfully.
+2025-04-11 15:20:06,914 - handpal.app_controller - INFO - ApplicationController initialized.
+2025-04-11 15:20:06,914 - handpal.app_controller - INFO - Screen dimensions: (1920, 1080)
+2025-04-11 15:20:06,914 - __main__ - INFO - Application Controller initialized.
+2025-04-11 15:20:06,914 - __main__ - INFO - Starting application main loop...
+2025-04-11 15:20:06,914 - handpal.app_controller - INFO - Starting HandPal Application Controller...
+2025-04-11 15:20:06,925 - handpal.ui.ui_manager - INFO - Display window created with default size.
+2025-04-11 15:20:06,926 - handpal.app_controller - INFO - Starting detection thread...
+2025-04-11 15:20:06,926 - handpal.detection.detector - INFO - DetectionThread configured: Device=0, CamRes=1280x720@60fps, ProcRes=640x360, Flip=True
+2025-04-11 15:20:06,926 - handpal.detection.detector - INFO - Initializing detection resources...
+2025-04-11 15:20:07,927 - handpal.app_controller - INFO - HandPal started successfully. Entering main loop...
+2025-04-11 15:20:08,004 - handpal.detection.detector - INFO - Webcam 0 opened. Actual settings: 1280x720 @ 60.0 FPS (Buffer: -1.0)
+2025-04-11 15:20:08,015 - handpal.detection.detector - INFO - MediaPipe Hands initialized.
+2025-04-11 15:20:08,015 - handpal.detection.detector - INFO - DetectionThread run loop starting...
+2025-04-11 15:20:09,494 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:09,561 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:09,644 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:09,718 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:09,809 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:09,882 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:09,969 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,052 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,111 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,206 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,291 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,368 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,449 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,516 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,610 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,682 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,769 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,837 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:10,927 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,006 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,082 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,167 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,244 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,328 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,401 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,481 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,571 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,635 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,727 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,808 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,889 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:11,962 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:12,049 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:12,119 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:12,205 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:12,291 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:12,355 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:12,449 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:12,525 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:12,608 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:12,679 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:12,765 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:20:12,846 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:12,912 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:13,323 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:13,649 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:13,739 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:13,806 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:13,875 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:13,972 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:14,054 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:14,207 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:14,276 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:14,438 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:14,539 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:14,584 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:14,684 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:14,768 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:14,843 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:14,927 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:14,996 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:15,094 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:15,167 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:15,245 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:15,330 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:15,405 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:18,449 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:18,524 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:18,609 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:18,690 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:18,769 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:18,846 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:18,932 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:19,015 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:19,089 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:19,165 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:19,246 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:19,319 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:19,569 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:19,648 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:19,726 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:19,807 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:19,886 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:19,970 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,049 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,124 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,206 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,286 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,366 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,447 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,524 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,609 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,690 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,762 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,846 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:20,933 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:21,005 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:21,083 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:21,334 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:21,490 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:20:21,566 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:21,649 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:21,730 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:21,804 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:21,881 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:21,966 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:22,053 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:22,128 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:22,205 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:22,286 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:22,367 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:22,444 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:22,530 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:22,611 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:22,685 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:22,767 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:22,847 - handpal.app_controller - ERROR - Error during frame processing or UI update.
+Traceback (most recent call last):
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 441, in main_loop
+    self._process_frame_data(frame_data, results, proc_dims)
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\app_controller.py", line 291, in _process_frame_data
+    processed_output = self.input_processor.process(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 286, in process
+    output['activate_menu'] = self._check_menu_trigger(menu_trigger_zone_px, display_dims)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\kopylets.22180\Desktop\Refactor_Handpal\handpal\processing\input_processor.py", line 161, in _check_menu_trigger
+    mx_px, my_px = mouse.controller.position # Get mouse position
+                  ^^^^^^^^^^^^^^^^
+AttributeError: 'Controller' object has no attribute 'controller'
+2025-04-11 15:20:28,786 - handpal.app_controller - INFO - 'q' pressed. Stopping application.
+2025-04-11 15:20:28,786 - handpal.app_controller - INFO - Stop signal received. Initiating shutdown sequence...
+2025-04-11 15:20:28,787 - handpal.app_controller - INFO - Exiting main loop.
+2025-04-11 15:20:28,787 - handpal.app_controller - INFO - Main loop exited. Performing final cleanup.
+2025-04-11 15:20:28,787 - handpal.app_controller - INFO - Performing application cleanup...
+2025-04-11 15:20:28,835 - handpal.detection.detector - INFO - DetectionThread run loop finished. Processed 249 frames in 20.82s (Avg Detector FPS: 12.0)
+2025-04-11 15:20:28,835 - handpal.detection.detector - INFO - Releasing detection resources...
+2025-04-11 15:20:29,112 - handpal.ui.ui_manager - INFO - Destroying UI Manager...
+2025-04-11 15:20:29,117 - handpal.ui.menu - INFO - FloatingMenu destroyed.
+2025-04-11 15:20:29,133 - handpal.app_controller - INFO - Application cleanup finished.
+2025-04-11 15:20:29,133 - __main__ - INFO - Application has finished running.
+2025-04-11 15:20:29,133 - __main__ - INFO - Executing main finally block...
+2025-04-11 15:20:29,133 - __main__ - INFO - HandPal application finished.
+2025-04-11 15:23:47,098 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:23:47,098 - __main__ - INFO - Logging level set to: INFO
+2025-04-11 15:23:47,098 - __main__ - INFO - Loading configuration...
+2025-04-11 15:23:47,098 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:23:47,098 - handpal.config - WARNING - Invalid nested CLI arg key 'log.level'.
+2025-04-11 15:23:47,098 - handpal.config - WARNING - Invalid nested CLI arg key 'reset.config'.
+2025-04-11 15:23:47,098 - handpal.config - WARNING - Invalid nested CLI arg key 'config.file'.
+2025-04-11 15:23:47,098 - __main__ - INFO - Configuration loaded.
+2025-04-11 15:23:47,106 - __main__ - INFO - Attempting to set custom cursor from config: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:23:47,106 - __main__ - ERROR - Cursor file specified in config not found: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:23:47,106 - __main__ - INFO - Initializing HandPal Application Controller...
+2025-04-11 15:23:47,106 - handpal.app_controller - INFO - Initializing application components...
+2025-04-11 15:23:47,106 - handpal.apps.manager - INFO - Loaded 3 applications from c:\Users\kopylets.22180\Desktop\Refactor_Handpal\data\applications.csv
+2025-04-11 15:23:47,139 - handpal.app_controller - INFO - Tkinter root initialized successfully.
+2025-04-11 15:23:47,454 - handpal.ui.menu - INFO - FloatingMenu initialized.
+2025-04-11 15:23:47,454 - handpal.ui.ui_manager - INFO - FloatingMenu created successfully.
+2025-04-11 15:23:47,478 - handpal.app_controller - INFO - ApplicationController initialized.
+2025-04-11 15:23:47,478 - handpal.app_controller - INFO - Screen dimensions: (1920, 1080)
+2025-04-11 15:23:47,478 - __main__ - INFO - Application Controller initialized.
+2025-04-11 15:23:47,478 - __main__ - INFO - Starting application main loop...
+2025-04-11 15:23:47,478 - handpal.app_controller - INFO - Starting HandPal Application Controller...
+2025-04-11 15:23:47,486 - handpal.ui.ui_manager - INFO - Display window created with default size.
+2025-04-11 15:23:47,486 - handpal.app_controller - INFO - Starting detection thread...
+2025-04-11 15:23:47,486 - handpal.detection.detector - INFO - DetectionThread configured: Device=0, CamRes=1280x720@60fps, ProcRes=640x360, Flip=True
+2025-04-11 15:23:47,487 - handpal.detection.detector - INFO - Initializing detection resources...
+2025-04-11 15:23:48,487 - handpal.app_controller - INFO - HandPal started successfully. Entering main loop...
+2025-04-11 15:23:48,576 - handpal.detection.detector - INFO - Webcam 0 opened. Actual settings: 1280x720 @ 60.0 FPS (Buffer: -1.0)
+2025-04-11 15:23:48,587 - handpal.detection.detector - INFO - MediaPipe Hands initialized.
+2025-04-11 15:23:48,587 - handpal.detection.detector - INFO - DetectionThread run loop starting...
+2025-04-11 15:24:01,497 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:24:01,979 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:24:13,334 - handpal.app_controller - INFO - 'q' pressed. Stopping application.
+2025-04-11 15:24:13,334 - handpal.app_controller - INFO - Stop signal received. Initiating shutdown sequence...
+2025-04-11 15:24:13,334 - handpal.app_controller - INFO - Exiting main loop.
+2025-04-11 15:24:13,335 - handpal.app_controller - INFO - Main loop exited. Performing final cleanup.
+2025-04-11 15:24:13,335 - handpal.app_controller - INFO - Performing application cleanup...
+2025-04-11 15:24:13,409 - handpal.detection.detector - INFO - DetectionThread run loop finished. Processed 299 frames in 24.82s (Avg Detector FPS: 12.0)
+2025-04-11 15:24:13,411 - handpal.detection.detector - INFO - Releasing detection resources...
+2025-04-11 15:24:13,687 - handpal.ui.ui_manager - INFO - Destroying UI Manager...
+2025-04-11 15:24:13,690 - handpal.ui.menu - INFO - FloatingMenu destroyed.
+2025-04-11 15:24:13,708 - handpal.app_controller - INFO - Application cleanup finished.
+2025-04-11 15:24:13,708 - __main__ - INFO - Application has finished running.
+2025-04-11 15:24:13,708 - __main__ - INFO - Executing main finally block...
+2025-04-11 15:24:13,709 - __main__ - INFO - HandPal application finished.
+2025-04-11 15:25:15,500 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:25:15,506 - __main__ - INFO - Logging level set to: INFO
+2025-04-11 15:25:15,506 - __main__ - INFO - Loading configuration...
+2025-04-11 15:25:15,506 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:25:15,506 - handpal.config - WARNING - Invalid nested CLI arg key 'log.level'.
+2025-04-11 15:25:15,507 - handpal.config - WARNING - Invalid nested CLI arg key 'reset.config'.
+2025-04-11 15:25:15,508 - handpal.config - WARNING - Invalid nested CLI arg key 'config.file'.
+2025-04-11 15:25:15,508 - __main__ - INFO - Configuration loaded.
+2025-04-11 15:25:15,508 - __main__ - INFO - Attempting to set custom cursor from config: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:25:15,508 - __main__ - ERROR - Cursor file specified in config not found: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:25:15,508 - __main__ - INFO - Initializing HandPal Application Controller...
+2025-04-11 15:25:15,508 - handpal.app_controller - INFO - Initializing application components...
+2025-04-11 15:25:15,509 - handpal.apps.manager - INFO - Loaded 3 applications from c:\Users\kopylets.22180\Desktop\Refactor_Handpal\data\applications.csv
+2025-04-11 15:25:15,536 - handpal.app_controller - INFO - Tkinter root initialized successfully.
+2025-04-11 15:25:16,321 - handpal.ui.menu - INFO - FloatingMenu initialized.
+2025-04-11 15:25:16,321 - handpal.ui.ui_manager - INFO - FloatingMenu created successfully.
+2025-04-11 15:25:16,349 - handpal.app_controller - INFO - ApplicationController initialized.
+2025-04-11 15:25:16,349 - handpal.app_controller - INFO - Screen dimensions: (1920, 1080)
+2025-04-11 15:25:16,349 - __main__ - INFO - Application Controller initialized.
+2025-04-11 15:25:16,349 - __main__ - INFO - Starting application main loop...
+2025-04-11 15:25:16,349 - handpal.app_controller - INFO - Starting HandPal Application Controller...
+2025-04-11 15:25:16,356 - handpal.ui.ui_manager - INFO - Display window created with default size.
+2025-04-11 15:25:16,356 - handpal.app_controller - INFO - Starting detection thread...
+2025-04-11 15:25:16,356 - handpal.detection.detector - INFO - DetectionThread configured: Device=0, CamRes=1280x720@60fps, ProcRes=640x360, Flip=True
+2025-04-11 15:25:16,357 - handpal.detection.detector - INFO - Initializing detection resources...
+2025-04-11 15:25:17,358 - handpal.app_controller - INFO - HandPal started successfully. Entering main loop...
+2025-04-11 15:25:17,434 - handpal.detection.detector - INFO - Webcam 0 opened. Actual settings: 1280x720 @ 60.0 FPS (Buffer: -1.0)
+2025-04-11 15:25:17,446 - handpal.detection.detector - INFO - MediaPipe Hands initialized.
+2025-04-11 15:25:17,446 - handpal.detection.detector - INFO - DetectionThread run loop starting...
+2025-04-11 15:27:47,363 - handpal.app_controller - INFO - Debug mode toggled ON.
+2025-04-11 15:29:15,007 - handpal.app_controller - INFO - 'q' pressed. Stopping application.
+2025-04-11 15:29:15,007 - handpal.app_controller - INFO - Stop signal received. Initiating shutdown sequence...
+2025-04-11 15:29:15,008 - handpal.app_controller - INFO - Exiting main loop.
+2025-04-11 15:29:15,008 - handpal.app_controller - INFO - Main loop exited. Performing final cleanup.
+2025-04-11 15:29:15,009 - handpal.app_controller - INFO - Performing application cleanup...
+2025-04-11 15:29:15,040 - handpal.detection.detector - INFO - DetectionThread run loop finished. Processed 2959 frames in 237.60s (Avg Detector FPS: 12.5)
+2025-04-11 15:29:15,041 - handpal.detection.detector - INFO - Releasing detection resources...
+2025-04-11 15:29:15,309 - handpal.ui.ui_manager - INFO - Destroying UI Manager...
+2025-04-11 15:29:15,311 - handpal.ui.menu - INFO - FloatingMenu destroyed.
+2025-04-11 15:29:15,325 - handpal.app_controller - INFO - Application cleanup finished.
+2025-04-11 15:29:15,325 - __main__ - INFO - Application has finished running.
+2025-04-11 15:29:15,325 - __main__ - INFO - Executing main finally block...
+2025-04-11 15:29:15,326 - __main__ - INFO - HandPal application finished.
+2025-04-11 15:30:24,747 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:30:24,747 - __main__ - INFO - Logging level set to: INFO
+2025-04-11 15:30:24,747 - __main__ - INFO - Loading configuration...
+2025-04-11 15:30:24,747 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:30:24,747 - handpal.config - WARNING - Invalid nested CLI arg key 'log.level'.
+2025-04-11 15:30:24,747 - handpal.config - WARNING - Invalid nested CLI arg key 'reset.config'.
+2025-04-11 15:30:24,747 - handpal.config - WARNING - Invalid nested CLI arg key 'config.file'.
+2025-04-11 15:30:24,747 - __main__ - INFO - Configuration loaded.
+2025-04-11 15:30:24,747 - __main__ - INFO - Attempting to set custom cursor from config: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:30:24,747 - __main__ - ERROR - Cursor file specified in config not found: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:30:24,747 - __main__ - INFO - Initializing HandPal Application Controller...
+2025-04-11 15:30:24,747 - handpal.app_controller - INFO - Initializing application components...
+2025-04-11 15:30:24,747 - handpal.apps.manager - INFO - Loaded 3 applications from c:\Users\kopylets.22180\Desktop\Refactor_Handpal\data\applications.csv
+2025-04-11 15:30:24,792 - handpal.app_controller - INFO - Tkinter root initialized successfully.
+2025-04-11 15:30:25,087 - handpal.ui.menu - INFO - FloatingMenu initialized.
+2025-04-11 15:30:25,087 - handpal.ui.ui_manager - INFO - FloatingMenu created successfully.
+2025-04-11 15:30:25,102 - handpal.app_controller - INFO - ApplicationController initialized.
+2025-04-11 15:30:25,102 - handpal.app_controller - INFO - Screen dimensions: (1920, 1080)
+2025-04-11 15:30:25,102 - __main__ - INFO - Application Controller initialized.
+2025-04-11 15:30:25,102 - __main__ - INFO - Starting application main loop...
+2025-04-11 15:30:25,102 - handpal.app_controller - INFO - Starting HandPal Application Controller...
+2025-04-11 15:30:25,115 - handpal.ui.ui_manager - INFO - Display window created with default size.
+2025-04-11 15:30:25,115 - handpal.app_controller - INFO - Starting detection thread...
+2025-04-11 15:30:25,116 - handpal.detection.detector - INFO - DetectionThread configured: Device=0, CamRes=1280x720@60fps, ProcRes=640x360, Flip=True
+2025-04-11 15:30:25,116 - handpal.detection.detector - INFO - Initializing detection resources...
+2025-04-11 15:30:26,117 - handpal.app_controller - INFO - HandPal started successfully. Entering main loop...
+2025-04-11 15:30:26,216 - handpal.detection.detector - INFO - Webcam 0 opened. Actual settings: 1280x720 @ 60.0 FPS (Buffer: -1.0)
+2025-04-11 15:30:26,228 - handpal.detection.detector - INFO - MediaPipe Hands initialized.
+2025-04-11 15:30:26,229 - handpal.detection.detector - INFO - DetectionThread run loop starting...
+2025-04-11 15:30:55,118 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:30:55,523 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:30:57,926 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:30:58,885 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:30:59,356 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:31:00,801 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:31:01,288 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:31:01,770 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:31:02,322 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:31:02,801 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:31:07,062 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:31:22,888 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:31:29,875 - handpal.app_controller - INFO - 'q' pressed. Stopping application.
+2025-04-11 15:31:29,875 - handpal.app_controller - INFO - Stop signal received. Initiating shutdown sequence...
+2025-04-11 15:31:29,875 - handpal.app_controller - INFO - Exiting main loop.
+2025-04-11 15:31:29,875 - handpal.app_controller - INFO - Main loop exited. Performing final cleanup.
+2025-04-11 15:31:29,875 - handpal.app_controller - INFO - Performing application cleanup...
+2025-04-11 15:31:29,906 - handpal.detection.detector - INFO - DetectionThread run loop finished. Processed 785 frames in 63.68s (Avg Detector FPS: 12.3)
+2025-04-11 15:31:29,906 - handpal.detection.detector - INFO - Releasing detection resources...
+2025-04-11 15:31:30,173 - handpal.ui.ui_manager - INFO - Destroying UI Manager...
+2025-04-11 15:31:30,173 - handpal.ui.menu - INFO - FloatingMenu destroyed.
+2025-04-11 15:31:30,199 - handpal.app_controller - INFO - Application cleanup finished.
+2025-04-11 15:31:30,199 - __main__ - INFO - Application has finished running.
+2025-04-11 15:31:30,200 - __main__ - INFO - Executing main finally block...
+2025-04-11 15:31:30,201 - __main__ - INFO - HandPal application finished.
+2025-04-11 15:40:10,001 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:40:10,001 - __main__ - INFO - Logging level set to: INFO
+2025-04-11 15:40:10,001 - __main__ - INFO - Loading configuration...
+2025-04-11 15:40:10,001 - handpal.config - INFO - Config loaded from C:\Users\kopylets.22180/.handpal_config.json
+2025-04-11 15:40:10,001 - handpal.config - WARNING - Invalid nested CLI arg key 'log.level'.
+2025-04-11 15:40:10,001 - handpal.config - WARNING - Invalid nested CLI arg key 'reset.config'.
+2025-04-11 15:40:10,001 - handpal.config - WARNING - Invalid nested CLI arg key 'config.file'.
+2025-04-11 15:40:10,001 - __main__ - INFO - Configuration loaded.
+2025-04-11 15:40:10,001 - __main__ - INFO - Attempting to set custom cursor from config: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:40:10,001 - __main__ - ERROR - Cursor file specified in config not found: c:\Users\kopylets.22180\Desktop\Refactor_Handpal\red_cursor.cur
+2025-04-11 15:40:10,001 - __main__ - INFO - Initializing HandPal Application Controller...
+2025-04-11 15:40:10,001 - handpal.app_controller - INFO - Initializing application components...
+2025-04-11 15:40:10,001 - handpal.apps.manager - INFO - Loaded 3 applications from c:\Users\kopylets.22180\Desktop\Refactor_Handpal\data\applications.csv
+2025-04-11 15:40:10,038 - handpal.app_controller - INFO - Tkinter root initialized successfully.
+2025-04-11 15:40:10,428 - handpal.ui.menu - INFO - FloatingMenu initialized.
+2025-04-11 15:40:10,428 - handpal.ui.ui_manager - INFO - FloatingMenu created successfully.
+2025-04-11 15:40:10,444 - handpal.app_controller - INFO - ApplicationController initialized.
+2025-04-11 15:40:10,445 - handpal.app_controller - INFO - Screen dimensions: (1920, 1080)
+2025-04-11 15:40:10,445 - __main__ - INFO - Application Controller initialized.
+2025-04-11 15:40:10,445 - __main__ - INFO - Starting application main loop...
+2025-04-11 15:40:10,445 - handpal.app_controller - INFO - Starting HandPal Application Controller...
+2025-04-11 15:40:10,451 - handpal.ui.ui_manager - INFO - Display window created with default size.
+2025-04-11 15:40:10,451 - handpal.app_controller - INFO - Starting detection thread...
+2025-04-11 15:40:10,451 - handpal.detection.detector - INFO - DetectionThread configured: Device=0, CamRes=1280x720@60fps, ProcRes=640x360, Flip=True
+2025-04-11 15:40:10,456 - handpal.detection.detector - INFO - Initializing detection resources...
+2025-04-11 15:40:11,457 - handpal.app_controller - INFO - HandPal started successfully. Entering main loop...
+2025-04-11 15:40:11,536 - handpal.detection.detector - INFO - Webcam 0 opened. Actual settings: 1280x720 @ 60.0 FPS (Buffer: -1.0)
+2025-04-11 15:40:11,548 - handpal.detection.detector - INFO - MediaPipe Hands initialized.
+2025-04-11 15:40:11,548 - handpal.detection.detector - INFO - DetectionThread run loop starting...
+2025-04-11 15:40:13,408 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:40:35,885 - handpal.app_controller - INFO - Performing click (Button.left, count=1)
+2025-04-11 15:40:59,851 - handpal.app_controller - INFO - 'q' pressed. Stopping application.
+2025-04-11 15:40:59,852 - handpal.app_controller - INFO - Stop signal received. Initiating shutdown sequence...
+2025-04-11 15:40:59,852 - handpal.app_controller - INFO - Exiting main loop.
+2025-04-11 15:40:59,852 - handpal.app_controller - INFO - Main loop exited. Performing final cleanup.
+2025-04-11 15:40:59,852 - handpal.app_controller - INFO - Performing application cleanup...
+2025-04-11 15:40:59,865 - handpal.detection.detector - INFO - DetectionThread run loop finished. Processed 593 frames in 48.32s (Avg Detector FPS: 12.3)
+2025-04-11 15:40:59,865 - handpal.detection.detector - INFO - Releasing detection resources...
+2025-04-11 15:41:00,135 - handpal.ui.ui_manager - INFO - Destroying UI Manager...
+2025-04-11 15:41:00,135 - handpal.ui.menu - INFO - FloatingMenu destroyed.
+2025-04-11 15:41:00,149 - handpal.app_controller - INFO - Application cleanup finished.
+2025-04-11 15:41:00,149 - __main__ - INFO - Application has finished running.
+2025-04-11 15:41:00,149 - __main__ - INFO - Executing main finally block...
+2025-04-11 15:41:00,149 - __main__ - INFO - HandPal application finished.
