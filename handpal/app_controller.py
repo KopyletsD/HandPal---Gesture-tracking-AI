@@ -217,14 +217,40 @@ class ApplicationController:
          logger.info("Application cleanup finished.")
 
 
+    # handpal/app_controller.py
+
+# Inside the ApplicationController class:
+
     def _handle_input(self):
         """Processes keyboard input from OpenCV window."""
-        key = cv.waitKey(1) & 0xFF # Non-blocking check
+        # Ensure window exists before trying to get input
+        if not self.ui_manager or not self.ui_manager.window_created:
+             return # Cannot get input if window doesn't exist
+
+        try:
+             # Check window visibility property before calling waitKey
+             # This helps prevent errors if the window was closed manually
+             if cv.getWindowProperty(self.ui_manager.WINDOW_NAME, cv.WND_PROP_VISIBLE) < 1:
+                  # Window is closed or not visible, potentially stop application
+                  logger.warning(f"OpenCV window '{self.ui_manager.WINDOW_NAME}' closed by user or system. Stopping.")
+                  self.stop()
+                  return
+
+             key = cv.waitKey(1) & 0xFF # Non-blocking check
+        except cv.error as e:
+             # Handle cases where window might become invalid between property check and waitKey
+             logger.error(f"Error getting keyboard input (cv.waitKey): {e}. Assuming window closed.")
+             self.stop()
+             return
+        except Exception as e:
+             logger.exception(f"Unexpected error during cv.waitKey: {e}")
+             return # Skip handling input on other errors
+
 
         if key == 255: # No key pressed
              return
 
-        logger.debug(f"Key pressed: {key} (ord='{chr(key)}' if 32<=key<=126 else 'N/A')")
+        logger.debug(f"Key pressed in _handle_input: {key} (chr: {chr(key) if 32<=key<=126 else 'N/A'})")
 
         # --- Global Keys ---
         if key == ord('q'):
@@ -239,29 +265,58 @@ class ApplicationController:
              if self.ui_manager:
                   logger.debug("'m' pressed, toggling menu.")
                   self.ui_manager.toggle_menu()
+             else:
+                  logger.warning("Cannot toggle menu: ui_manager is None.")
+
+        # --- Reload Key ---
+        elif key == ord('r'): # Use 'r' for Reload
+             logger.info("'r' key pressed. Reloading applications and menu...")
+             print("Reloading applications from CSV...") # Console feedback
+             try:
+                  # 1. Tell AppManager to reload data from CSV
+                  if self.app_manager:
+                       self.app_manager.reload_applications()
+                  else:
+                       logger.error("Cannot reload apps: AppManager is None.")
+                       print("ERROR: AppManager not available.")
+
+                  # 2. Tell UIManager to update the menu display
+                  if self.ui_manager:
+                       self.ui_manager.reload_menu_apps()
+                       print("Menu display updated.") # Console feedback
+                  else:
+                       logger.error("Cannot update menu display: UIManager is None.")
+                       print("ERROR: UIManager not available.")
+
+             except Exception as e:
+                  logger.exception("Error during application/menu reload.")
+                  print(f"ERROR during reload: {e}")
+        # --- End of Reload Key ---
 
         # --- Calibration Keys ---
         elif key == ord('c'):
              if not self.calibration_manager.is_active:
-                  # Cannot start calibration if menu is open? Decide policy.
-                  if self.ui_manager and self.ui_manager.floating_menu and self.ui_manager.floating_menu.visible:
+                  # Check if menu is currently visible before starting calibration
+                  menu_visible = self.ui_manager and self.ui_manager.floating_menu and self.ui_manager.floating_menu.visible
+                  if menu_visible:
                        logger.warning("Cannot start calibration while menu is open.")
-                       print("(!) Close the menu before starting calibration.")
+                       print("(!) Close the menu before starting calibration. (Press 'M' or ESC)")
                   else:
+                       logger.info("'c' pressed. Starting calibration.")
                        self.calibration_manager.start()
-                       if self.ui_manager: self.ui_manager.hide_menu() # Ensure menu is hidden
+                       # No need to explicitly hide menu here if we checked above
              else:
                   logger.warning("'c' pressed but calibration already active.")
         elif key == 32: # Spacebar
              if self.calibration_manager.is_active:
                   logger.debug("Spacebar pressed during calibration.")
-                  # Need to get current hand position for the calibration manager
-                  norm_pos = self.input_processor.debug_info.get("hand_norm") # Get last processed normalized pos
+                  # Get last known normalized position from input processor's debug info
+                  norm_pos = self.input_processor.debug_info.get("hand_norm")
                   if norm_pos:
+                       # Process the step, returns True if calibration completed
                        completed = self.calibration_manager.process_step(norm_pos)
                        if completed:
                             logger.info("Calibration completed via spacebar.")
-                            # Loop will naturally transition out of calib mode
                   else:
                        logger.warning("Spacebar pressed for calibration, but no hand position available.")
                        print("(!) Cannot capture point: Right hand position not found.")
@@ -278,9 +333,8 @@ class ApplicationController:
                   logger.info("ESC pressed while menu open - closing menu.")
                   self.ui_manager.hide_menu()
              else:
-                  # Potentially add other ESC actions? Close app?
-                   logger.debug("ESC pressed with no active action - ignored.")
-                   pass
+                  # No specific action assigned to ESC in non-calibration/non-menu state
+                  logger.debug("ESC pressed with no active action - ignored.")
 
 
     def _process_frame_data(self, frame_data, results, proc_dims):
