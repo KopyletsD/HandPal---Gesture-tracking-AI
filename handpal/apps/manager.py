@@ -1,16 +1,30 @@
+# handpal/apps/manager.py
 import os
 import subprocess
 import webbrowser
 import logging
-import csv # Moved CSV handling here
+import csv
 
 logger = logging.getLogger(__name__)
 
 class AppManager:
     def __init__(self, config):
         self.config = config
-        self.csv_path = self.config.get('apps_csv_path') # Get path from config
-        self.applications = self._load_applications()
+        # Get path from config, ensuring it's absolute for reliability
+        csv_path_from_config = self.config.get('apps_csv_path')
+        if csv_path_from_config and not os.path.isabs(csv_path_from_config):
+             # If relative, assume it's relative to project root (where config likely resolved it)
+             # Or, use a known base directory if config doesn't guarantee absolute paths
+             project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+             self.csv_path = os.path.abspath(os.path.join(project_root, csv_path_from_config))
+             logger.warning(f"Relative apps_csv_path found in config, resolved to: {self.csv_path}")
+        elif csv_path_from_config: # It's absolute
+             self.csv_path = csv_path_from_config
+        else: # Path missing in config, use default logic (which should also be absolute now)
+             self.csv_path = config.DEFAULT_APPS_CSV_PATH # Assuming Config class defines this absolutely
+
+        logger.info(f"AppManager using CSV path: {self.csv_path}")
+        self.applications = self._load_applications() # Initial load
 
     def _ensure_csv_exists(self):
         """Creates a default apps CSV if it doesn't exist."""
@@ -20,12 +34,11 @@ class AppManager:
                 os.makedirs(os.path.dirname(self.csv_path), exist_ok=True) # Ensure directory exists
                 with open(self.csv_path, 'w', newline='', encoding='utf-8') as f:
                     writer = csv.writer(f)
-                    # Add header row
-                    writer.writerow(['label', 'path', 'color', 'icon'])
-                    # Add some default examples
-                    writer.writerow(['Calculator', 'calc.exe' if os.name == 'nt' else 'gnome-calculator', '#0078D7', '🧮']) # OS specific example
+                    writer.writerow(['label', 'path', 'color', 'icon']) # Header
+                    # Defaults
+                    writer.writerow(['Calculator', 'calc.exe' if os.name == 'nt' else 'gnome-calculator', '#0078D7', '🧮'])
                     writer.writerow(['Browser', 'https://duckduckgo.com', '#DE5833', '🌐'])
-                    writer.writerow(['Notepad', 'notepad.exe' if os.name == 'nt' else 'gedit', '#FFDA63', '📝']) # OS specific example
+                    writer.writerow(['Notepad', 'notepad.exe' if os.name == 'nt' else 'gedit', '#FFDA63', '📝'])
                 logger.info(f"Created default applications file: {self.csv_path}")
             except Exception as e:
                 logger.error(f"Failed to create default applications file '{self.csv_path}': {e}")
@@ -35,14 +48,14 @@ class AppManager:
     def _load_applications(self):
         """Reads application data from the CSV file."""
         if not self._ensure_csv_exists():
-             return [{'label':'Error Loading','path':'','color':'#F00','icon':'⚠'}] # Return error indicator
+             logger.error("Cannot load applications, failed to ensure CSV exists.")
+             return [{'label':'Error Loading','path':'','color':'#F00','icon':'⚠'}]
 
         apps = []
         default_color = '#555555'
         default_icon = '🚀'
         try:
             with open(self.csv_path, 'r', newline='', encoding='utf-8') as f:
-                # Use DictReader for easier access by column name
                 reader = csv.DictReader(f)
                 if not reader.fieldnames or 'label' not in reader.fieldnames or 'path' not in reader.fieldnames:
                      logger.error(f"CSV file '{self.csv_path}' missing required columns ('label', 'path').")
@@ -57,10 +70,9 @@ class AppManager:
                         continue
 
                     color = row.get('color', default_color).strip()
-                    # Basic color validation (starts with #, 7 chars long hex)
                     if not (color.startswith('#') and len(color) == 7):
-                        try: int(color[1:], 16) # Check if hex parsable
-                        except ValueError: color = default_color # Fallback if invalid hex
+                        try: int(color[1:], 16) # Check hex validity
+                        except ValueError: color = default_color
                     icon = row.get('icon', default_icon).strip()
 
                     apps.append({'label': label, 'path': path, 'color': color, 'icon': icon})
@@ -78,22 +90,25 @@ class AppManager:
         """Returns the list of loaded application dictionaries."""
         return self.applications
 
+    # --- ADDED METHOD ---
     def reload_applications(self):
          """Forces a reload of applications from the CSV file."""
-         logger.info("Reloading applications from CSV...")
+         logger.info(f"Reloading applications from CSV: {self.csv_path}")
+         # Re-call the internal load method to refresh self.applications
          self.applications = self._load_applications()
-         # Potentially signal UI to update here if needed
+         logger.info(f"Reload complete. Found {len(self.applications)} applications.")
+    # --- END OF ADDED METHOD ---
 
     def launch(self, app_label_or_path):
         """Launches an application by its label or direct path."""
         path_to_launch = None
-        # Check if it's a label from our list first
+        # Try matching label first
         for app in self.applications:
             if app['label'] == app_label_or_path:
                 path_to_launch = app['path']
                 break
 
-        # If not found by label, assume it's a direct path
+        # If no label match, assume it's a direct path
         if path_to_launch is None:
             path_to_launch = app_label_or_path
 
@@ -107,21 +122,16 @@ class AppManager:
                 webbrowser.open(path_to_launch)
                 logger.info(f"Opened URL in browser: {path_to_launch}")
             elif os.name == 'nt':
-                # os.startfile is generally preferred on Windows for opening files/apps
-                # It behaves like double-clicking the file in Explorer.
                 os.startfile(path_to_launch)
                 logger.info(f"Launched via os.startfile: {path_to_launch}")
             else:
-                # For Linux/macOS, subprocess.Popen is more common.
-                # Use shell=True cautiously, ensure path isn't user-controlled without sanitization
-                # Or, split into command and args if needed.
-                subprocess.Popen([path_to_launch], shell=False) # shell=False is safer
+                # Consider using shlex.split if path might contain spaces and needs args
+                subprocess.Popen([path_to_launch], shell=False) # Safer default
                 logger.info(f"Launched via subprocess.Popen: {path_to_launch}")
 
         except FileNotFoundError:
             logger.error(f"Launch failed: File or application not found at '{path_to_launch}'")
         except OSError as e:
-             # Handles cases like permission errors or if path is a directory
-             logger.error(f"Launch failed for '{path_to_launch}': Operating system error - {e}")
+             logger.error(f"Launch failed for '{path_to_launch}': OS error - {e}")
         except Exception as e:
             logger.exception(f"Unexpected error launching '{path_to_launch}': {e}")

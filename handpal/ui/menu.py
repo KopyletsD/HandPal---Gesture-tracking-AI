@@ -1,12 +1,16 @@
+# handpal/ui/menu.py
 import tkinter as tk
 from tkinter import Toplevel, Frame, Label, Button as TkButton, BOTH, X
 import logging
-# Removed CSV functions - they are now in apps.manager
+
+# Make sure AppManager can be imported if type hinting needed (optional)
+# from ..apps.manager import AppManager
+# from ..config import Config
 
 logger = logging.getLogger(__name__)
 
 class FloatingMenu:
-    def __init__(self, root, app_manager, config):
+    def __init__(self, root: tk.Tk, app_manager, config):
         """
         Initializes the floating menu.
         Args:
@@ -17,24 +21,25 @@ class FloatingMenu:
         if root is None:
              raise ValueError("FloatingMenu requires a Tkinter root window.")
         self.root = root
-        self.app_manager = app_manager # Store the app manager
-        self.config = config # Store config if needed for styling etc.
+        self.app_manager = app_manager
+        self.config = config
 
         self.window = Toplevel(self.root)
         self.window.title("HandPal Menu")
-        # Make window floating and topmost
         self.window.attributes("-topmost", True)
-        # Remove window decorations (title bar, borders)
-        self.window.overrideredirect(True)
-        # Initial size and position (can be configured later)
-        self.window.geometry("280x400+50+50") # Width x Height + X + Y
-        # Set background colors (consider getting from config)
-        self.window.configure(bg='#222831')
+        self.window.overrideredirect(True) # No window decorations
+        self.window.geometry("280x400+50+50") # Initial size/pos
+        self.window.configure(bg='#222831') # Background
 
-        # Load applications using the AppManager
-        self.apps = self.app_manager.get_applications()
+        # Store the button container frame and button widgets
+        self.button_container = None
+        self.buttons = []
 
-        self._create_elements()
+        # Create structural elements first
+        self._create_base_elements()
+        # Populate with initial application buttons
+        self._create_app_buttons()
+
         self.window.withdraw() # Start hidden
         self.visible = False
 
@@ -46,32 +51,62 @@ class FloatingMenu:
         self._offset_y = 0
         logger.info("FloatingMenu initialized.")
 
-    def _create_elements(self):
-        """Creates the Tkinter widgets inside the menu window."""
+    def _create_base_elements(self):
+        """Creates the non-application parts of the menu (title, container, close btn)."""
         # Title Frame
         title_frame = Frame(self.window, bg='#222831', pady=15)
         title_frame.pack(fill=X)
         Label(title_frame, text="HANDPAL MENU", font=("Helvetica", 14, "bold"), bg='#222831', fg='#EEEEEE').pack()
         Label(title_frame, text="Launch Application", font=("Helvetica", 10), bg='#222831', fg='#00ADB5').pack(pady=(0, 10))
 
-        # Button Container Frame
-        button_container = Frame(self.window, bg='#222831', padx=20)
-        button_container.pack(fill=BOTH, expand=True)
-        self.buttons = [] # Keep references if needed
+        # Button Container Frame (Store reference to add/remove buttons later)
+        self.button_container = Frame(self.window, bg='#222831', padx=20)
+        self.button_container.pack(fill=BOTH, expand=True) # Fill available space
+
+        # Bottom Frame for Close Button (Pack last to stay at bottom)
+        bottom_frame = Frame(self.window, bg='#222831', pady=15)
+        bottom_frame.pack(fill=X, side=tk.BOTTOM)
+
+        TkButton(
+            bottom_frame, text="✖ Close Menu", bg='#393E46', fg='#EEEEEE',
+            font=("Helvetica", 10), relief=tk.FLAT, borderwidth=0,
+            padx=10, pady=5, width=15, command=self.hide
+        ).pack(pady=5) # Center the close button (or adjust as needed)
+
+    def _create_app_buttons(self):
+        """Clears and recreates application buttons in the container."""
+        if not self.button_container:
+             logger.error("Button container not initialized in FloatingMenu.")
+             return
+
+        # Clear existing buttons first
+        for widget in self.button_container.winfo_children():
+            widget.destroy()
+        self.buttons.clear() # Clear the list of button widgets
+
+        # Get the latest list of applications from the AppManager
+        self.apps = self.app_manager.get_applications()
+        logger.debug(f"Recreating menu buttons for {len(self.apps)} apps.")
+
+        # Display message if no apps found
+        if not self.apps:
+             Label(self.button_container, text="No applications found.",
+                   font=("Helvetica", 10), bg='#222831', fg='#AAAAAA').pack(pady=20)
+             return # Don't proceed if no apps
 
         # Create buttons for each application
         for app_info in self.apps:
-            app_frame = Frame(button_container, bg='#222831', pady=8)
+            # Create a frame for each button row to control padding
+            app_frame = Frame(self.button_container, bg='#222831', pady=5)
             app_frame.pack(fill=X)
 
-            # Get app details safely
+            # Safely get app details with defaults
             icon = app_info.get('icon', ' ')
             label = app_info.get('label', '?')
             color = app_info.get('color', '#555555')
-            path = app_info.get('path') # Path needed for the command
+            path = app_info.get('path') # Path is crucial for the command
 
-            # Create the button
-            # Use a lambda that captures the specific 'path' for this iteration
+            # Create the button, ensuring lambda captures the correct path
             btn = TkButton(
                 app_frame,
                 text=f"{icon} {label}",
@@ -82,51 +117,41 @@ class FloatingMenu:
                 borderwidth=0,
                 padx=10,
                 pady=8,
-                width=20, # Fixed width for alignment
-                anchor='w', # Align text to the left
+                width=20,    # Fixed width helps alignment
+                anchor='w',  # Align text to the left (west)
                 command=lambda p=path: self._launch_and_hide(p) # Launch via AppManager
             )
-            btn.pack(fill=X)
-            self.buttons.append(btn)
-
-        # Bottom Frame for Close Button
-        bottom_frame = Frame(self.window, bg='#222831', pady=15)
-        bottom_frame.pack(fill=X, side=tk.BOTTOM) # Place at the bottom
-
-        TkButton(
-            bottom_frame,
-            text="✖ Close Menu",
-            bg='#393E46', fg='#EEEEEE',
-            font=("Helvetica", 10),
-            relief=tk.FLAT, borderwidth=0,
-            padx=10, pady=5,
-            width=15,
-            command=self.hide # Command to hide the menu
-        ).pack(pady=5) # Add some padding below the button list
+            btn.pack(fill=X) # Make button fill its frame horizontally
+            self.buttons.append(btn) # Store reference if needed
 
     def _launch_and_hide(self, path):
-         """Helper to launch app and then hide menu."""
+         """Helper to launch app via AppManager and then hide the menu."""
          if path:
-             self.app_manager.launch(path) # Use AppManager to launch
-             self.hide() # Hide menu after launching
+             self.app_manager.launch(path)
+             self.hide()
          else:
-              logger.warning("Attempted to launch app with no path from menu.")
-
+              logger.warning("Menu button clicked but associated path is empty.")
 
     def show(self):
         """Makes the menu window visible."""
         if not self.visible:
-            self.window.deiconify() # Show the window
-            self.window.lift()      # Bring it to the front
-            self.visible = True
-            logger.debug("FloatingMenu shown.")
+            try:
+                self.window.deiconify() # Show the window
+                self.window.lift()      # Bring it to the front
+                self.visible = True
+                logger.debug("FloatingMenu shown.")
+            except tk.TclError as e:
+                 logger.error(f"Tkinter error showing menu: {e}")
 
     def hide(self):
         """Hides the menu window."""
         if self.visible:
-            self.window.withdraw() # Hide the window
-            self.visible = False
-            logger.debug("FloatingMenu hidden.")
+            try:
+                self.window.withdraw() # Hide the window
+                self.visible = False
+                logger.debug("FloatingMenu hidden.")
+            except tk.TclError as e:
+                 logger.error(f"Tkinter error hiding menu: {e}")
 
     def toggle(self):
         """Toggles the visibility of the menu."""
@@ -137,46 +162,39 @@ class FloatingMenu:
 
     # --- Window Dragging Methods ---
     def _start_move(self, event):
-        """Records the initial mouse offset when dragging starts."""
         self._offset_x = event.x
         self._offset_y = event.y
 
     def _stop_move(self, event):
-        """Resets the offset when dragging stops."""
         self._offset_x = 0
         self._offset_y = 0
 
     def _do_move(self, event):
-        """Moves the window based on mouse movement during drag."""
-        # Calculate new window position
         new_x = self.window.winfo_x() + event.x - self._offset_x
         new_y = self.window.winfo_y() + event.y - self._offset_y
-        self.window.geometry(f"+{new_x}+{new_y}") # Set new position
+        self.window.geometry(f"+{new_x}+{new_y}")
 
+    # --- ADDED METHOD ---
     def update_apps(self):
-         """Reloads apps from AppManager and rebuilds the menu."""
-         logger.info("Updating menu applications...")
-         self.apps = self.app_manager.get_applications()
-         # Clear existing widgets in button container (or destroy/recreate window?)
-         for widget in self.window.winfo_children():
-              widget.destroy()
-         # Recreate all elements
-         self._create_elements()
-         logger.info("FloatingMenu elements recreated.")
-         # Ensure it remains hidden/visible as it was
-         if not self.visible:
-              self.window.withdraw()
-         else:
-              self.window.deiconify()
-              self.window.lift()
-
+        """Reloads apps from AppManager and rebuilds the menu buttons."""
+        logger.info("Updating FloatingMenu applications display...")
+        # Assumes AppManager has already been told to reload its internal list.
+        # We just need to recreate the button widgets based on the new list.
+        try:
+             self._create_app_buttons()
+             logger.info("FloatingMenu buttons recreated.")
+        except Exception as e:
+             logger.exception("Error updating floating menu apps display.")
+    # --- END OF ADDED METHOD ---
 
     def destroy(self):
          """Destroys the menu window."""
          try:
-              self.window.destroy()
+              if self.window:
+                   self.window.destroy()
+                   self.window = None # Prevent further calls
               logger.info("FloatingMenu destroyed.")
          except tk.TclError:
-              logger.debug("FloatingMenu window already destroyed.") # Ignore if already gone
+              logger.debug("FloatingMenu window already destroyed.")
          except Exception as e:
               logger.error(f"Error destroying FloatingMenu: {e}")
