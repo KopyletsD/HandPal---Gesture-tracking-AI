@@ -68,6 +68,6 @@ Planned Improvements
 - [ ] Presentation (Pado)
 - [ ] Zoom (Stefanica)
 - [ ] Recogntion Single User and Focus on One Hand Pair (Carmi)
-- [ ] Dynamic Menu from csv (Kopy)
+- [x] Dynamic Menu from csv (Kopy)
 - [ ] Merge (Pado)
 - [ ] Refactoring della Codebase (Kopy)
