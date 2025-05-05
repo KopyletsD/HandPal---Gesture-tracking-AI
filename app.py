@@ -157,7 +157,8 @@ class GestureRecognizer:
         self.config = config; self.last_positions = {}
         self.gesture_state = {"scroll_active": False, "last_click_time": 0, "last_click_button": None,
                               "scroll_history": deque(maxlen=5), "active_gesture": None,
-                              "last_pose": {"Left": "U", "Right": "U"}, "pose_stable_count": {"Left": 0, "Right": 0}}
+                              "last_pose": {"Left": "U", "Right": "U"}, "pose_stable_count": {"Left": 0, "Right": 0},
+                              "fist_drag_active": False}  # Use fist for drag instead of pinch
         self.POSE_STABILITY_THRESHOLD = 3
 
     def _dist(self, p1, p2):
@@ -175,8 +176,10 @@ class GestureRecognizer:
         now = time.time()
         thresh = self.config["gesture_sensitivity"]
         gesture = None
+        
+        # Check if pinch is active (thumb and index finger close)
         if dist < thresh:
-            # gestisci il cooldown e il double click
+            # Check for click (when not in cooldown period)
             cooldown = self.config["click_cooldown"]
             if (now - self.gesture_state["last_click_time"]) > cooldown:
                 double_click_t = self.config["gesture_settings"]["double_click_time"]
@@ -187,10 +190,79 @@ class GestureRecognizer:
                 self.gesture_state["last_click_time"] = now
                 self.gesture_state["last_click_button"] = Button.left
                 self.gesture_state["active_gesture"] = "click"
-        elif self.gesture_state["active_gesture"] == "click":
-            self.gesture_state["active_gesture"] = None
+        else:
+            # Normal click release
+            if self.gesture_state["active_gesture"] == "click":
+                self.gesture_state["active_gesture"] = None
+        
         return gesture
 
+    def check_fist_drag(self, hand_lm, handedness):
+        """Detect drag and drop using left hand fist pose"""
+        if handedness != "Left" or hand_lm is None or self.gesture_state["scroll_active"]:
+            return None
+            
+        # Check the current pose without stabilizzazione
+        raw_pose = self.detect_raw_pose(hand_lm)
+        is_fist = raw_pose == "Fist"
+        
+        # Se il pugno è già attivo, usa una soglia più permissiva per mantenerlo
+        if self.gesture_state["fist_drag_active"]:
+            # Verifica che non ci siano più di 1 dita estese
+            try:
+                lm=hand_lm.landmark
+                it,mt,rt,pt = lm[8],lm[12],lm[16],lm[20]
+                im,mm,rm,pm = lm[5],lm[9],lm[13],lm[17]
+                y_ext = 0.03
+                i_ext = it.y < im.y - y_ext
+                m_ext = mt.y < mm.y - y_ext
+                r_ext = rt.y < rm.y - y_ext 
+                p_ext = pt.y < pm.y - y_ext
+                num_ext = sum([i_ext,m_ext,r_ext,p_ext])
+                still_dragging = num_ext <= 1  # Più permissivo: ok anche con 1 dito
+            except (IndexError, TypeError):
+                still_dragging = False
+            
+            if still_dragging:
+                return "drag_continue"
+            else:
+                self.gesture_state["fist_drag_active"] = False
+                self.gesture_state["active_gesture"] = None
+                return "drag_end"
+        
+        # Check per nuovo pugno
+        if is_fist and not self.gesture_state["fist_drag_active"]:
+            self.gesture_state["fist_drag_active"] = True
+            self.gesture_state["active_gesture"] = "drag"
+            return "drag_start"
+        
+        # No drag action
+        return None
+
+    def detect_raw_pose(self, hand_lm):
+        """Versione semplificata e immediata del rilevamento postura senza stabilizzazione"""
+        if hand_lm is None: return "U"
+        try: 
+            lm = hand_lm.landmark
+            w = lm[0]  # wrist
+            it,mt,rt,pt = lm[8],lm[12],lm[16],lm[20]  # finger tips
+            im,mm,rm,pm = lm[5],lm[9],lm[13],lm[17]   # finger mcp (base)
+            
+            y_ext = 0.03
+            i_ext = it.y < im.y - y_ext
+            m_ext = mt.y < mm.y - y_ext
+            r_ext = rt.y < rm.y - y_ext 
+            p_ext = pt.y < pm.y - y_ext
+            
+            num_ext = sum([i_ext,m_ext,r_ext,p_ext])
+            
+            if num_ext == 0: return "Fist"
+            if num_ext >= 4: return "Open"
+            if i_ext and num_ext == 1: return "Point"
+            if i_ext and m_ext and num_ext == 2: return "Two"
+            return "Other"
+        except (IndexError, TypeError):
+            return "U"
 
     def check_scroll_gesture(self, hand_landmarks, handedness):
          """Rileva il gesto di scorrimento (indice e medio estesi verticalmente), solo per la mano sinistra."""
@@ -263,14 +335,19 @@ class GestureRecognizer:
         y_ext = 0.03; t_ext=tt.y<w.y-y_ext; i_ext=it.y<im.y-y_ext; m_ext=mt.y<mm.y-y_ext; r_ext=rt.y<rm.y-y_ext; p_ext=pt.y<pm.y-y_ext
         num_ext = sum([i_ext,m_ext,r_ext,p_ext]); pose = "U"
         if handedness=="Left" and self.gesture_state["scroll_active"]: pose="Scroll"
+        # Rileva fist anche quando il pollice è esteso (più permissivo)
+        elif num_ext==0: pose="Fist" 
         elif i_ext and num_ext==1: pose="Point"
         elif i_ext and m_ext and num_ext==2: pose="Two"
         elif num_ext >= 4: pose="Open"
-        elif num_ext==0 and not t_ext: pose="Fist"
+        
         last=self.gesture_state["last_pose"].get(handedness,"U"); count=self.gesture_state["pose_stable_count"].get(handedness,0)
         if pose==last and pose!="U": count+=1
         else: count=0
         self.gesture_state["last_pose"][handedness]=pose; self.gesture_state["pose_stable_count"][handedness]=count
+        # Riduciamo la soglia di stabilità per il pugno
+        if pose == "Fist" and count >= 1:
+            return pose
         return pose if count>=self.POSE_STABILITY_THRESHOLD or pose=="Scroll" else last+"?"
 
 # -----------------------------------------------------------------------------
@@ -427,7 +504,10 @@ class HandPal:
         self.current_display_dims = (0, 0) # Store last known display dims (w, h)
         self.menu_trigger_active = False; self._menu_activate_time = 0; self.MENU_HOVER_DELAY = 0.3
         self.debug_values = {"fps":0.0, "det_fps":0.0, "last_act":time.time(), "cur_hist":deque(maxlen=50),
-                             "map":{"raw":'-',"cal":'-',"map":'-',"smooth":'-'}, "L":"U", "R":"U", "gest":"N/A", "q":0, "menu":"Off"}
+                             "map":{"raw":'-',"cal":'-',"map":'-',"smooth":'-}', "L":"U", "R":"U", "gest":"N/A", "q":0, "menu":"Off"
+                             }
+        }
+                                    
         self.fps_stats = deque(maxlen=60); self._last_proc_dims = (0,0) # Store last process dims (w, h)
 
     def start(self): # (Unchanged from v2)
@@ -605,7 +685,7 @@ class HandPal:
             if self.debug_mode: self.debug_values["menu"] = "Off (No Hand)"
 
 
-        # --- Left Hand: Gestures --- (Unchanged from v2)
+        # --- Left Hand: Gestures ---
         action = False
         if lm_l and not self.calibration_active:
             scroll = self.gesture_recognizer.check_scroll_gesture(lm_l, "Left")
@@ -614,12 +694,59 @@ class HandPal:
                 if clicks != 0:
                     try: self.mouse.scroll(0, clicks); action = True; logger.debug(f"Scroll: {clicks}"); self.debug_values["last_act"]=time.time(); self.debug_values["gest"]="Scroll"
                     except Exception as e: logger.error(f"Scroll error: {e}")
+            
+            # Check for drag with fist first
             if not action:
+                drag_action = self.gesture_recognizer.check_fist_drag(lm_l, "Left")
+                if drag_action:
+                    if drag_action == "drag_start":
+                        try: 
+                            self.mouse.press(Button.left)
+                            action = True
+                            logger.info("Fist Drag Start")
+                            print("⭐ DRAG START ⭐") # Output visibile direttamente sul terminale
+                            self.debug_values["last_act"] = time.time()
+                            self.debug_values["gest"] = "Drag ⛓️"
+                        except Exception as e:
+                            logger.error(f"Drag start error: {e}")
+                    elif drag_action == "drag_continue":
+                        action = True
+                        self.debug_values["gest"] = "Dragging ⛓️"
+                    elif drag_action == "drag_end":
+                        try:
+                            self.mouse.release(Button.left)
+                            action = True
+                            logger.info("Drag End")
+                            print("⭐ DRAG END ⭐") # Output visibile direttamente sul terminale
+                            self.debug_values["last_act"] = time.time()
+                            self.debug_values["gest"] = "Idle"
+                        except Exception as e:
+                            logger.error(f"Drag end error: {e}")
+            
+            # Check for clicks only if no drag action is happening
+            if not action and not self.gesture_recognizer.gesture_state["fist_drag_active"]:
                 click_type = self.gesture_recognizer.check_thumb_index_click(lm_l, "Left")
                 if click_type:
-                    btn = Button.left; count = 1 if click_type=="click" else 2; name=f"{click_type.capitalize()}"
-                    try: self.mouse.click(btn, count); action=True; logger.info(f"{name} Left"); self.debug_values["last_act"]=time.time(); self.debug_values["gest"]=name
-                    except Exception as e: logger.error(f"{name} error: {e}")
+                    if click_type == "double_click":
+                        btn = Button.left; count = 2; name="DoubleClick"
+                        try: 
+                            self.mouse.click(btn, count)
+                            action = True
+                            logger.info(f"{name} Left")
+                            self.debug_values["last_act"] = time.time()
+                            self.debug_values["gest"] = name
+                        except Exception as e: 
+                            logger.error(f"{name} error: {e}")
+                    elif click_type == "click":
+                        btn = Button.left; count = 1; name="Click"
+                        try: 
+                            self.mouse.click(btn, count)
+                            action = True
+                            logger.info(f"{name} Left")
+                            self.debug_values["last_act"] = time.time()
+                            self.debug_values["gest"] = name
+                        except Exception as e:
+                            logger.error(f"{name} error: {e}")
 
         # --- Update Debug Poses/Gestures --- (Unchanged from v2)
         if self.debug_mode:
@@ -663,6 +790,13 @@ class HandPal:
         if results and results.multi_hand_landmarks: frame = self.draw_landmarks(frame, results.multi_hand_landmarks)
         frame = self.draw_menu_trigger_circle(frame) # Updates pixel zone
 
+        # Aggiungiamo indicatore di drag
+        if self.gesture_recognizer.gesture_state["fist_drag_active"]:
+            drag_indicator = "DRAG ACTIVE"
+            cv.putText(frame, drag_indicator, (w//2 - 80, 50), cv.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
+            # Disegna un bordo rosso intorno al frame
+            cv.rectangle(frame, (5, 5), (w-5, h-5), (0, 0, 255), 3)
+
         # --- Calibration Overlay --- (Unchanged)
         if self.calibration_active:
             bg = frame.copy(); cv.rectangle(bg, (0,0), (w, 100), bg_c, -1); alpha = 0.7
@@ -687,7 +821,7 @@ class HandPal:
                 t1=f"L:{d['L']} R:{d['R']} Gest:{d['gest']} Menu:{d['menu']}"; cv.putText(frame,t1,(10,y),font,fsc_sml,overlay_c,l_type); y+=18
                 t2=f"Map: Raw({m['raw']}) Cal({m['cal']}) -> MapPx({m['map']}) -> Smooth({m['smooth']})"; cv.putText(frame,t2,(10,y),font,fsc_sml,overlay_c,l_type); y+=18
                 t3=f"Calib X[{c['x_min']:.2f}-{c['x_max']:.2f}] Y[{c['y_min']:.2f}-{c['y_max']:.2f}] En:{c['enabled']}"; cv.putText(frame,t3,(10,y),font,fsc_sml,overlay_c,l_type); y+=18
-                t_act=time.time()-d["last_act"]; t4=f"LastAct:{t_act:.1f}s ago | QSize:{d['q']}"; cv.putText(frame,t4,(10,y),font,fsc_sml,overlay_c,l_type); y+=18
+                t4=f"LastAct:{time.time()-d['last_act']:.1f}s ago | QSize:{d['q']}"; cv.putText(frame,t4,(10,y),font,fsc_sml,overlay_c,l_type); y+=18
                 if len(d["cur_hist"]) > 1:
                     pts_screen=np.array(list(d["cur_hist"]),dtype=np.int32)
                     if self.screen_size[0]>0 and self.screen_size[1]>0:

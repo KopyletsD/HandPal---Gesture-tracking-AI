@@ -1,0 +1,774 @@
+2025-05-05 14:56:57,231 - HandPal - INFO - Log level set to INFO
+2025-05-05 14:56:57,232 - HandPal - INFO - Config loaded from C:\Users\carminati.20133/.handpal_config.json
+2025-05-05 14:56:57,232 - HandPal - INFO - Attempting to set cursor: red_cursor.cur
+2025-05-05 14:56:57,232 - HandPal - INFO - Custom cursor 'red_cursor.cur' set.
+2025-05-05 14:56:57,558 - HandPal - INFO - Loaded 3 apps from applications.csv
+2025-05-05 14:56:58,160 - HandPal - INFO - FloatingMenu initialized.
+2025-05-05 14:56:58,160 - HandPal - INFO - Screen: (1920, 1080). Menu OK.
+2025-05-05 14:56:58,161 - HandPal - INFO - Starting HandPal...
+2025-05-05 14:56:59,318 - HandPal - INFO - Webcam OK: 1280x720 @ 60.0 FPS
+2025-05-05 14:56:59,333 - HandPal - INFO - DetectionThread: ProcRes=640x360, Flip=True
+2025-05-05 14:56:59,334 - HandPal - INFO - DetectionThread starting
+2025-05-05 14:56:59,334 - HandPal - INFO - HandPal started successfully!
+2025-05-05 14:56:59,334 - HandPal - INFO - Main loop starting.
+2025-05-05 14:57:19,546 - HandPal - INFO - Click Left
+2025-05-05 14:57:20,416 - HandPal - INFO - Click Left
+2025-05-05 14:57:21,449 - HandPal - INFO - Click Left
+2025-05-05 14:57:22,735 - HandPal - INFO - Click Left
+2025-05-05 14:57:23,454 - HandPal - INFO - Click Left
+2025-05-05 14:57:24,021 - HandPal - INFO - Click Left
+2025-05-05 14:57:24,576 - HandPal - INFO - Click Left
+2025-05-05 14:57:28,042 - HandPal - INFO - Debug mode toggled to: True
+2025-05-05 14:57:30,255 - HandPal - INFO - Click Left
+2025-05-05 14:57:30,816 - HandPal - INFO - Click Left
+2025-05-05 14:57:31,367 - HandPal - INFO - Click Left
+2025-05-05 14:57:31,928 - HandPal - INFO - Click Left
+2025-05-05 14:57:32,490 - HandPal - INFO - Click Left
+2025-05-05 14:57:47,220 - HandPal - INFO - Click Left
+2025-05-05 14:57:47,767 - HandPal - INFO - Click Left
+2025-05-05 14:57:48,341 - HandPal - INFO - Click Left
+2025-05-05 14:57:48,887 - HandPal - INFO - Click Left
+2025-05-05 14:57:49,456 - HandPal - INFO - Click Left
+2025-05-05 14:57:50,022 - HandPal - INFO - Click Left
+2025-05-05 14:57:54,097 - HandPal - INFO - Click Left
+2025-05-05 14:57:59,464 - HandPal - INFO - Click Left
+2025-05-05 14:58:00,012 - HandPal - INFO - Click Left
+2025-05-05 14:58:00,571 - HandPal - INFO - Click Left
+2025-05-05 14:58:01,866 - HandPal - INFO - Click Left
+2025-05-05 14:58:02,417 - HandPal - INFO - Click Left
+2025-05-05 14:58:02,969 - HandPal - INFO - Click Left
+2025-05-05 14:58:03,534 - HandPal - INFO - Click Left
+2025-05-05 14:58:04,094 - HandPal - INFO - Click Left
+2025-05-05 14:58:04,809 - HandPal - INFO - Click Left
+2025-05-05 14:58:05,533 - HandPal - INFO - Click Left
+2025-05-05 14:58:06,096 - HandPal - INFO - Click Left
+2025-05-05 14:58:06,647 - HandPal - INFO - Click Left
+2025-05-05 14:58:18,027 - HandPal - INFO - Debug mode toggled to: False
+2025-05-05 14:58:21,273 - HandPal - INFO - 'q' pressed, stopping.
+2025-05-05 14:58:21,274 - HandPal - INFO - Stopping HandPal...
+2025-05-05 14:58:21,280 - HandPal - INFO - DetectionThread finished. 1013 frames in 81.95s (Avg FPS: 12.4)
+2025-05-05 14:58:21,280 - HandPal - INFO - DetectionThread alive after join: False
+2025-05-05 14:58:21,562 - HandPal - INFO - OpenCV windows closed.
+2025-05-05 14:58:21,582 - HandPal - INFO - HandPal stopped.
+2025-05-05 14:58:21,582 - HandPal - INFO - Main loop finished.
+2025-05-05 14:58:21,583 - HandPal - INFO - Main finally block executing cleanup...
+2025-05-05 14:58:21,583 - HandPal - INFO - Restoring default cursor...
+2025-05-05 14:58:21,588 - HandPal - ERROR - Error restoring default cursors: Failed to restore default cursors (Error 0).
+2025-05-05 14:58:21,588 - HandPal - INFO - HandPal finished.
+2025-05-05 14:59:14,718 - HandPal - INFO - Log level set to INFO
+2025-05-05 14:59:14,718 - HandPal - INFO - Config loaded from C:\Users\carminati.20133/.handpal_config.json
+2025-05-05 14:59:14,718 - HandPal - INFO - Attempting to set cursor: red_cursor.cur
+2025-05-05 14:59:14,718 - HandPal - INFO - Custom cursor 'red_cursor.cur' set.
+2025-05-05 14:59:14,753 - HandPal - INFO - Loaded 3 apps from applications.csv
+2025-05-05 14:59:15,091 - HandPal - INFO - FloatingMenu initialized.
+2025-05-05 14:59:15,091 - HandPal - INFO - Screen: (1920, 1080). Menu OK.
+2025-05-05 14:59:15,093 - HandPal - INFO - Starting HandPal...
+2025-05-05 14:59:16,146 - HandPal - INFO - Webcam OK: 1280x720 @ 60.0 FPS
+2025-05-05 14:59:16,151 - HandPal - INFO - DetectionThread: ProcRes=640x360, Flip=True
+2025-05-05 14:59:16,153 - HandPal - INFO - DetectionThread starting
+2025-05-05 14:59:16,153 - HandPal - INFO - HandPal started successfully!
+2025-05-05 14:59:16,153 - HandPal - INFO - Main loop starting.
+2025-05-05 14:59:22,001 - HandPal - INFO - 'q' pressed, stopping.
+2025-05-05 14:59:22,002 - HandPal - INFO - Stopping HandPal...
+2025-05-05 14:59:22,034 - HandPal - INFO - DetectionThread finished. 62 frames in 5.88s (Avg FPS: 10.5)
+2025-05-05 14:59:22,034 - HandPal - INFO - DetectionThread alive after join: False
+2025-05-05 14:59:22,326 - HandPal - INFO - OpenCV windows closed.
+2025-05-05 14:59:22,348 - HandPal - INFO - HandPal stopped.
+2025-05-05 14:59:22,348 - HandPal - INFO - Main loop finished.
+2025-05-05 14:59:22,348 - HandPal - INFO - Main finally block executing cleanup...
+2025-05-05 14:59:22,348 - HandPal - INFO - Restoring default cursor...
+2025-05-05 14:59:22,357 - HandPal - ERROR - Error restoring default cursors: Failed to restore default cursors (Error 0).
+2025-05-05 14:59:22,357 - HandPal - INFO - HandPal finished.
+2025-05-05 14:59:55,618 - HandPal - INFO - Log level set to INFO
+2025-05-05 14:59:55,618 - HandPal - INFO - Config loaded from C:\Users\carminati.20133/.handpal_config.json
+2025-05-05 14:59:55,618 - HandPal - INFO - Attempting to set cursor: red_cursor.cur
+2025-05-05 14:59:55,618 - HandPal - INFO - Custom cursor 'red_cursor.cur' set.
+2025-05-05 14:59:55,653 - HandPal - INFO - Loaded 3 apps from applications.csv
+2025-05-05 14:59:55,949 - HandPal - INFO - FloatingMenu initialized.
+2025-05-05 14:59:55,949 - HandPal - INFO - Screen: (1920, 1080). Menu OK.
+2025-05-05 14:59:55,949 - HandPal - INFO - Starting HandPal...
+2025-05-05 14:59:57,027 - HandPal - INFO - Webcam OK: 1280x720 @ 60.0 FPS
+2025-05-05 14:59:57,033 - HandPal - INFO - DetectionThread: ProcRes=640x360, Flip=True
+2025-05-05 14:59:57,034 - HandPal - INFO - DetectionThread starting
+2025-05-05 14:59:57,035 - HandPal - INFO - HandPal started successfully!
+2025-05-05 14:59:57,035 - HandPal - INFO - Main loop starting.
+2025-05-05 15:00:10,638 - HandPal - INFO - Click Left
+2025-05-05 15:00:11,102 - HandPal - INFO - Drag Start
+2025-05-05 15:00:11,395 - HandPal - INFO - Drag End
+2025-05-05 15:00:11,491 - HandPal - INFO - Drag Start
+2025-05-05 15:00:11,897 - HandPal - INFO - Drag End
+2025-05-05 15:00:12,122 - HandPal - INFO - Click Left
+2025-05-05 15:00:12,611 - HandPal - INFO - Drag Start
+2025-05-05 15:00:12,852 - HandPal - INFO - Drag End
+2025-05-05 15:00:14,440 - HandPal - INFO - Click Left
+2025-05-05 15:00:15,011 - HandPal - INFO - Click Left
+2025-05-05 15:00:15,410 - HandPal - INFO - Drag Start
+2025-05-05 15:00:15,728 - HandPal - INFO - Drag End
+2025-05-05 15:00:17,656 - HandPal - INFO - Click Left
+2025-05-05 15:00:18,136 - HandPal - INFO - Drag Start
+2025-05-05 15:00:18,705 - HandPal - INFO - Drag End
+2025-05-05 15:00:18,770 - HandPal - INFO - Drag Start
+2025-05-05 15:00:18,928 - HandPal - INFO - Drag End
+2025-05-05 15:00:19,024 - HandPal - INFO - Drag Start
+2025-05-05 15:00:19,499 - HandPal - INFO - Drag End
+2025-05-05 15:00:19,736 - HandPal - INFO - Click Left
+2025-05-05 15:00:31,482 - HandPal - INFO - Click Left
+2025-05-05 15:00:32,059 - HandPal - INFO - Click Left
+2025-05-05 15:00:32,612 - HandPal - INFO - Click Left
+2025-05-05 15:00:33,649 - HandPal - INFO - Click Left
+2025-05-05 15:00:34,110 - HandPal - INFO - Drag Start
+2025-05-05 15:00:34,683 - HandPal - INFO - Drag End
+2025-05-05 15:00:49,854 - HandPal - INFO - Debug mode toggled to: True
+2025-05-05 15:00:55,795 - HandPal - INFO - Click Left
+2025-05-05 15:00:56,267 - HandPal - INFO - Drag Start
+2025-05-05 15:00:56,502 - HandPal - INFO - Drag End
+2025-05-05 15:00:58,425 - HandPal - INFO - Click Left
+2025-05-05 15:00:58,982 - HandPal - INFO - Click Left
+2025-05-05 15:00:59,459 - HandPal - INFO - Drag Start
+2025-05-05 15:00:59,863 - HandPal - INFO - Drag End
+2025-05-05 15:00:59,938 - HandPal - INFO - Drag Start
+2025-05-05 15:01:00,025 - HandPal - INFO - Drag End
+2025-05-05 15:01:00,502 - HandPal - INFO - Click Left
+2025-05-05 15:01:00,988 - HandPal - INFO - Drag Start
+2025-05-05 15:01:02,422 - HandPal - INFO - Drag End
+2025-05-05 15:01:08,575 - HandPal - INFO - Click Left
+2025-05-05 15:01:09,059 - HandPal - INFO - Drag Start
+2025-05-05 15:01:15,541 - HandPal - INFO - Drag End
+2025-05-05 15:01:17,469 - HandPal - INFO - Click Left
+2025-05-05 15:01:17,934 - HandPal - INFO - Drag Start
+2025-05-05 15:01:18,816 - HandPal - INFO - Drag End
+2025-05-05 15:01:28,298 - HandPal - INFO - Click Left
+2025-05-05 15:01:28,753 - HandPal - INFO - Drag Start
+2025-05-05 15:01:31,173 - HandPal - INFO - Drag End
+2025-05-05 15:01:33,900 - HandPal - INFO - Click Left
+2025-05-05 15:01:36,765 - HandPal - INFO - Click Left
+2025-05-05 15:01:37,221 - HandPal - INFO - Drag Start
+2025-05-05 15:01:39,317 - HandPal - INFO - Drag End
+2025-05-05 15:01:41,011 - HandPal - INFO - Click Left
+2025-05-05 15:01:41,480 - HandPal - INFO - Drag Start
+2025-05-05 15:01:43,152 - HandPal - INFO - Drag End
+2025-05-05 15:01:44,129 - HandPal - INFO - Click Left
+2025-05-05 15:01:44,618 - HandPal - INFO - Drag Start
+2025-05-05 15:01:45,715 - HandPal - INFO - Drag End
+2025-05-05 15:01:46,828 - HandPal - INFO - Click Left
+2025-05-05 15:01:47,313 - HandPal - INFO - Drag Start
+2025-05-05 15:01:49,707 - HandPal - INFO - Drag End
+2025-05-05 15:01:50,041 - HandPal - INFO - Click Left
+2025-05-05 15:01:50,503 - HandPal - INFO - Drag Start
+2025-05-05 15:01:50,650 - HandPal - INFO - Drag End
+2025-05-05 15:01:51,633 - HandPal - INFO - Click Left
+2025-05-05 15:01:52,116 - HandPal - INFO - Drag Start
+2025-05-05 15:01:53,066 - HandPal - INFO - Drag End
+2025-05-05 15:01:55,401 - HandPal - INFO - Click Left
+2025-05-05 15:01:55,963 - HandPal - INFO - Click Left
+2025-05-05 15:01:56,506 - HandPal - INFO - Click Left
+2025-05-05 15:02:13,715 - HandPal - INFO - Click Left
+2025-05-05 15:02:14,192 - HandPal - INFO - Drag Start
+2025-05-05 15:02:15,962 - HandPal - INFO - Drag End
+2025-05-05 15:02:19,150 - HandPal - INFO - Click Left
+2025-05-05 15:02:19,630 - HandPal - INFO - Drag Start
+2025-05-05 15:02:20,575 - HandPal - INFO - Drag End
+2025-05-05 15:02:23,068 - HandPal - INFO - Click Left
+2025-05-05 15:02:23,539 - HandPal - INFO - Drag Start
+2025-05-05 15:02:24,342 - HandPal - INFO - Drag End
+2025-05-05 15:02:28,920 - HandPal - INFO - Click Left
+2025-05-05 15:02:29,400 - HandPal - INFO - Drag Start
+2025-05-05 15:02:29,640 - HandPal - INFO - Drag End
+2025-05-05 15:02:30,588 - HandPal - INFO - Click Left
+2025-05-05 15:02:30,982 - HandPal - INFO - Drag Start
+2025-05-05 15:02:35,951 - HandPal - INFO - Drag End
+2025-05-05 15:02:40,213 - HandPal - INFO - Click Left
+2025-05-05 15:02:48,994 - HandPal - INFO - Click Left
+2025-05-05 15:02:51,651 - HandPal - INFO - Click Left
+2025-05-05 15:02:52,047 - HandPal - INFO - Drag Start
+2025-05-05 15:02:57,334 - HandPal - INFO - Drag End
+2025-05-05 15:03:05,215 - HandPal - INFO - Click Left
+2025-05-05 15:03:08,509 - HandPal - INFO - Click Left
+2025-05-05 15:03:20,648 - HandPal - INFO - 'q' pressed, stopping.
+2025-05-05 15:03:20,648 - HandPal - INFO - Stopping HandPal...
+2025-05-05 15:03:20,711 - HandPal - INFO - DetectionThread finished. 2535 frames in 203.69s (Avg FPS: 12.4)
+2025-05-05 15:03:20,711 - HandPal - INFO - DetectionThread alive after join: False
+2025-05-05 15:03:21,002 - HandPal - INFO - OpenCV windows closed.
+2025-05-05 15:03:21,018 - HandPal - INFO - HandPal stopped.
+2025-05-05 15:03:21,018 - HandPal - INFO - Main loop finished.
+2025-05-05 15:03:21,018 - HandPal - INFO - Main finally block executing cleanup...
+2025-05-05 15:03:21,018 - HandPal - INFO - Restoring default cursor...
+2025-05-05 15:03:21,027 - HandPal - ERROR - Error restoring default cursors: Failed to restore default cursors (Error 0).
+2025-05-05 15:03:21,027 - HandPal - INFO - HandPal finished.
+2025-05-05 15:19:29,010 - HandPal - INFO - Log level set to INFO
+2025-05-05 15:19:29,010 - HandPal - INFO - Config loaded from C:\Users\carminati.20133/.handpal_config.json
+2025-05-05 15:19:29,010 - HandPal - INFO - Attempting to set cursor: red_cursor.cur
+2025-05-05 15:19:29,010 - HandPal - INFO - Custom cursor 'red_cursor.cur' set.
+2025-05-05 15:19:29,046 - HandPal - INFO - Loaded 3 apps from applications.csv
+2025-05-05 15:19:29,372 - HandPal - INFO - FloatingMenu initialized.
+2025-05-05 15:19:29,372 - HandPal - INFO - Screen: (1920, 1080). Menu OK.
+2025-05-05 15:19:29,372 - HandPal - INFO - Starting HandPal...
+2025-05-05 15:19:30,452 - HandPal - INFO - Webcam OK: 1280x720 @ 60.0 FPS
+2025-05-05 15:19:30,458 - HandPal - INFO - DetectionThread: ProcRes=640x360, Flip=True
+2025-05-05 15:19:30,459 - HandPal - INFO - DetectionThread starting
+2025-05-05 15:19:30,460 - HandPal - INFO - HandPal started successfully!
+2025-05-05 15:19:30,460 - HandPal - INFO - Main loop starting.
+2025-05-05 15:19:40,440 - HandPal - INFO - Debug mode toggled to: True
+2025-05-05 15:19:47,784 - HandPal - INFO - Click Left
+2025-05-05 15:19:48,418 - HandPal - INFO - Click Left
+2025-05-05 15:19:49,131 - HandPal - INFO - Click Left
+2025-05-05 15:19:49,691 - HandPal - INFO - Click Left
+2025-05-05 15:19:53,047 - HandPal - INFO - Click Left
+2025-05-05 15:19:55,778 - HandPal - INFO - Click Left
+2025-05-05 15:19:57,448 - HandPal - INFO - 'q' pressed, stopping.
+2025-05-05 15:19:57,448 - HandPal - INFO - Stopping HandPal...
+2025-05-05 15:19:57,523 - HandPal - INFO - DetectionThread finished. 327 frames in 27.06s (Avg FPS: 12.1)
+2025-05-05 15:19:57,523 - HandPal - INFO - DetectionThread alive after join: False
+2025-05-05 15:19:57,791 - HandPal - INFO - OpenCV windows closed.
+2025-05-05 15:19:57,810 - HandPal - INFO - HandPal stopped.
+2025-05-05 15:19:57,810 - HandPal - INFO - Main loop finished.
+2025-05-05 15:19:57,810 - HandPal - INFO - Main finally block executing cleanup...
+2025-05-05 15:19:57,810 - HandPal - INFO - Restoring default cursor...
+2025-05-05 15:19:57,819 - HandPal - ERROR - Error restoring default cursors: Failed to restore default cursors (Error 0).
+2025-05-05 15:19:57,820 - HandPal - INFO - HandPal finished.
+2025-05-05 15:23:27,643 - HandPal - INFO - Log level set to INFO
+2025-05-05 15:23:27,643 - HandPal - INFO - Config loaded from C:\Users\carminati.20133/.handpal_config.json
+2025-05-05 15:23:27,643 - HandPal - INFO - Attempting to set cursor: red_cursor.cur
+2025-05-05 15:23:27,654 - HandPal - INFO - Custom cursor 'red_cursor.cur' set.
+2025-05-05 15:23:27,682 - HandPal - INFO - Loaded 3 apps from applications.csv
+2025-05-05 15:23:27,957 - HandPal - INFO - FloatingMenu initialized.
+2025-05-05 15:23:27,957 - HandPal - INFO - Screen: (1920, 1080). Menu OK.
+2025-05-05 15:23:27,957 - HandPal - INFO - Starting HandPal...
+2025-05-05 15:23:29,029 - HandPal - INFO - Webcam OK: 1280x720 @ 60.0 FPS
+2025-05-05 15:23:29,034 - HandPal - INFO - DetectionThread: ProcRes=640x360, Flip=True
+2025-05-05 15:23:29,037 - HandPal - INFO - DetectionThread starting
+2025-05-05 15:23:29,037 - HandPal - INFO - HandPal started successfully!
+2025-05-05 15:23:29,038 - HandPal - INFO - Main loop starting.
+2025-05-05 15:23:35,253 - HandPal - INFO - Debug mode toggled to: True
+2025-05-05 15:23:52,777 - HandPal - INFO - Click Left
+2025-05-05 15:23:53,466 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:23:54,512 - HandPal - INFO - Drag End
+2025-05-05 15:23:54,583 - HandPal - INFO - Click Left
+2025-05-05 15:23:55,149 - HandPal - INFO - Click Left
+2025-05-05 15:23:55,466 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:23:59,712 - HandPal - INFO - Drag End
+2025-05-05 15:24:00,766 - HandPal - INFO - Click Left
+2025-05-05 15:24:02,753 - HandPal - INFO - Click Left
+2025-05-05 15:24:03,866 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:24:08,990 - HandPal - INFO - Drag End
+2025-05-05 15:24:11,940 - HandPal - INFO - Debug mode toggled to: False
+2025-05-05 15:24:24,255 - HandPal - INFO - Click Left
+2025-05-05 15:24:24,866 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:24:27,093 - HandPal - INFO - Drag End
+2025-05-05 15:24:27,810 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:24:28,048 - HandPal - INFO - Drag End
+2025-05-05 15:24:32,376 - HandPal - INFO - Click Left
+2025-05-05 15:24:32,939 - HandPal - INFO - Click Left
+2025-05-05 15:24:33,480 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:24:41,322 - HandPal - INFO - Drag End
+2025-05-05 15:24:43,903 - HandPal - INFO - Click Left
+2025-05-05 15:24:44,221 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:24:47,177 - HandPal - INFO - Drag End
+2025-05-05 15:24:47,274 - HandPal - INFO - Click Left
+2025-05-05 15:24:47,814 - HandPal - INFO - Click Left
+2025-05-05 15:24:48,388 - HandPal - INFO - Click Left
+2025-05-05 15:24:56,454 - HandPal - INFO - Click Left
+2025-05-05 15:24:56,931 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:25:03,585 - HandPal - INFO - Drag End
+2025-05-05 15:25:04,890 - HandPal - INFO - Click Left
+2025-05-05 15:25:05,417 - HandPal - INFO - Click Left
+2025-05-05 15:25:05,976 - HandPal - INFO - Click Left
+2025-05-05 15:25:06,803 - HandPal - INFO - Click Left
+2025-05-05 15:25:07,333 - HandPal - INFO - Click Left
+2025-05-05 15:25:12,637 - HandPal - INFO - Click Left
+2025-05-05 15:25:14,232 - HandPal - INFO - Click Left
+2025-05-05 15:25:14,861 - HandPal - INFO - Click Left
+2025-05-05 15:25:15,899 - HandPal - INFO - Click Left
+2025-05-05 15:25:16,292 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:25:20,929 - HandPal - INFO - Drag End
+2025-05-05 15:25:21,264 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:25:23,016 - HandPal - INFO - Drag End
+2025-05-05 15:25:24,317 - HandPal - INFO - Click Left
+2025-05-05 15:25:27,280 - HandPal - INFO - Click Left
+2025-05-05 15:25:28,060 - HandPal - INFO - Click Left
+2025-05-05 15:25:28,619 - HandPal - INFO - Click Left
+2025-05-05 15:25:28,696 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:25:30,922 - HandPal - INFO - Drag End
+2025-05-05 15:25:31,336 - HandPal - INFO - Click Left
+2025-05-05 15:25:31,654 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:25:33,566 - HandPal - INFO - Drag End
+2025-05-05 15:25:33,916 - HandPal - INFO - Click Left
+2025-05-05 15:25:34,123 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:25:36,207 - HandPal - INFO - Drag End
+2025-05-05 15:25:37,336 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:25:37,735 - HandPal - INFO - Drag End
+2025-05-05 15:25:38,455 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:25:38,613 - HandPal - INFO - Drag End
+2025-05-05 15:25:38,696 - HandPal - INFO - Click Left
+2025-05-05 15:25:38,935 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:25:53,484 - HandPal - INFO - Drag End
+2025-05-05 15:25:53,967 - HandPal - INFO - Click Left
+2025-05-05 15:25:54,782 - HandPal - INFO - Click Left
+2025-05-05 15:25:55,327 - HandPal - INFO - Click Left
+2025-05-05 15:25:55,886 - HandPal - INFO - Click Left
+2025-05-05 15:25:56,364 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:25:56,837 - HandPal - INFO - Drag End
+2025-05-05 15:25:56,943 - HandPal - INFO - Click Left
+2025-05-05 15:26:03,886 - HandPal - INFO - Debug mode toggled to: True
+2025-05-05 15:26:05,543 - HandPal - INFO - Click Left
+2025-05-05 15:26:05,681 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:26:07,051 - HandPal - INFO - Drag End
+2025-05-05 15:26:07,692 - HandPal - INFO - Click Left
+2025-05-05 15:26:08,008 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:26:09,693 - HandPal - INFO - Drag End
+2025-05-05 15:26:09,931 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:26:11,211 - HandPal - INFO - Drag End
+2025-05-05 15:26:11,292 - HandPal - INFO - Click Left
+2025-05-05 15:26:11,609 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:26:12,572 - HandPal - INFO - Drag End
+2025-05-05 15:26:12,666 - HandPal - INFO - Click Left
+2025-05-05 15:26:12,816 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:26:12,972 - HandPal - INFO - Drag End
+2025-05-05 15:26:14,182 - HandPal - INFO - Click Left
+2025-05-05 15:26:14,734 - HandPal - INFO - Click Left
+2025-05-05 15:26:15,296 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:26:48,142 - HandPal - INFO - Drag End
+2025-05-05 15:26:48,675 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:26:51,821 - HandPal - INFO - Drag End
+2025-05-05 15:26:52,132 - HandPal - INFO - Click Left
+2025-05-05 15:26:54,126 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:26:54,287 - HandPal - INFO - Drag End
+2025-05-05 15:26:54,746 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:26:57,019 - HandPal - INFO - Drag End
+2025-05-05 15:26:58,438 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:26:58,677 - HandPal - INFO - Drag End
+2025-05-05 15:27:09,647 - HandPal - INFO - Click Left
+2025-05-05 15:27:10,444 - HandPal - INFO - Click Left
+2025-05-05 15:27:10,683 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:27:11,161 - HandPal - INFO - Drag End
+2025-05-05 15:27:11,241 - HandPal - INFO - Click Left
+2025-05-05 15:27:11,798 - HandPal - INFO - Click Left
+2025-05-05 15:27:12,020 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:27:13,389 - HandPal - INFO - Drag End
+2025-05-05 15:27:17,311 - HandPal - INFO - Click Left
+2025-05-05 15:27:17,878 - HandPal - INFO - Click Left
+2025-05-05 15:27:35,656 - HandPal - INFO - Click Left
+2025-05-05 15:27:36,194 - HandPal - INFO - Click Left
+2025-05-05 15:27:36,751 - HandPal - INFO - Click Left
+2025-05-05 15:27:37,327 - HandPal - INFO - Click Left
+2025-05-05 15:27:37,707 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:27:39,712 - HandPal - INFO - Drag End
+2025-05-05 15:27:48,723 - HandPal - INFO - Click Left
+2025-05-05 15:27:56,555 - HandPal - INFO - Click Left
+2025-05-05 15:27:56,796 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:28:00,071 - HandPal - INFO - Drag End
+2025-05-05 15:28:00,399 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:28:01,759 - HandPal - INFO - Drag End
+2025-05-05 15:28:02,071 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:28:09,040 - HandPal - INFO - Drag End
+2025-05-05 15:28:11,269 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:28:12,874 - HandPal - INFO - Drag End
+2025-05-05 15:28:20,191 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:28:21,532 - HandPal - INFO - Drag End
+2025-05-05 15:28:24,593 - HandPal - INFO - Click Left
+2025-05-05 15:28:25,150 - HandPal - INFO - Click Left
+2025-05-05 15:28:25,704 - HandPal - INFO - Click Left
+2025-05-05 15:28:26,102 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:28:45,603 - HandPal - INFO - Drag End
+2025-05-05 15:28:50,879 - HandPal - INFO - 'q' pressed, stopping.
+2025-05-05 15:28:50,879 - HandPal - INFO - Stopping HandPal...
+2025-05-05 15:28:50,942 - HandPal - INFO - DetectionThread finished. 4013 frames in 321.91s (Avg FPS: 12.5)
+2025-05-05 15:28:50,947 - HandPal - INFO - DetectionThread alive after join: False
+2025-05-05 15:28:51,234 - HandPal - INFO - OpenCV windows closed.
+2025-05-05 15:28:51,245 - HandPal - INFO - HandPal stopped.
+2025-05-05 15:28:51,245 - HandPal - INFO - Main loop finished.
+2025-05-05 15:28:51,245 - HandPal - INFO - Main finally block executing cleanup...
+2025-05-05 15:28:51,250 - HandPal - INFO - Restoring default cursor...
+2025-05-05 15:28:51,256 - HandPal - ERROR - Error restoring default cursors: Failed to restore default cursors (Error 0).
+2025-05-05 15:28:51,256 - HandPal - INFO - HandPal finished.
+2025-05-05 15:56:17,079 - HandPal - INFO - Log level set to INFO
+2025-05-05 15:56:17,079 - HandPal - INFO - Config loaded from C:\Users\carminati.20133/.handpal_config.json
+2025-05-05 15:56:17,079 - HandPal - INFO - Attempting to set cursor: red_cursor.cur
+2025-05-05 15:56:17,092 - HandPal - INFO - Custom cursor 'red_cursor.cur' set.
+2025-05-05 15:56:17,124 - HandPal - INFO - Loaded 3 apps from applications.csv
+2025-05-05 15:56:17,413 - HandPal - INFO - FloatingMenu initialized.
+2025-05-05 15:56:17,413 - HandPal - INFO - Screen: (1920, 1080). Menu OK.
+2025-05-05 15:56:17,413 - HandPal - INFO - Starting HandPal...
+2025-05-05 15:56:18,490 - HandPal - INFO - Webcam OK: 1280x720 @ 60.0 FPS
+2025-05-05 15:56:18,495 - HandPal - INFO - DetectionThread: ProcRes=640x360, Flip=True
+2025-05-05 15:56:18,497 - HandPal - INFO - DetectionThread starting
+2025-05-05 15:56:18,497 - HandPal - INFO - HandPal started successfully!
+2025-05-05 15:56:18,497 - HandPal - INFO - Main loop starting.
+2025-05-05 15:56:30,224 - HandPal - INFO - Debug mode toggled to: True
+2025-05-05 15:56:30,240 - HandPal - ERROR - draw_overlays error
+Traceback (most recent call last):
+  File "c:\Users\carminati.20133\Desktop\HandPal---Gesture-tracking-AI-drag-and-drop-carmi\app.py", line 875, in main_loop
+    try: display_frame = self.draw_overlays(current_frame, results) # Pass results for landmarks
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\carminati.20133\Desktop\HandPal---Gesture-tracking-AI-drag-and-drop-carmi\app.py", line 821, in draw_overlays
+    t1=f"L:{d['L']} R:{d['R']} Gest:{d['gest']} Menu:{d['menu']}"; cv.putText(frame,t1,(10,y),font,fsc_sml,overlay_c,l_type); y+=18
+            ~^^^^^
+KeyError: 'L'
+2025-05-05 15:56:30,280 - HandPal - ERROR - draw_overlays error
+Traceback (most recent call last):
+  File "c:\Users\carminati.20133\Desktop\HandPal---Gesture-tracking-AI-drag-and-drop-carmi\app.py", line 875, in main_loop
+    try: display_frame = self.draw_overlays(current_frame, results) # Pass results for landmarks
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\carminati.20133\Desktop\HandPal---Gesture-tracking-AI-drag-and-drop-carmi\app.py", line 821, in draw_overlays
+    t1=f"L:{d['L']} R:{d['R']} Gest:{d['gest']} Menu:{d['menu']}"; cv.putText(frame,t1,(10,y),font,fsc_sml,overlay_c,l_type); y+=18
+            ~^^^^^
+KeyError: 'L'
+2025-05-05 15:56:33,765 - HandPal - INFO - Click Left
+2025-05-05 15:56:33,824 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:56:39,756 - HandPal - INFO - Drag End
+2025-05-05 15:56:41,515 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:56:47,110 - HandPal - INFO - Drag End
+2025-05-05 15:56:47,824 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:56:49,904 - HandPal - INFO - Drag End
+2025-05-05 15:56:51,263 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:56:52,139 - HandPal - INFO - Drag End
+2025-05-05 15:56:55,825 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:57:01,266 - HandPal - INFO - Drag End
+2025-05-05 15:57:01,987 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:57:06,294 - HandPal - INFO - Debug mode toggled to: False
+2025-05-05 15:57:08,541 - HandPal - INFO - Drag End
+2025-05-05 15:57:09,672 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:57:09,910 - HandPal - INFO - Drag End
+2025-05-05 15:57:10,241 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:57:11,189 - HandPal - INFO - Drag End
+2025-05-05 15:57:11,995 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:57:14,051 - HandPal - INFO - Drag End
+2025-05-05 15:57:17,987 - HandPal - INFO - Click Left
+2025-05-05 15:57:19,447 - HandPal - INFO - Click Left
+2025-05-05 15:57:21,114 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:57:32,212 - HandPal - INFO - Drag End
+2025-05-05 15:57:35,348 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:57:38,466 - HandPal - INFO - Drag End
+2025-05-05 15:57:39,453 - HandPal - INFO - Click Left
+2025-05-05 15:57:41,506 - HandPal - INFO - Click Left
+2025-05-05 15:57:43,272 - HandPal - INFO - Click Left
+2025-05-05 15:57:45,996 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:57:46,235 - HandPal - INFO - Drag End
+2025-05-05 15:57:47,604 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:57:47,811 - HandPal - INFO - Drag End
+2025-05-05 15:57:48,957 - HandPal - INFO - Click Left
+2025-05-05 15:57:49,673 - HandPal - INFO - Click Left
+2025-05-05 15:57:50,310 - HandPal - INFO - Click Left
+2025-05-05 15:57:57,995 - HandPal - INFO - Click Left
+2025-05-05 15:57:59,133 - HandPal - INFO - Click Left
+2025-05-05 15:58:00,140 - HandPal - INFO - Click Left
+2025-05-05 15:58:01,845 - HandPal - INFO - Click Left
+2025-05-05 15:58:02,968 - HandPal - INFO - Click Left
+2025-05-05 15:58:06,890 - HandPal - INFO - Click Left
+2025-05-05 15:58:09,599 - HandPal - INFO - Click Left
+2025-05-05 15:58:12,803 - HandPal - INFO - Click Left
+2025-05-05 15:58:14,558 - HandPal - INFO - Click Left
+2025-05-05 15:58:15,112 - HandPal - INFO - Click Left
+2025-05-05 15:58:16,946 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:58:17,342 - HandPal - INFO - Drag End
+2025-05-05 15:58:23,110 - HandPal - INFO - Click Left
+2025-05-05 15:58:24,141 - HandPal - INFO - Click Left
+2025-05-05 15:58:24,696 - HandPal - INFO - Click Left
+2025-05-05 15:58:28,215 - HandPal - INFO - Click Left
+2025-05-05 15:58:32,859 - HandPal - INFO - Click Left
+2025-05-05 15:58:33,525 - HandPal - INFO - Click Left
+2025-05-05 15:58:37,109 - HandPal - INFO - Click Left
+2025-05-05 15:58:40,554 - HandPal - INFO - Click Left
+2025-05-05 15:58:41,435 - HandPal - INFO - Click Left
+2025-05-05 15:58:43,676 - HandPal - INFO - Click Left
+2025-05-05 15:58:45,520 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:58:57,039 - HandPal - INFO - Drag End
+2025-05-05 15:58:58,789 - HandPal - INFO - Click Left
+2025-05-05 15:59:02,805 - HandPal - INFO - Click Left
+2025-05-05 15:59:05,043 - HandPal - INFO - Click Left
+2025-05-05 15:59:14,244 - HandPal - INFO - Fist Drag Start
+2025-05-05 15:59:20,083 - HandPal - INFO - Drag End
+2025-05-05 15:59:21,438 - HandPal - INFO - Click Left
+2025-05-05 15:59:27,093 - HandPal - INFO - Click Left
+2025-05-05 15:59:30,213 - HandPal - INFO - Click Left
+2025-05-05 15:59:33,665 - HandPal - INFO - Click Left
+2025-05-05 15:59:36,117 - HandPal - INFO - Click Left
+2025-05-05 15:59:38,837 - HandPal - INFO - Click Left
+2025-05-05 15:59:41,003 - HandPal - INFO - Click Left
+2025-05-05 15:59:42,043 - HandPal - INFO - Click Left
+2025-05-05 16:00:10,239 - HandPal - INFO - Click Left
+2025-05-05 16:00:16,448 - HandPal - INFO - Click Left
+2025-05-05 16:00:17,584 - HandPal - INFO - Click Left
+2025-05-05 16:00:18,224 - HandPal - INFO - Click Left
+2025-05-05 16:00:22,625 - HandPal - INFO - Click Left
+2025-05-05 16:00:25,191 - HandPal - INFO - Click Left
+2025-05-05 16:00:28,312 - HandPal - INFO - Click Left
+2025-05-05 16:00:28,947 - HandPal - INFO - Click Left
+2025-05-05 16:00:29,507 - HandPal - INFO - Click Left
+2025-05-05 16:00:32,779 - HandPal - INFO - Click Left
+2025-05-05 16:00:34,063 - HandPal - INFO - Click Left
+2025-05-05 16:00:36,629 - HandPal - INFO - Click Left
+2025-05-05 16:00:41,184 - HandPal - INFO - Click Left
+2025-05-05 16:00:42,386 - HandPal - INFO - Click Left
+2025-05-05 16:00:44,717 - HandPal - INFO - Click Left
+2025-05-05 16:00:46,062 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:00:49,579 - HandPal - INFO - Drag End
+2025-05-05 16:00:52,066 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:00:53,882 - HandPal - INFO - Drag End
+2025-05-05 16:00:55,424 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:00:59,569 - HandPal - INFO - Drag End
+2025-05-05 16:01:11,488 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:01:14,591 - HandPal - INFO - Drag End
+2025-05-05 16:01:17,794 - HandPal - INFO - Menu trigger activated by hand hover.
+2025-05-05 16:01:23,236 - HandPal - INFO - Click Left
+2025-05-05 16:01:23,241 - HandPal - INFO - Launching: https://www.google.com
+2025-05-05 16:01:27,451 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:01:30,657 - HandPal - INFO - Drag End
+2025-05-05 16:01:33,388 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:01:39,378 - HandPal - INFO - Drag End
+2025-05-05 16:01:41,536 - HandPal - INFO - Click Left
+2025-05-05 16:01:41,539 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:01:44,097 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:01:46,179 - HandPal - INFO - Drag End
+2025-05-05 16:01:47,712 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:01:49,616 - HandPal - INFO - Drag End
+2025-05-05 16:01:55,795 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:01:59,136 - HandPal - INFO - Drag End
+2025-05-05 16:02:01,718 - HandPal - INFO - Click Left
+2025-05-05 16:02:01,783 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:02:01,938 - HandPal - INFO - Drag End
+2025-05-05 16:02:02,279 - HandPal - INFO - Click Left
+2025-05-05 16:02:02,908 - HandPal - INFO - Click Left
+2025-05-05 16:02:09,456 - HandPal - INFO - Click Left
+2025-05-05 16:03:49,141 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:03:49,456 - HandPal - INFO - Drag End
+2025-05-05 16:03:53,758 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:03:55,523 - HandPal - INFO - Drag End
+2025-05-05 16:03:56,250 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:03:58,330 - HandPal - INFO - Drag End
+2025-05-05 16:03:58,799 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:04:00,796 - HandPal - INFO - Drag End
+2025-05-05 16:04:08,802 - HandPal - INFO - Click Left
+2025-05-05 16:04:12,725 - HandPal - INFO - Click Left
+2025-05-05 16:04:28,568 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:04:38,640 - HandPal - INFO - Drag End
+2025-05-05 16:04:41,771 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:04:43,531 - HandPal - INFO - Drag End
+2025-05-05 16:04:44,482 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:04:44,958 - HandPal - INFO - Drag End
+2025-05-05 16:04:46,325 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:04:52,964 - HandPal - INFO - Drag End
+2025-05-05 16:04:54,257 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:05:10,640 - HandPal - INFO - Drag End
+2025-05-05 16:05:15,703 - HandPal - INFO - Click Left
+2025-05-05 16:05:19,359 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:05:34,397 - HandPal - INFO - Drag End
+2025-05-05 16:05:36,416 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:05:39,197 - HandPal - INFO - Drag End
+2025-05-05 16:05:41,125 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:05:43,204 - HandPal - INFO - Drag End
+2025-05-05 16:05:44,232 - HandPal - INFO - Click Left
+2025-05-05 16:05:47,438 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:05:47,500 - HandPal - INFO - Drag End
+2025-05-05 16:05:47,595 - HandPal - INFO - Click Left
+2025-05-05 16:05:47,660 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:05:58,312 - HandPal - INFO - Drag End
+2025-05-05 16:06:04,945 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:06:11,917 - HandPal - INFO - Drag End
+2025-05-05 16:06:18,950 - HandPal - INFO - Click Left
+2025-05-05 16:06:19,271 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:06:28,462 - HandPal - INFO - Drag End
+2025-05-05 16:06:30,714 - HandPal - INFO - Click Left
+2025-05-05 16:06:30,716 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:06:31,264 - HandPal - INFO - Click Left
+2025-05-05 16:06:31,270 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:06:31,824 - HandPal - INFO - Click Left
+2025-05-05 16:06:31,830 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:06:32,384 - HandPal - INFO - Click Left
+2025-05-05 16:06:32,941 - HandPal - INFO - Click Left
+2025-05-05 16:06:32,944 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:06:33,504 - HandPal - INFO - Click Left
+2025-05-05 16:06:34,061 - HandPal - INFO - Click Left
+2025-05-05 16:06:34,065 - HandPal - INFO - Launching: https://www.google.com
+2025-05-05 16:06:34,624 - HandPal - INFO - Click Left
+2025-05-05 16:06:34,630 - HandPal - INFO - Launching: https://www.google.com
+2025-05-05 16:06:35,184 - HandPal - INFO - Click Left
+2025-05-05 16:06:35,755 - HandPal - INFO - Click Left
+2025-05-05 16:06:36,221 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:06:37,259 - HandPal - INFO - Drag End
+2025-05-05 16:06:37,342 - HandPal - INFO - Click Left
+2025-05-05 16:06:39,927 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:06:40,489 - HandPal - INFO - Drag End
+2025-05-05 16:06:40,492 - HandPal - INFO - Launching: notepad.exe
+2025-05-05 16:06:40,570 - HandPal - INFO - Click Left
+2025-05-05 16:06:40,574 - HandPal - INFO - Launching: notepad.exe
+2025-05-05 16:06:41,110 - HandPal - INFO - Click Left
+2025-05-05 16:06:41,681 - HandPal - INFO - Click Left
+2025-05-05 16:06:44,497 - HandPal - INFO - Click Left
+2025-05-05 16:06:45,041 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:06:45,195 - HandPal - INFO - Drag End
+2025-05-05 16:06:45,350 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:06:49,422 - HandPal - INFO - Drag End
+2025-05-05 16:06:49,520 - HandPal - INFO - Click Left
+2025-05-05 16:06:49,749 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:06:51,905 - HandPal - INFO - Drag End
+2025-05-05 16:06:52,081 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:07:07,749 - HandPal - INFO - Drag End
+2025-05-05 16:07:11,275 - HandPal - INFO - Click Left
+2025-05-05 16:07:11,280 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:07:14,635 - HandPal - INFO - Click Left
+2025-05-05 16:07:14,708 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:07:16,073 - HandPal - INFO - Drag End
+2025-05-05 16:07:17,502 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:07:19,015 - HandPal - INFO - Drag End
+2025-05-05 16:07:19,106 - HandPal - INFO - Click Left
+2025-05-05 16:07:19,659 - HandPal - INFO - Click Left
+2025-05-05 16:07:20,224 - HandPal - INFO - Click Left
+2025-05-05 16:07:20,385 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:07:22,859 - HandPal - INFO - Drag End
+2025-05-05 16:07:24,385 - HandPal - INFO - Click Left
+2025-05-05 16:07:24,464 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:07:25,588 - HandPal - INFO - Drag End
+2025-05-05 16:07:25,665 - HandPal - INFO - Click Left
+2025-05-05 16:07:26,221 - HandPal - INFO - Click Left
+2025-05-05 16:07:26,305 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:07:27,592 - HandPal - INFO - Drag End
+2025-05-05 16:07:27,659 - HandPal - INFO - Click Left
+2025-05-05 16:07:28,224 - HandPal - INFO - Click Left
+2025-05-05 16:07:28,786 - HandPal - INFO - Click Left
+2025-05-05 16:07:29,337 - HandPal - INFO - Click Left
+2025-05-05 16:07:29,902 - HandPal - INFO - Click Left
+2025-05-05 16:07:30,468 - HandPal - INFO - Click Left
+2025-05-05 16:07:31,729 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:07:36,795 - HandPal - INFO - Drag End
+2025-05-05 16:07:37,030 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:07:37,993 - HandPal - INFO - Drag End
+2025-05-05 16:07:38,056 - HandPal - INFO - Click Left
+2025-05-05 16:07:38,558 - HandPal - INFO - Click Left
+2025-05-05 16:07:39,105 - HandPal - INFO - Click Left
+2025-05-05 16:07:39,664 - HandPal - INFO - Click Left
+2025-05-05 16:07:40,175 - HandPal - INFO - Click Left
+2025-05-05 16:07:40,701 - HandPal - INFO - Click Left
+2025-05-05 16:07:41,262 - HandPal - INFO - Click Left
+2025-05-05 16:07:41,831 - HandPal - INFO - Click Left
+2025-05-05 16:07:43,026 - HandPal - INFO - Click Left
+2025-05-05 16:07:43,421 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:08:05,722 - HandPal - INFO - Drag End
+2025-05-05 16:08:05,881 - HandPal - INFO - Click Left
+2025-05-05 16:08:05,888 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:08:05,962 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:08:06,031 - HandPal - INFO - Drag End
+2025-05-05 16:08:06,034 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:08:06,279 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:08:06,430 - HandPal - INFO - Drag End
+2025-05-05 16:08:06,433 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:08:06,521 - HandPal - INFO - Click Left
+2025-05-05 16:08:06,526 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:08:07,082 - HandPal - INFO - Click Left
+2025-05-05 16:08:07,088 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:08:07,642 - HandPal - INFO - Click Left
+2025-05-05 16:08:07,649 - HandPal - INFO - Launching: calc.exe
+2025-05-05 16:08:07,721 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:08:18,931 - HandPal - INFO - Drag End
+2025-05-05 16:08:20,869 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:08:34,055 - HandPal - INFO - Drag End
+2025-05-05 16:08:34,460 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:08:42,367 - HandPal - INFO - Drag End
+2025-05-05 16:08:42,452 - HandPal - INFO - Click Left
+2025-05-05 16:08:42,611 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:08:58,594 - HandPal - INFO - Drag End
+2025-05-05 16:09:00,216 - HandPal - INFO - Click Left
+2025-05-05 16:09:18,769 - HandPal - INFO - Click Left
+2025-05-05 16:09:18,844 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:09:22,515 - HandPal - INFO - Drag End
+2025-05-05 16:09:22,850 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:09:23,241 - HandPal - INFO - Drag End
+2025-05-05 16:09:23,642 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:09:24,455 - HandPal - INFO - Drag End
+2025-05-05 16:09:24,511 - HandPal - INFO - Click Left
+2025-05-05 16:09:25,005 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:09:25,481 - HandPal - INFO - Drag End
+2025-05-05 16:09:28,626 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:09:47,814 - HandPal - INFO - Drag End
+2025-05-05 16:09:47,964 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:09:54,775 - HandPal - INFO - Drag End
+2025-05-05 16:09:55,327 - HandPal - INFO - Click Left
+2025-05-05 16:09:55,649 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:10:07,873 - HandPal - INFO - Drag End
+2025-05-05 16:10:07,958 - HandPal - INFO - Click Left
+2025-05-05 16:10:13,394 - HandPal - INFO - Click Left
+2025-05-05 16:10:14,500 - HandPal - INFO - Click Left
+2025-05-05 16:10:18,908 - HandPal - INFO - Click Left
+2025-05-05 16:10:19,256 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:10:20,846 - HandPal - INFO - Drag End
+2025-05-05 16:10:21,246 - HandPal - INFO - Click Left
+2025-05-05 16:10:21,800 - HandPal - INFO - Click Left
+2025-05-05 16:10:22,603 - HandPal - INFO - Click Left
+2025-05-05 16:10:23,550 - HandPal - INFO - Click Left
+2025-05-05 16:10:26,111 - HandPal - INFO - Click Left
+2025-05-05 16:10:26,665 - HandPal - INFO - Click Left
+2025-05-05 16:10:27,225 - HandPal - INFO - Click Left
+2025-05-05 16:10:27,785 - HandPal - INFO - Click Left
+2025-05-05 16:10:28,347 - HandPal - INFO - Click Left
+2025-05-05 16:10:28,903 - HandPal - INFO - Click Left
+2025-05-05 16:10:29,560 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:10:41,145 - HandPal - INFO - Drag End
+2025-05-05 16:10:41,237 - HandPal - INFO - Click Left
+2025-05-05 16:10:41,314 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:10:46,917 - HandPal - INFO - Drag End
+2025-05-05 16:10:46,985 - HandPal - INFO - Click Left
+2025-05-05 16:10:51,481 - HandPal - INFO - Click Left
+2025-05-05 16:10:52,042 - HandPal - INFO - Click Left
+2025-05-05 16:10:52,587 - HandPal - INFO - Click Left
+2025-05-05 16:10:53,157 - HandPal - INFO - Click Left
+2025-05-05 16:10:53,703 - HandPal - INFO - Click Left
+2025-05-05 16:10:54,592 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:11:01,718 - HandPal - INFO - Drag End
+2025-05-05 16:11:01,793 - HandPal - INFO - Click Left
+2025-05-05 16:11:01,800 - HandPal - INFO - Launching: notepad.exe
+2025-05-05 16:11:03,875 - HandPal - INFO - Click Left
+2025-05-05 16:11:04,684 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:11:31,549 - HandPal - INFO - Drag End
+2025-05-05 16:11:31,644 - HandPal - INFO - Click Left
+2025-05-05 16:11:31,653 - HandPal - INFO - Launching: https://www.google.com
+2025-05-05 16:11:31,707 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:11:40,579 - HandPal - INFO - Drag End
+2025-05-05 16:11:40,580 - HandPal - INFO - Launching: https://www.google.com
+2025-05-05 16:11:42,672 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:11:49,697 - HandPal - INFO - Drag End
+2025-05-05 16:11:49,702 - HandPal - INFO - Launching: https://www.google.com
+2025-05-05 16:11:52,767 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:12:00,979 - HandPal - INFO - Drag End
+2025-05-05 16:12:03,638 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:12:26,645 - HandPal - INFO - Drag End
+2025-05-05 16:12:26,738 - HandPal - INFO - Click Left
+2025-05-05 16:12:27,540 - HandPal - INFO - Click Left
+2025-05-05 16:12:28,102 - HandPal - INFO - Click Left
+2025-05-05 16:12:30,821 - HandPal - INFO - Click Left
+2025-05-05 16:12:31,383 - HandPal - INFO - Click Left
+2025-05-05 16:12:31,928 - HandPal - INFO - Click Left
+2025-05-05 16:12:32,506 - HandPal - INFO - Click Left
+2025-05-05 16:12:33,062 - HandPal - INFO - Click Left
+2025-05-05 16:12:34,676 - HandPal - INFO - Click Left
+2025-05-05 16:12:36,023 - HandPal - INFO - Click Left
+2025-05-05 16:12:36,585 - HandPal - INFO - Click Left
+2025-05-05 16:12:37,143 - HandPal - INFO - Click Left
+2025-05-05 16:12:37,211 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:12:41,860 - HandPal - INFO - Drag End
+2025-05-05 16:12:48,171 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:12:55,456 - HandPal - INFO - Drag End
+2025-05-05 16:12:55,856 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:12:58,323 - HandPal - INFO - Drag End
+2025-05-05 16:13:05,874 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:13:11,223 - HandPal - INFO - Drag End
+2025-05-05 16:13:11,300 - HandPal - INFO - Click Left
+2025-05-05 16:13:11,957 - HandPal - INFO - Click Left
+2025-05-05 16:13:12,340 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:13:16,424 - HandPal - INFO - Drag End
+2025-05-05 16:13:16,665 - HandPal - INFO - Click Left
+2025-05-05 16:13:19,129 - HandPal - INFO - Click Left
+2025-05-05 16:13:23,304 - HandPal - INFO - Click Left
+2025-05-05 16:13:34,655 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:13:34,827 - HandPal - INFO - Drag End
+2025-05-05 16:13:36,896 - HandPal - INFO - Fist Drag Start
+2025-05-05 16:13:55,545 - HandPal - INFO - 'q' pressed, stopping.
+2025-05-05 16:13:55,545 - HandPal - INFO - Stopping HandPal...
+2025-05-05 16:13:55,597 - HandPal - INFO - DetectionThread finished. 13204 frames in 1057.11s (Avg FPS: 12.5)
+2025-05-05 16:13:55,597 - HandPal - INFO - DetectionThread alive after join: False
+2025-05-05 16:13:55,879 - HandPal - INFO - OpenCV windows closed.
+2025-05-05 16:13:55,891 - HandPal - INFO - HandPal stopped.
+2025-05-05 16:13:55,891 - HandPal - INFO - Main loop finished.
+2025-05-05 16:13:55,891 - HandPal - INFO - Main finally block executing cleanup...
+2025-05-05 16:13:55,891 - HandPal - INFO - Restoring default cursor...
+2025-05-05 16:13:55,907 - HandPal - ERROR - Error restoring default cursors: Failed to restore default cursors (Error 0).
+2025-05-05 16:13:55,907 - HandPal - INFO - HandPal finished.
