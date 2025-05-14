@@ -9,7 +9,6 @@ from .gestures import GestureRecognizer
 
 logger = logging.getLogger(__name__)
 mouse = Controller()
-
 class HandInputProcessor:
     def __init__(self, config, smoother: MotionSmoother, gesture_recognizer: GestureRecognizer):
         self.config = config
@@ -168,37 +167,37 @@ class HandInputProcessor:
         dist_sq_px = (hx_px - cx_px)**2 + (hy_px - cy_px)**2
         is_inside = dist_sq_px < radius_sq_px
         self.debug_info["menu_dist_sq"] = dist_sq_px # Log for debug
-
-        now = time.time()
         activate_now = False
-
+        """
         if is_inside:
-            if not self.menu_trigger_hovering: # Just entered the zone
-                self.menu_trigger_hovering = True
-                self._menu_trigger_enter_time = now
+            if not Hovering: # Just entered the zone
+                Hovering = True
+                EnterTime = now
                 logger.debug(f"Menu Trigger Zone Entered. HandPx={hand_pos_display_px}")
                 self.debug_info["menu_check"] = "Entered"
             else: # Already inside, check hover time
-                hover_time = now - self._menu_trigger_enter_time
+                hover_time = now - EnterTime
+                print(f"Hovering: {hover_time:.2f}s")
                 if hover_time >= self.MENU_HOVER_DELAY:
                     # Hover time met, signal activation
                     # Only activate ONCE per entry+hover period
-                    if self.debug_info["menu_check"] != "ACTIVATE!":
-                         activate_now = True
-                         logger.debug(f"Menu Trigger HOVER MET ({hover_time:.2f}s). Activating.")
-                         self.debug_info["menu_check"] = "ACTIVATE!"
+                    #if self.debug_info["menu_check"] != "ACTIVATE!":
+                    activate_now = True
+                    logger.debug(f"Menu Trigger HOVER MET ({hover_time:.2f}s). Activating.")
+                    self.debug_info["menu_check"] = "ACTIVATE!"
                 else:
                     # Still hovering, update debug info
                     self.debug_info["menu_check"] = f"Hover {hover_time:.1f}s"
         else: # Not inside the zone
-            if self.menu_trigger_hovering:
+            if Hovering:
                 logger.debug("Menu Trigger Zone Exited.")
-                self.menu_trigger_hovering = False # Reset hover state
+                Hovering = False # Reset hover state
             self._menu_trigger_enter_time = 0
             self.debug_info["menu_check"] = "Off (Outside)"
-
+        """
+        if is_inside:
+            activate_now = True
         return activate_now
-
 
     def process(self, detection_results, proc_dims, display_dims, menu_trigger_zone_px):
         """
