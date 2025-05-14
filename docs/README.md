@@ -70,4 +70,4 @@ Planned Improvements
 - [ ] Recogntion Single User and Focus on One Hand Pair (Carmi)
 - [x] Dynamic Menu from csv (Kopy)
 - [ ] Merge (Pado)
-- [ ] Refactoring della Codebase (Kopy)
+- [x] Refactoring della Codebase (Kopy)
