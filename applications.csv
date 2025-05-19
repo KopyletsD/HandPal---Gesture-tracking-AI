@@ -2,3 +2,5 @@ label,path,color,icon
 Calculator,calc.exe,#0078D7,🧮
 Browser,https://www.google.com,#00C800,🌐
 Notepad,notepad.exe,#FF6400,📝
+Tutorial,@tutorial,#00B894,📚
+
