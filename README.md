@@ -66,8 +66,6 @@ Planned Improvements
 - [ ] Drag and Drop (Carmi)
 - [ ] Tutorial (Stefanica)
 - [ ] Presentation (Pado)
-- [ ] Zoom (Stefanica)
 - [ ] Recogntion Single User and Focus on One Hand Pair (Carmi)
 - [x] Dynamic Menu from csv (Kopy)
 - [ ] Merge (Pado)
-- [ ] Refactoring della Codebase (Kopy)
