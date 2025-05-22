@@ -17,6 +17,27 @@ import queue
 import csv
 import subprocess
 import webbrowser
+try:
+    from PIL import Image, ImageDraw, ImageFont
+    from PIL import __version__ as PIL_VERSION_STR # Get Pillow version string
+    PIL_AVAILABLE = True
+except ImportError:
+    PIL_AVAILABLE = False
+    PIL_VERSION_STR = "0.0.0" # Default if PIL not found, or handle as None
+    # This print statement is a simple notification.
+    # If you have a logger configured for TutorialManager, you could use that.
+    print("Warning: Pillow library (PIL) not found. Emojis in tutorial might not render correctly.")
+
+# It's good practice to parse the version string into a tuple for easier comparison
+# Do this once after import if PIL is available
+PIL_VERSION_TUPLE = (0,0,0)
+if PIL_AVAILABLE:
+    try:
+        PIL_VERSION_TUPLE = tuple(map(int, PIL_VERSION_STR.split('.')))
+    except ValueError:
+        print(f"Warning: Could not parse Pillow version string: {PIL_VERSION_STR}")
+        PIL_VERSION_TUPLE = (0,0,0) # Fallback if parsing fails
+
 
 # --- Logging Setup ---
 logging.basicConfig(
@@ -587,11 +608,9 @@ class TutorialManager:
         if w == 0 or h == 0: return frame
             
         overlay_height = 120
-        # Create a semi-transparent panel at the bottom
         tutorial_panel_img = np.zeros((overlay_height, w, 3), dtype=np.uint8)
-        cv.rectangle(tutorial_panel_img, (0, 0), (w, overlay_height), (20, 20, 20), -1) # Dark gray
+        cv.rectangle(tutorial_panel_img, (0, 0), (w, overlay_height), (20, 20, 20), -1)
         
-        # Alpha blend this panel onto the frame
         alpha = 0.85
         frame_roi = frame[h-overlay_height:h, 0:w]
         blended_roi = cv.addWeighted(frame_roi, 1-alpha, tutorial_panel_img, alpha, 0)
@@ -602,28 +621,97 @@ class TutorialManager:
         instruction = current_step_config.get("instruction", "")
         icon = current_step_config.get("icon", "📚")
         
-        # Progress dots
         num_steps = len(self.steps)
         dot_area_width = num_steps * 25 
         start_x_dots = (w - dot_area_width) // 2
         for i in range(num_steps):
             color = (0, 220, 220) if i == self.current_step else \
                     (0, 150, 0) if i < self.current_step else \
-                    (100, 100, 100) # Yellow for current, Green for done, Gray for pending
+                    (100, 100, 100)
             cv.circle(frame, (start_x_dots + i*25, h-20), 7, color, -1)
-            if i < self.current_step: # Draw a checkmark on completed steps
-                 cv.putText(frame, "✓", (start_x_dots + i * 25 - 5, h - 16), cv.FONT_HERSHEY_SIMPLEX, 0.4, (255,255,255), 1)
 
-        # Text content
-        cv.putText(frame, f"{icon} {title}", (20, h-overlay_height+30), cv.FONT_HERSHEY_TRIPLEX, 0.8, (255, 255, 255), 1, cv.LINE_AA)
-        cv.putText(frame, instruction, (20, h-overlay_height+65), cv.FONT_HERSHEY_SIMPLEX, 0.6, (220, 220, 220), 1, cv.LINE_AA)
+        y_title_baseline = h - overlay_height + 30
+        y_instruction_baseline = h - overlay_height + 65
+        y_fantastico_baseline = h - overlay_height + 95
+        y_esc_msg_baseline = h - overlay_height + 20
+        y_progress_text_baseline = h - 16
+
+        if PIL_AVAILABLE:
+            pil_img = Image.fromarray(cv.cvtColor(frame, cv.COLOR_BGR2RGB))
+            draw = ImageDraw.Draw(pil_img)
+
+            font_size_title = 22
+            font_size_instruction = 18
+            font_size_fantastico = 20
+            font_size_esc = 15
+            font_size_progress_text = 16
+            font_size_dot_icon = 18
+
+            default_font_family = "arial.ttf"
+            if os.name == 'nt': emoji_font_family = "seguiemj.ttf"
+            elif sys.platform == "darwin": emoji_font_family = "AppleColorEmoji.ttf"
+            else: emoji_font_family = "NotoColorEmoji.ttf"
+
+            def load_font(preferred_family, size, fallback_family=default_font_family):
+                try: return ImageFont.truetype(preferred_family, size)
+                except IOError:
+                    try: return ImageFont.truetype(fallback_family, size)
+                    except IOError: return ImageFont.load_default()
+
+            font_title = load_font(emoji_font_family, font_size_title)
+            font_instruction = load_font(default_font_family, font_size_instruction)
+            font_fantastico = load_font(default_font_family, font_size_fantastico)
+            font_esc = load_font(default_font_family, font_size_esc)
+            font_progress_text = load_font(default_font_family, font_size_progress_text)
+            font_dot_icon = load_font(emoji_font_family, font_size_dot_icon)
+
+            # --- CORRECTED TEXT ANCHOR ARGS ---
+            text_anchor_args = {}
+            # PIL_VERSION_TUPLE is defined globally from PIL_VERSION_STR
+            if PIL_VERSION_TUPLE >= (8, 0, 0):
+                text_anchor_args = {"anchor": "ls"}
+            # For older Pillow versions, text will be top-left aligned by default.
+            # If precise baseline alignment is crucial, you'd need manual y-offset calculations.
+            # ------------------------------------
+
+            draw.text((20, y_title_baseline), f"{icon} {title}", font=font_title, fill=(255, 255, 255), **text_anchor_args)
+            draw.text((20, y_instruction_baseline), instruction, font=font_instruction, fill=(220, 220, 220), **text_anchor_args)
+            
+            if self.step_completed_flag and self.success_message_start_time > 0:
+                 draw.text((w // 2 - 100, y_fantastico_baseline), "FANTASTICO!", font=font_fantastico, fill=(60, 255, 60), **text_anchor_args)
+            
+            draw.text((w-220, y_esc_msg_baseline), "Premi ESC per uscire dal tutorial", font=font_esc, fill=(150,150,150), **text_anchor_args)
+
+            for i in range(num_steps):
+                dot_center_x = start_x_dots + i * 25
+                if i < self.current_step:
+                     draw.text((dot_center_x - 5, y_progress_text_baseline), "", font=font_progress_text, fill=(255,255,255), **text_anchor_args)
+                elif i == self.current_step:
+                    step_icon = self.steps[i].get("icon", "")
+                    icon_x_on_dot = dot_center_x - 7 
+                    icon_y_on_dot = y_progress_text_baseline - 2
+                    draw.text((icon_x_on_dot, icon_y_on_dot), step_icon, font=font_dot_icon, fill=(255,255,255), **text_anchor_args)
+
+            frame = cv.cvtColor(np.array(pil_img), cv.COLOR_RGB2BGR)
         
-        # Show "FANTASTICO!" message if the step was just completed and timer is active
-        if self.step_completed_flag and self.success_message_start_time > 0:
-             cv.putText(frame, "✓ FANTASTICO!", (w // 2 - 100, h - overlay_height + 95),
-                       cv.FONT_HERSHEY_SIMPLEX, 0.7, (60, 255, 60), 2, cv.LINE_AA)
+        else: # PIL_AVAILABLE is False
+            cv.putText(frame, f"{icon} {title}", (20, y_title_baseline), cv.FONT_HERSHEY_TRIPLEX, 0.8, (255, 255, 255), 1, cv.LINE_AA)
+            cv.putText(frame, instruction, (20, y_instruction_baseline), cv.FONT_HERSHEY_SIMPLEX, 0.6, (220, 220, 220), 1, cv.LINE_AA)
+            
+            if self.step_completed_flag and self.success_message_start_time > 0:
+                 cv.putText(frame, "✓ FANTASTICO!", (w // 2 - 100, y_fantastico_baseline),
+                           cv.FONT_HERSHEY_SIMPLEX, 0.7, (60, 255, 60), 2, cv.LINE_AA)
+            
+            cv.putText(frame, "Premi ESC per uscire dal tutorial", (w-220, y_esc_msg_baseline), cv.FONT_HERSHEY_SIMPLEX, 0.4, (150,150,150),1,cv.LINE_AA)
+
+            for i in range(num_steps):
+                dot_center_x = start_x_dots + i * 25
+                if i < self.current_step:
+                     cv.putText(frame, "✓", (dot_center_x - 5, y_progress_text_baseline), cv.FONT_HERSHEY_SIMPLEX, 0.4, (255,255,255), 1, cv.LINE_AA)
+                elif i == self.current_step:
+                    step_icon = self.steps[i].get("icon", "")
+                    cv.putText(frame, step_icon, (dot_center_x - 7, y_progress_text_baseline-2), cv.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255),1,cv.LINE_AA)
         
-        cv.putText(frame, "Premi ESC per uscire dal tutorial", (w-220, h-overlay_height+20), cv.FONT_HERSHEY_SIMPLEX, 0.4, (150,150,150),1)
         return frame
 
 # -----------------------------------------------------------------------------
