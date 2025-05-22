@@ -783,8 +783,22 @@ class FloatingMenu:
         btn_cont = Frame(self.window, bg='#222831', padx=20); btn_cont.pack(fill=BOTH, expand=True); self.buttons = []
         
         num_apps = len(self.apps)
-        menu_height = 160 + num_apps * 48 # Base height + (button height + pady) per app
-        menu_height = min(max(menu_height, 250), 500)
+
+        calculated_ideal_height = 160 + num_apps * 48
+
+        # Define a minimum desirable height for the menu.
+        MIN_DESIRED_MENU_HEIGHT = 250
+        
+        # Determine a dynamic maximum height based on the screen size.
+        screen_h = self.root.winfo_screenheight()
+        MAX_MENU_HEIGHT_RATIO = 0.85  # Cap menu height at 85% of the screen height.
+        dynamic_max_screen_height = int(screen_h * MAX_MENU_HEIGHT_RATIO)
+
+        menu_height = min(
+            max(calculated_ideal_height, MIN_DESIRED_MENU_HEIGHT),
+            dynamic_max_screen_height
+        )
+        
         self.window.geometry(f"280x{menu_height}+50+50") # Set initial size and position
 
         for app in self.apps:
