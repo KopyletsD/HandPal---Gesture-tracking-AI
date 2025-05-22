@@ -707,7 +707,7 @@ class TutorialManager:
             for i in range(num_steps):
                 dot_center_x = start_x_dots + i * 25
                 if i < self.current_step:
-                     cv.putText(frame, "✓", (dot_center_x - 5, y_progress_text_baseline), cv.FONT_HERSHEY_SIMPLEX, 0.4, (255,255,255), 1, cv.LINE_AA)
+                     cv.putText(frame, "", (dot_center_x - 5, y_progress_text_baseline), cv.FONT_HERSHEY_SIMPLEX, 0.4, (255,255,255), 1, cv.LINE_AA)
                 elif i == self.current_step:
                     step_icon = self.steps[i].get("icon", "")
                     cv.putText(frame, step_icon, (dot_center_x - 7, y_progress_text_baseline-2), cv.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255),1,cv.LINE_AA)
