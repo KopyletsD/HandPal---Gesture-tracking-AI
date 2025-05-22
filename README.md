@@ -63,9 +63,8 @@ Installation
 
 Planned Improvements
 --------------------
-- [ ] Drag and Drop (Carmi)
-- [ ] Tutorial (Stefanica)
-- [ ] Presentation (Pado)
-- [ ] Recogntion Single User and Focus on One Hand Pair (Carmi)
+- [x] Drag and Drop (Carmi)
+- [x] Tutorial (Stefanica)
+- [x] Presentation (Pado)
 - [x] Dynamic Menu from csv (Kopy)
 - [ ] Merge (Pado)
