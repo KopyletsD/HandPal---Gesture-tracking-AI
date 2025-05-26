@@ -67,4 +67,4 @@ Planned Improvements
 - [x] Tutorial (Stefanica)
 - [x] Presentation (Pado)
 - [x] Dynamic Menu from csv (Kopy)
-- [ ] Merge (Pado)
+- [x] Merge (Pado)
