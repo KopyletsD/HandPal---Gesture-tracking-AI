@@ -52,7 +52,7 @@ pip install opencv-python tensorflow scikit-learn matplotlib protobuf playsound=
 
 ### Avvio base
 ```bash
-python main.py
+python app.py
 ```
 
 ### Parametri opzionali
