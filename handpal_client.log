@@ -42189,3 +42189,73 @@ TypeError: ImageDraw.textbbox() missing 1 required positional argument: 'text'
 2025-05-29 15:44:45,396 - HandPalClient - INFO - Client main_loop finished.
 2025-05-29 15:44:45,403 - HandPalClient - INFO - Client main 'finally' block: Executing cleanup...
 2025-05-29 15:44:45,403 - HandPalClient - INFO - HandPalClient terminated.
+2025-05-29 15:47:15,368 - HandPalClient - INFO - Client log level set to INFO
+2025-05-29 15:47:15,368 - HandPalClient - INFO - Client config loaded from C:\Users\padovani.20144/.handpal_config.json
+2025-05-29 15:47:15,402 - HandPalClient - INFO - Client loaded 4 apps from applications.csv
+2025-05-29 15:47:15,700 - HandPalClient - INFO - Client FloatingMenu initialized.
+2025-05-29 15:47:15,700 - HandPalClient - INFO - Client screen: (1920, 1080). Menu OK.
+2025-05-29 15:47:15,700 - HandPalClient - INFO - HandPalClient instance initialized.
+2025-05-29 15:47:15,700 - HandPalClient - INFO - Starting HandPalClient services...
+2025-05-29 15:47:16,843 - HandPalClient - INFO - Webcam OK: 1920x1080 @ 60.0 FPS (Req: 1920x1440 @ 60)
+2025-05-29 15:47:16,848 - HandPalClient - INFO - DetectionThread: ProcRes=1920x1440, Flip=True
+2025-05-29 15:47:16,850 - HandPalClient - INFO - DetectionThread starting
+2025-05-29 15:47:16,850 - HandPalClient - INFO - HandPalClient services started successfully!
+2025-05-29 15:47:16,851 - HandPalClient - INFO - Client main_loop starting.
+2025-05-29 15:47:16,875 - HandPalClient - INFO - Connected to server: ws://localhost:8765
+2025-05-29 15:47:23,127 - HandPalClient - INFO - Client menu trigger activated by hand hover.
+2025-05-29 15:47:25,702 - HandPalClient - INFO - Client sending Drag Start
+2025-05-29 15:47:26,437 - HandPalClient - INFO - Client sending Drag End
+2025-05-29 15:47:29,289 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:29,396 - HandPalClient - INFO - Scheduled app launch for '@tutorial' on async loop.
+2025-05-29 15:47:29,396 - HandPalClient - INFO - Client sent launch request (from async helper) for: @tutorial
+2025-05-29 15:47:30,414 - HandPalClient - INFO - Received start_tutorial command from server.
+2025-05-29 15:47:30,436 - HandPalClient - INFO - Tutorial starting on client...
+2025-05-29 15:47:30,436 - HandPalClient - INFO - Scheduled server message control on async loop.
+2025-05-29 15:47:30,436 - HandPalClient - INFO - Tutorial started. Step 0: Benvenuto in HandPal
+2025-05-29 15:47:31,216 - HandPalClient - INFO - Client Tutorial Step 0 COMPLETED. Displaying success.
+2025-05-29 15:47:32,177 - HandPalClient - INFO - Advanced to tutorial step 1: Click Sinistro
+2025-05-29 15:47:36,774 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:37,493 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:38,532 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:39,377 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:39,933 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:40,693 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:41,134 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:41,696 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:42,130 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:42,611 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:43,135 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:43,615 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:44,054 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:44,498 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:44,977 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:45,493 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:45,935 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:46,897 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:48,254 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:48,896 - HandPalClient - INFO - Client sending Drag Start
+2025-05-29 15:47:49,136 - HandPalClient - INFO - Client sending Drag End
+2025-05-29 15:47:49,253 - HandPalClient - INFO - Client sending Drag Start
+2025-05-29 15:47:49,935 - HandPalClient - INFO - Client sending Drag End
+2025-05-29 15:47:50,297 - HandPalClient - INFO - Client sending Drag Start
+2025-05-29 15:47:50,576 - HandPalClient - INFO - Client sending Drag End
+2025-05-29 15:47:50,897 - HandPalClient - INFO - Client sending Drag Start
+2025-05-29 15:47:51,140 - HandPalClient - INFO - Client sending Drag End
+2025-05-29 15:47:51,414 - HandPalClient - INFO - Client sending Drag Start
+2025-05-29 15:47:51,655 - HandPalClient - INFO - Client sending Drag End
+2025-05-29 15:47:51,935 - HandPalClient - INFO - Client sending Drag Start
+2025-05-29 15:47:52,214 - HandPalClient - INFO - Client sending Drag End
+2025-05-29 15:47:52,697 - HandPalClient - INFO - Client sending click
+2025-05-29 15:47:53,177 - HandPalClient - INFO - Client sending click
+2025-05-29 15:48:06,657 - HandPalClient - INFO - Client sending click
+2025-05-29 15:48:07,136 - HandPalClient - INFO - Client sending click
+2025-05-29 15:48:07,653 - HandPalClient - INFO - Client sending click
+2025-05-29 15:48:09,108 - HandPalClient - INFO - Tutorial stopping on client.
+2025-05-29 15:48:12,760 - HandPalClient - INFO - 'q' pressed, client stopping.
+2025-05-29 15:48:12,760 - HandPalClient - INFO - Stopping HandPalClient services...
+2025-05-29 15:48:12,777 - HandPalClient - INFO - DetectionThread finished. 1378 frames in 55.93s (Avg FPS: 24.6)
+2025-05-29 15:48:13,062 - HandPalClient - INFO - OpenCV windows closed by client.
+2025-05-29 15:48:13,081 - HandPalClient - INFO - HandPalClient services stopped.
+2025-05-29 15:48:13,081 - HandPalClient - INFO - Client main_loop finished.
+2025-05-29 15:48:13,081 - HandPalClient - INFO - Client main 'finally' block: Executing cleanup...
+2025-05-29 15:48:13,081 - HandPalClient - INFO - HandPalClient terminated.

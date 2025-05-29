@@ -195,3 +195,75 @@ TypeError: handler() missing 1 required positional argument: 'path'
 2025-05-29 15:41:27,567 - HandPalServer - INFO - Restoring default system cursor on server exit...
 2025-05-29 15:41:27,587 - HandPalServer - ERROR - Error restoring default cursors on server: Failed to restore default cursors (Error 0).
 2025-05-29 15:41:27,587 - HandPalServer - INFO - HandPal Server stopped.
+2025-05-29 15:41:28,747 - HandPalServer - INFO - Server screen size detected/defaulted to: (1920, 1080)
+2025-05-29 15:41:28,763 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:41:28,763 - HandPalServer - INFO - Using websockets library version: 15.0.1
+2025-05-29 15:41:28,779 - websockets.server - INFO - server listening on [::1]:8765
+2025-05-29 15:41:28,779 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-05-29 15:41:28,779 - HandPalServer - INFO - HandPal WebSocket Server started on ws://localhost:8765
+2025-05-29 15:41:38,374 - websockets.server - INFO - connection open
+2025-05-29 15:41:38,374 - HandPalServer - INFO - Client ('::1', 51955, 0, 0) connected
+2025-05-29 15:41:38,376 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:41:48,027 - HandPalServer - INFO - Drag started
+2025-05-29 15:41:50,053 - HandPalServer - INFO - Drag ended
+2025-05-29 15:41:50,068 - HandPalServer - INFO - Client requested tutorial. Sending command to client.
+2025-05-29 15:41:51,282 - HandPalServer - INFO - Drag started
+2025-05-29 15:41:57,521 - HandPalServer - INFO - Drag ended
+2025-05-29 15:42:01,513 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:02,018 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:10,461 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:10,483 - HandPalServer - INFO - Server launching: notepad.exe
+2025-05-29 15:42:11,507 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:11,535 - HandPalServer - INFO - Server launching: notepad.exe
+2025-05-29 15:42:12,723 - HandPalServer - INFO - Server launching: notepad.exe
+2025-05-29 15:42:17,224 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:18,350 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:20,068 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:23,426 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:23,431 - HandPalServer - INFO - Server launching: calc.exe
+2025-05-29 15:42:27,922 - HandPalServer - INFO - Drag started
+2025-05-29 15:42:31,064 - HandPalServer - INFO - Drag ended
+2025-05-29 15:42:33,311 - HandPalServer - INFO - Drag started
+2025-05-29 15:42:36,471 - HandPalServer - INFO - Drag ended
+2025-05-29 15:42:38,726 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:39,633 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:41,471 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:43,100 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:45,135 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:42:49,204 - HandPalServer - INFO - Drag started
+2025-05-29 15:42:49,307 - HandPalServer - INFO - Drag ended
+2025-05-29 15:42:49,517 - HandPalServer - INFO - Drag started
+2025-05-29 15:42:49,714 - HandPalServer - INFO - Drag ended
+2025-05-29 15:42:49,816 - HandPalServer - INFO - Drag started
+2025-05-29 15:42:50,526 - HandPalServer - INFO - Drag ended
+2025-05-29 15:42:50,526 - HandPalServer - INFO - Drag started
+2025-05-29 15:42:50,626 - HandPalServer - INFO - Drag ended
+2025-05-29 15:42:50,837 - HandPalServer - INFO - Drag started
+2025-05-29 15:43:04,350 - HandPalServer - INFO - Drag ended
+2025-05-29 15:43:07,922 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:43:07,961 - HandPalServer - INFO - Client requested tutorial. Sending command to client.
+2025-05-29 15:43:11,017 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:43:11,028 - HandPalServer - INFO - Client requested tutorial. Sending command to client.
+2025-05-29 15:43:16,627 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:43:16,641 - HandPalServer - INFO - Server launching: notepad.exe
+2025-05-29 15:43:19,806 - HandPalServer - INFO - Drag started
+2025-05-29 15:43:21,733 - HandPalServer - INFO - Drag ended
+2025-05-29 15:43:27,905 - HandPalServer - INFO - Client requested tutorial. Sending command to client.
+2025-05-29 15:43:28,917 - HandPalServer - INFO - Client requested tutorial. Sending command to client.
+2025-05-29 15:43:31,949 - HandPalServer - INFO - Client requested tutorial. Sending command to client.
+2025-05-29 15:43:31,950 - HandPalServer - INFO - Client requested tutorial. Sending command to client.
+2025-05-29 15:43:36,834 - HandPalServer - INFO - Handler for ('::1', 51955, 0, 0) finished processing.
+2025-05-29 15:43:44,885 - websockets.server - INFO - connection open
+2025-05-29 15:43:44,885 - HandPalServer - INFO - Client ('::1', 51964, 0, 0) connected
+2025-05-29 15:43:44,886 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:44:14,331 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:44:14,363 - HandPalServer - INFO - Client requested tutorial. Sending command to client.
+2025-05-29 15:44:17,426 - HandPalServer - INFO - Drag started
+2025-05-29 15:44:19,664 - HandPalServer - INFO - Drag ended
+2025-05-29 15:44:45,097 - HandPalServer - INFO - Handler for ('::1', 51964, 0, 0) finished processing.
+2025-05-29 15:47:07,585 - websockets.server - INFO - server closing
+2025-05-29 15:47:07,585 - websockets.server - INFO - server closed
+2025-05-29 15:47:07,585 - HandPalServer - INFO - Server shutting down...
+2025-05-29 15:47:07,585 - HandPalServer - INFO - Restoring default system cursor on server exit...
+2025-05-29 15:47:07,601 - HandPalServer - ERROR - Error restoring default cursors on server: Failed to restore default cursors (Error 0).
+2025-05-29 15:47:07,601 - HandPalServer - INFO - HandPal Server stopped.

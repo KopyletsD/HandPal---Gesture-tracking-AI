@@ -597,12 +597,33 @@ class TutorialManager:
                 if i == self.current_step:
                     step_icon = self.steps[i].get("icon", "")
                     # Adjust icon position to be centered on the dot
-                    icon_w_h_val = draw.textlength(step_icon, font=font_dot_icon) if hasattr(draw, 'textlength') else draw.textsize(step_icon, font=font_dot_icon)[0]
-                    icon_w = icon_w_h_val if isinstance(icon_w_h_val, (int, float)) else (draw.textsize(step_icon, font=font_dot_icon)[0] if PIL_VERSION_TUPLE < (9,2,0) else 14) # Approx width
-                    icon_h = (draw.textbbox("A", font=font_dot_icon)[3] - draw.textbbox("A", font=font_dot_icon)[1]) if hasattr(draw, 'textbbox') else (draw.textsize("A",font=font_dot_icon)[1] if PIL_VERSION_TUPLE < (9,2,0) else 14) # Approx height
+                    # Adjust icon position to be centered on the dot
+                    # Calculate actual width and height of the step_icon
+                    if hasattr(draw, 'textbbox'): # Preferred for Pillow >= 9.0
+                        # textbbox(xy, text, ...) returns (left, top, right, bottom)
+                        # We pass (0,0) for xy as we only need the box dimensions, not its position yet.
+                        bbox = draw.textbbox((0,0), step_icon, font=font_dot_icon)
+                        icon_w = bbox[2] - bbox[0]
+                        icon_h = bbox[3] - bbox[1]
+                    elif hasattr(draw, 'textsize'): # Fallback for older Pillow versions
+                        size_tuple = draw.textsize(step_icon, font=font_dot_icon)
+                        icon_w = size_tuple[0]
+                        icon_h = size_tuple[1]
+                    else:
+                        # Absolute fallback if neither textbbox nor textsize is available (very unlikely for modern Pillow)
+                        # or if using a very old font object that only has getsize.
+                        try:
+                            getsize_result = font_dot_icon.getsize(step_icon)
+                            icon_w = getsize_result[0]
+                            icon_h = getsize_result[1]
+                        except AttributeError: # Ultimate fallback
+                            icon_w = 14 * len(step_icon) # Rough estimate based on char count
+                            icon_h = 14                  # Fixed estimate
 
                     icon_x_on_dot = dot_x - (icon_w / 2)
-                    icon_y_on_dot = dot_y - (icon_h / 2) -2 # Approx adjust baseline
+                    # The -2 is an empirical vertical adjustment that was in your original code.
+                    # You might need to fine-tune it based on the font and icons.
+                    icon_y_on_dot = dot_y - (icon_h / 2) - 2
                     draw.text((icon_x_on_dot, icon_y_on_dot), step_icon, font=font_dot_icon, fill=(0,0,0), **text_anchor_args)
 
 
