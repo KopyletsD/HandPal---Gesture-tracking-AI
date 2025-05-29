@@ -267,3 +267,54 @@ TypeError: handler() missing 1 required positional argument: 'path'
 2025-05-29 15:47:07,585 - HandPalServer - INFO - Restoring default system cursor on server exit...
 2025-05-29 15:47:07,601 - HandPalServer - ERROR - Error restoring default cursors on server: Failed to restore default cursors (Error 0).
 2025-05-29 15:47:07,601 - HandPalServer - INFO - HandPal Server stopped.
+2025-05-29 15:47:08,691 - HandPalServer - INFO - Server screen size detected/defaulted to: (1920, 1080)
+2025-05-29 15:47:08,703 - HandPalServer - INFO - Server-relevant config loaded from C:\Users\padovani.20144/.handpal_config.json
+2025-05-29 15:47:08,703 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:47:08,703 - HandPalServer - INFO - Using websockets library version: 15.0.1
+2025-05-29 15:47:08,719 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-05-29 15:47:08,719 - websockets.server - INFO - server listening on [::1]:8765
+2025-05-29 15:47:08,719 - HandPalServer - INFO - HandPal WebSocket Server started on ws://localhost:8765
+2025-05-29 15:47:16,874 - websockets.server - INFO - connection open
+2025-05-29 15:47:16,874 - HandPalServer - INFO - Client ('::1', 52001, 0, 0) connected
+2025-05-29 15:47:16,875 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:47:25,718 - HandPalServer - INFO - Drag started
+2025-05-29 15:47:26,523 - HandPalServer - INFO - Drag ended
+2025-05-29 15:47:29,372 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:29,396 - HandPalServer - INFO - Client requested tutorial. Sending command to client.
+2025-05-29 15:47:36,841 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:37,535 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:38,553 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:39,467 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:39,978 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:40,793 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:41,199 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:41,712 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:42,218 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:42,625 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:43,175 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:43,685 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:44,091 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:44,597 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:45,004 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:45,512 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:46,017 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:46,923 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:48,351 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:48,960 - HandPalServer - INFO - Drag started
+2025-05-29 15:47:49,162 - HandPalServer - INFO - Drag ended
+2025-05-29 15:47:49,264 - HandPalServer - INFO - Drag started
+2025-05-29 15:47:49,973 - HandPalServer - INFO - Drag ended
+2025-05-29 15:47:50,379 - HandPalServer - INFO - Drag started
+2025-05-29 15:47:50,584 - HandPalServer - INFO - Drag ended
+2025-05-29 15:47:50,995 - HandPalServer - INFO - Drag started
+2025-05-29 15:47:51,200 - HandPalServer - INFO - Drag ended
+2025-05-29 15:47:51,504 - HandPalServer - INFO - Drag started
+2025-05-29 15:47:51,707 - HandPalServer - INFO - Drag ended
+2025-05-29 15:47:52,013 - HandPalServer - INFO - Drag started
+2025-05-29 15:47:52,218 - HandPalServer - INFO - Drag ended
+2025-05-29 15:47:52,727 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:47:53,237 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:48:06,679 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:48:07,183 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:48:07,690 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:48:12,773 - HandPalServer - INFO - Handler for ('::1', 52001, 0, 0) finished processing.
