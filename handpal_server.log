@@ -1,0 +1,197 @@
+2025-05-29 15:15:51,008 - HandPalServer - INFO - Server screen size detected/defaulted to: (1920, 1080)
+2025-05-29 15:15:51,040 - HandPalServer - INFO - Server-relevant config loaded from C:\Users\padovani.20144/.handpal_config.json
+2025-05-29 15:15:51,046 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:15:51,104 - websockets.server - INFO - server listening on 0.0.0.0:8765
+2025-05-29 15:15:51,104 - HandPalServer - INFO - HandPal WebSocket Server started on ws://0.0.0.0:8765
+2025-05-29 15:16:34,667 - websockets.server - INFO - connection open
+2025-05-29 15:16:34,667 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "C:\Users\padovani.20144\AppData\Roaming\Python\Python312\site-packages\websockets\asyncio\server.py", line 376, in conn_handler
+    await self.handler(connection)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+2025-05-29 15:17:12,056 - websockets.server - INFO - server closing
+2025-05-29 15:17:12,056 - websockets.server - INFO - server closed
+2025-05-29 15:17:12,057 - HandPalServer - INFO - Server shutting down...
+2025-05-29 15:17:12,057 - HandPalServer - INFO - Restoring default system cursor on server exit...
+2025-05-29 15:17:12,072 - HandPalServer - ERROR - Error restoring default cursors on server: Failed to restore default cursors (Error 0).
+2025-05-29 15:17:12,072 - HandPalServer - INFO - HandPal Server stopped.
+2025-05-29 15:18:13,995 - HandPalServer - INFO - Server screen size detected/defaulted to: (1920, 1080)
+2025-05-29 15:18:13,999 - HandPalServer - INFO - Server-relevant config loaded from C:\Users\padovani.20144/.handpal_config.json
+2025-05-29 15:18:13,999 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:18:14,020 - websockets.server - INFO - server listening on 0.0.0.0:8765
+2025-05-29 15:18:14,020 - HandPalServer - INFO - HandPal WebSocket Server started on ws://0.0.0.0:8765
+2025-05-29 15:18:41,159 - websockets.server - INFO - connection open
+2025-05-29 15:18:41,159 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "C:\Users\padovani.20144\AppData\Roaming\Python\Python312\site-packages\websockets\asyncio\server.py", line 376, in conn_handler
+    await self.handler(connection)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+2025-05-29 15:19:27,384 - websockets.server - INFO - server closing
+2025-05-29 15:19:27,384 - websockets.server - INFO - server closed
+2025-05-29 15:19:27,384 - HandPalServer - INFO - Server shutting down...
+2025-05-29 15:19:27,384 - HandPalServer - INFO - Restoring default system cursor on server exit...
+2025-05-29 15:19:27,400 - HandPalServer - ERROR - Error restoring default cursors on server: Failed to restore default cursors (Error 0).
+2025-05-29 15:19:27,400 - HandPalServer - INFO - HandPal Server stopped.
+2025-05-29 15:19:37,714 - HandPalServer - INFO - Server screen size detected/defaulted to: (1920, 1080)
+2025-05-29 15:19:37,714 - HandPalServer - INFO - Server-relevant config loaded from C:\Users\padovani.20144/.handpal_config.json
+2025-05-29 15:19:37,714 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:19:37,746 - websockets.server - INFO - server listening on [::1]:8765
+2025-05-29 15:19:37,746 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-05-29 15:19:37,746 - HandPalServer - INFO - HandPal WebSocket Server started on ws://localhost:8765
+2025-05-29 15:19:49,312 - websockets.server - INFO - connection open
+2025-05-29 15:19:49,313 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "C:\Users\padovani.20144\AppData\Roaming\Python\Python312\site-packages\websockets\asyncio\server.py", line 376, in conn_handler
+    await self.handler(connection)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+2025-05-29 15:21:39,168 - websockets.server - INFO - server closing
+2025-05-29 15:21:39,168 - websockets.server - INFO - server closed
+2025-05-29 15:21:39,170 - HandPalServer - INFO - Server shutting down...
+2025-05-29 15:21:39,170 - HandPalServer - INFO - Restoring default system cursor on server exit...
+2025-05-29 15:21:39,176 - HandPalServer - ERROR - Error restoring default cursors on server: Failed to restore default cursors (Error 0).
+2025-05-29 15:21:39,176 - HandPalServer - INFO - HandPal Server stopped.
+2025-05-29 15:21:49,560 - HandPalServer - INFO - Server screen size detected/defaulted to: (1920, 1080)
+2025-05-29 15:21:49,560 - HandPalServer - INFO - Server-relevant config loaded from C:\Users\padovani.20144/.handpal_config.json
+2025-05-29 15:21:49,560 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:21:49,586 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-05-29 15:21:49,586 - websockets.server - INFO - server listening on [::1]:8765
+2025-05-29 15:21:49,586 - HandPalServer - INFO - HandPal WebSocket Server started on ws://localhost:8765
+2025-05-29 15:21:56,148 - websockets.server - INFO - connection open
+2025-05-29 15:21:56,148 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "C:\Users\padovani.20144\AppData\Roaming\Python\Python312\site-packages\websockets\asyncio\server.py", line 376, in conn_handler
+    await self.handler(connection)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+2025-05-29 15:23:25,848 - websockets.server - INFO - server closing
+2025-05-29 15:23:25,848 - websockets.server - INFO - server closed
+2025-05-29 15:23:25,848 - HandPalServer - INFO - Server shutting down...
+2025-05-29 15:23:25,848 - HandPalServer - INFO - Restoring default system cursor on server exit...
+2025-05-29 15:23:25,861 - HandPalServer - ERROR - Error restoring default cursors on server: Failed to restore default cursors (Error 0).
+2025-05-29 15:23:25,861 - HandPalServer - INFO - HandPal Server stopped.
+2025-05-29 15:23:26,532 - HandPalServer - INFO - Server screen size detected/defaulted to: (1920, 1080)
+2025-05-29 15:23:26,535 - HandPalServer - INFO - Server-relevant config loaded from C:\Users\padovani.20144/.handpal_config.json
+2025-05-29 15:23:26,536 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:23:26,570 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-05-29 15:23:26,570 - websockets.server - INFO - server listening on [::1]:8765
+2025-05-29 15:23:26,570 - HandPalServer - INFO - HandPal WebSocket Server started on ws://localhost:8765
+2025-05-29 15:26:42,699 - websockets.server - INFO - server closing
+2025-05-29 15:26:42,701 - websockets.server - INFO - server closed
+2025-05-29 15:26:42,715 - HandPalServer - INFO - Server shutting down...
+2025-05-29 15:26:42,715 - HandPalServer - INFO - Restoring default system cursor on server exit...
+2025-05-29 15:26:42,728 - HandPalServer - ERROR - Error restoring default cursors on server: Failed to restore default cursors (Error 0).
+2025-05-29 15:26:42,728 - HandPalServer - INFO - HandPal Server stopped.
+2025-05-29 15:26:43,320 - HandPalServer - INFO - Server screen size detected/defaulted to: (1920, 1080)
+2025-05-29 15:26:43,320 - HandPalServer - INFO - Server-relevant config loaded from C:\Users\padovani.20144/.handpal_config.json
+2025-05-29 15:26:43,320 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:26:43,351 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-05-29 15:26:43,351 - websockets.server - INFO - server listening on [::1]:8765
+2025-05-29 15:26:43,351 - HandPalServer - INFO - HandPal WebSocket Server started on ws://localhost:8765
+2025-05-29 15:26:54,090 - websockets.server - INFO - connection open
+2025-05-29 15:26:54,090 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "C:\Users\padovani.20144\AppData\Roaming\Python\Python312\site-packages\websockets\asyncio\server.py", line 376, in conn_handler
+    await self.handler(connection)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+2025-05-29 15:29:55,562 - websockets.server - INFO - server closing
+2025-05-29 15:29:55,563 - websockets.server - INFO - server closed
+2025-05-29 15:29:55,563 - HandPalServer - INFO - Server shutting down...
+2025-05-29 15:29:55,563 - HandPalServer - INFO - Restoring default system cursor on server exit...
+2025-05-29 15:29:55,580 - HandPalServer - ERROR - Error restoring default cursors on server: Failed to restore default cursors (Error 0).
+2025-05-29 15:29:55,580 - HandPalServer - INFO - HandPal Server stopped.
+2025-05-29 15:29:56,175 - HandPalServer - INFO - Server screen size detected/defaulted to: (1920, 1080)
+2025-05-29 15:29:56,175 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:29:56,191 - websockets.server - INFO - server listening on [::1]:8765
+2025-05-29 15:29:56,191 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-05-29 15:29:56,191 - HandPalServer - INFO - HandPal WebSocket Server started on ws://localhost:8765
+2025-05-29 15:30:03,162 - websockets.server - INFO - connection open
+2025-05-29 15:30:03,162 - websockets.server - ERROR - connection handler failed
+Traceback (most recent call last):
+  File "C:\Users\padovani.20144\AppData\Roaming\Python\Python312\site-packages\websockets\asyncio\server.py", line 376, in conn_handler
+    await self.handler(connection)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+2025-05-29 15:32:14,012 - websockets.server - INFO - server closing
+2025-05-29 15:32:14,016 - websockets.server - INFO - server closed
+2025-05-29 15:32:14,018 - HandPalServer - INFO - Server shutting down...
+2025-05-29 15:32:14,018 - HandPalServer - INFO - Restoring default system cursor on server exit...
+2025-05-29 15:32:14,034 - HandPalServer - ERROR - Error restoring default cursors on server: Failed to restore default cursors (Error 0).
+2025-05-29 15:32:14,034 - HandPalServer - INFO - HandPal Server stopped.
+2025-05-29 15:32:14,694 - HandPalServer - INFO - Server screen size detected/defaulted to: (1920, 1080)
+2025-05-29 15:32:14,694 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:32:14,710 - HandPalServer - INFO - Using websockets library version: 15.0.1
+2025-05-29 15:32:14,729 - websockets.server - INFO - server listening on [::1]:8765
+2025-05-29 15:32:14,742 - websockets.server - INFO - server listening on 127.0.0.1:8765
+2025-05-29 15:32:14,742 - HandPalServer - INFO - HandPal WebSocket Server started on ws://localhost:8765
+2025-05-29 15:32:22,318 - websockets.server - INFO - connection open
+2025-05-29 15:32:22,318 - HandPalServer - INFO - Client ('::1', 51892, 0, 0) connected
+2025-05-29 15:32:22,319 - HandPalServer - INFO - Custom cursor 'red_cursor.cur' set on server.
+2025-05-29 15:32:33,902 - HandPalServer - INFO - Drag started
+2025-05-29 15:32:33,998 - HandPalServer - INFO - Drag ended
+2025-05-29 15:32:34,716 - HandPalServer - INFO - Drag started
+2025-05-29 15:32:34,809 - HandPalServer - INFO - Drag ended
+2025-05-29 15:32:35,417 - HandPalServer - INFO - Drag started
+2025-05-29 15:32:35,622 - HandPalServer - INFO - Drag ended
+2025-05-29 15:32:36,237 - HandPalServer - INFO - Drag started
+2025-05-29 15:32:36,332 - HandPalServer - INFO - Drag ended
+2025-05-29 15:32:36,738 - HandPalServer - INFO - Drag started
+2025-05-29 15:32:36,839 - HandPalServer - INFO - Drag ended
+2025-05-29 15:32:37,346 - HandPalServer - INFO - Drag started
+2025-05-29 15:32:37,549 - HandPalServer - INFO - Drag ended
+2025-05-29 15:32:38,063 - HandPalServer - INFO - Drag started
+2025-05-29 15:32:38,360 - HandPalServer - INFO - Drag ended
+2025-05-29 15:32:39,584 - HandPalServer - INFO - Drag started
+2025-05-29 15:32:42,514 - HandPalServer - INFO - Drag ended
+2025-05-29 15:32:46,280 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:32:54,603 - HandPalServer - INFO - Drag started
+2025-05-29 15:32:55,201 - HandPalServer - INFO - Drag ended
+2025-05-29 15:32:55,923 - HandPalServer - INFO - Drag started
+2025-05-29 15:32:57,233 - HandPalServer - INFO - Drag ended
+2025-05-29 15:32:59,778 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:33:02,611 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:33:15,916 - HandPalServer - INFO - Drag started
+2025-05-29 15:33:16,111 - HandPalServer - INFO - Drag ended
+2025-05-29 15:33:45,447 - HandPalServer - INFO - Drag started
+2025-05-29 15:33:45,637 - HandPalServer - INFO - Drag ended
+2025-05-29 15:33:46,047 - HandPalServer - INFO - Drag started
+2025-05-29 15:33:46,246 - HandPalServer - INFO - Drag ended
+2025-05-29 15:33:46,651 - HandPalServer - INFO - Drag started
+2025-05-29 15:33:46,852 - HandPalServer - INFO - Drag ended
+2025-05-29 15:33:47,168 - HandPalServer - INFO - Drag started
+2025-05-29 15:33:47,258 - HandPalServer - INFO - Drag ended
+2025-05-29 15:33:49,501 - HandPalServer - INFO - Drag started
+2025-05-29 15:33:49,694 - HandPalServer - INFO - Drag ended
+2025-05-29 15:33:51,129 - HandPalServer - INFO - Drag started
+2025-05-29 15:33:51,320 - HandPalServer - INFO - Drag ended
+2025-05-29 15:33:55,289 - HandPalServer - INFO - Drag started
+2025-05-29 15:33:57,308 - HandPalServer - INFO - Drag ended
+2025-05-29 15:34:02,999 - HandPalServer - INFO - Drag started
+2025-05-29 15:34:05,218 - HandPalServer - INFO - Drag ended
+2025-05-29 15:34:10,192 - HandPalServer - INFO - Drag started
+2025-05-29 15:34:10,496 - HandPalServer - INFO - Drag ended
+2025-05-29 15:34:15,264 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:34:18,418 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:34:22,179 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:34:23,485 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:34:25,020 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:34:26,126 - HandPalServer - INFO - Executed click: left x1
+2025-05-29 15:34:27,660 - HandPalServer - INFO - Drag started
+2025-05-29 15:34:28,766 - HandPalServer - INFO - Drag ended
+2025-05-29 15:34:30,087 - HandPalServer - INFO - Drag started
+2025-05-29 15:34:33,742 - HandPalServer - INFO - Drag ended
+2025-05-29 15:34:33,955 - HandPalServer - INFO - Drag started
+2025-05-29 15:34:35,164 - HandPalServer - INFO - Drag ended
+2025-05-29 15:34:40,958 - HandPalServer - INFO - Drag started
+2025-05-29 15:34:49,371 - HandPalServer - INFO - Drag ended
+2025-05-29 15:35:09,594 - HandPalServer - INFO - Drag started
+2025-05-29 15:35:16,793 - HandPalServer - INFO - Handler for ('::1', 51892, 0, 0) finished processing.
+2025-05-29 15:41:27,546 - websockets.server - INFO - server closing
+2025-05-29 15:41:27,551 - websockets.server - INFO - server closed
+2025-05-29 15:41:27,567 - HandPalServer - INFO - Server shutting down...
+2025-05-29 15:41:27,567 - HandPalServer - INFO - Restoring default system cursor on server exit...
+2025-05-29 15:41:27,587 - HandPalServer - ERROR - Error restoring default cursors on server: Failed to restore default cursors (Error 0).
+2025-05-29 15:41:27,587 - HandPalServer - INFO - HandPal Server stopped.
